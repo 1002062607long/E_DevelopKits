@@ -1,0 +1,476 @@
+@@ 易语言COM包装支持库
+
+记录格式说明：
+  “@@ Lang = xxxx”：记录当前翻译用语言的种类，必须在首部，请不要更改。
+  “@@ TypeLib = xxxx”：如果为包装类型库，则记录类型库的相关信息，请不要更改。
+  “@@ OCX = xxxx”：如果为包装组件，则记录组件的相关信息，请不要更改，与类型库信息不能同时存在。
+  “@@ Interface = xxxx”：记录内部重要信息，请不要做任何更改。
+  “##1”：表示某翻译项的开始，格式为“##1 项目原名 = 翻译后的名称”，
+           下行首直到下一翻译项标记处记录有关此项目的详细解释信息。
+  “##0”：记录被屏蔽的项目，被屏蔽项目将不会被包装支持库输出。
+           格式为“##0 项目原名”，不能屏蔽参数。
+
+------------------------------------------------------------
+
+@@ Lang = 1
+
+@@ TypeLib = {0CDAC26E-8F92-47EE-9E2E-844DBF787039},4.5,0,grdesLib
+Grid++Report Designer4.5 Type Library)
+
+##1 GRDesigner = 报表设计器
+
+
+##1 GRDesigner.GetReport = 获取关联报表
+属性 Report
+
+##1 GRDesigner.Dirty = 改写标志
+属性 Dirty
+
+##1 GRDesigner.ShowExplorer = 显示对象浏览器窗口
+属性 ShowExplorer
+
+##1 GRDesigner.ShowInspector = 显示属性编辑窗口
+属性 ShowInspector
+
+##1 GRDesigner.OnlyLayout = 只允许排列
+属性 OnlyLayout
+
+##1 GRDesigner.AsNativeUI = 中文视图
+属性 AsNativeUI
+
+##1 GRDesigner.AsFormUI = 页面模式
+属性 AsFormUI
+
+##1 GRDesigner.Options = 选项
+属性 Options
+
+##1 GRDesigner.Published = 公开属性类别
+属性 Published
+
+##1 GRDesigner.WindowLayout = 窗口排列方式
+属性 WindowLayout
+
+##1 GRDesigner.Post = 提交
+方法Post
+
+##1 GRDesigner.PrepareInsertControl = 进入插入部件框状态
+方法PrepareInsertControl
+
+##1 GRDesigner.PrepareInsertControl.ControlType = 部件框类型
+
+
+##1 GRDesigner.CancelInsertControl = 取消插入部件状态
+方法CancelInsertControl
+
+##1 GRDesigner.DoAction = 执行动作
+方法DoAction
+
+##1 GRDesigner.DoAction.Action = 动作
+
+
+##1 GRDesigner.IsActionEnabled = 获取动作使能状态
+方法IsActionEnabled
+
+##1 GRDesigner.IsActionEnabled.Action = 动作
+
+
+##1 GRDesigner.Reload = 重新载入
+方法Reload
+
+##1 GRDesigner.GetOptionValue = 获取选项值
+方法GetOptionValue
+
+##1 GRDesigner.GetOptionValue.Option = 选项
+
+
+##1 GRDesigner.SetOptionValue = 设置选项值
+方法SetOptionValue
+
+##1 GRDesigner.SetOptionValue.Option = 选项
+
+
+##1 GRDesigner.SetOptionValue.newVal = 值
+
+
+##1 GRDesigner.EnableAllOptions = 开启全部选项
+方法EnableAllOptions
+
+##1 GRDesigner.DisableAllOptions = 禁止全部选项
+方法DisableAllOptions
+
+##1 GRDesigner.GetPublishedValue = 获取属性类别公开状态
+方法GetPublishedValue
+
+##1 GRDesigner.GetPublishedValue.PropertyCategory = 属性类别
+
+
+##1 GRDesigner.SetPublishedValue = 设置属性类别公开状态
+方法SetPublishedValue
+
+##1 GRDesigner.SetPublishedValue.PropertyCategory = 属性类别
+
+
+##1 GRDesigner.SetPublishedValue.newVal = 新值
+
+
+##1 GRDesigner.EnableAllPublished = 开启所有属性类别公开
+方法EnableAllPublished
+
+##1 GRDesigner.DisableAllPublished = 禁止所有属性类别公开
+方法DisableAllPublished
+
+##1 GRDesigner.GetObjectFontName = 获取选中对象字体名称
+
+
+##1 GRDesigner.SetObjectFontName = 设置选中对象字体名称
+
+
+##1 GRDesigner.GetObjectFontPoint = 获取选中对象字体点数
+
+
+##1 GRDesigner.SetObjectFontPoint = 设置选中对象字体点数
+
+
+##1 GRDesigner.GetObjectFontBold = 获取选中对象字体粗体
+
+
+##1 GRDesigner.GetObjectFontItalic = 获取选中对象字体倾斜
+
+
+##1 GRDesigner.GetObjectFontUnderline = 获取选中对象字体下画线
+
+
+##1 GRDesigner.GetObjectFontStrikethrough = 获取选中对象字体删除线
+
+
+##1 GRDesigner.IsSetObjectFontEnabled = 选中对象可设置字体
+
+
+##1 GRDesigner.SetObjectForeColor = 设置选中对象前景色
+
+
+##1 GRDesigner.SetObjectBackColor = 设置选中对象背景色
+
+
+##1 GRDesigner.IsSetObjectForeColorEnabled = 选中对象可设置前景色
+
+
+##1 GRDesigner.IsSetObjectBackColorEnabled = 选中对象可设置背景色
+
+
+##1 GRDesigner.GetObjectTextAlign = 获取选中对象文字对齐
+
+
+##1 GRDesigner.GetObjectText = 获取选中对象文字
+
+
+##1 GRDesigner.SetObjectText = 设置选中对象文字
+
+
+##1 GRDesigner.IsSetObjectTextEnabled = 选中对象可设置文字
+
+
+##1 GRDesigner.SetReport = 设置关联报表
+属性 Report
+
+##1 _IGRDesignerEvents.LayoutPanelContextMenu = 报表布局窗口右键菜单事件
+方法LayoutPanelContextMenu
+
+##1 _IGRDesignerEvents.InspectorContextMenu = 属性编辑窗口右键菜单事件
+方法InspectorContextMenu
+
+##1 _IGRDesignerEvents.ExplorerContextMenu = 对象浏览器右键菜单
+方法ExplorerContextMenu
+
+##1 _IGRDesignerEvents.InspectorChange = 侦测属性改变事件
+
+
+##1 _IGRDesignerEvents.DataChange = 数据改变事件
+
+
+##0 GRDesignerWindowLayout = 设计器窗口布局枚举
+
+
+##1 tagGRDesignerWindowLayout = 设计器窗口布局枚举
+
+
+##1 tagGRDesignerWindowLayout.grdwlLayoutAtLeft = 布局窗口在左边
+
+
+##1 tagGRDesignerWindowLayout.grdwlLayoutAtRight = 布局窗口在右边
+
+
+##0 GRDesignerAction = 设计器动作枚举
+
+
+##1 tagGRDesignerAction = 设计器动作枚举
+
+
+##1 tagGRDesignerAction.grdaEditUndo = 撤销
+
+
+##1 tagGRDesignerAction.grdaEditRedo = 重做
+
+
+##1 tagGRDesignerAction.grdaEditCut = 剪切
+
+
+##1 tagGRDesignerAction.grdaEditPaste = 粘贴
+
+
+##1 tagGRDesignerAction.grdaEditCopy = 复制
+
+
+##1 tagGRDesignerAction.grdaEditDelete = 删除
+
+
+##1 tagGRDesignerAction.grdaEditSelectAll = 全选
+
+
+##1 tagGRDesignerAction.grdaAutoSizeControl = 自动调整文字框大小
+
+
+##1 tagGRDesignerAction.grdaAutoGenColumn = 自动生成列
+自动生成列
+
+##1 tagGRDesignerAction.grdaAutoGenField = 自动生成字段
+
+
+##1 tagGRDesignerAction.grdaSectionMoveUp = 报表节前移
+
+
+##1 tagGRDesignerAction.grdaSectionMoveDown = 报表节后移
+
+
+##1 tagGRDesignerAction.grdaReportPaperSetting = 打开页面设置对话框
+
+
+##1 tagGRDesignerAction.grdaSetupDBQuery = 打开数据绑定对话框
+
+
+##1 tagGRDesignerAction.grdaReportParameterCollection = 打开参数集合对话框
+
+
+##1 tagGRDesignerAction.grdaReportGroupCollection = 打开分组集合对话框
+
+
+##1 tagGRDesignerAction.grdaReportColumnCollection = 打开列集合对话框
+
+
+##1 tagGRDesignerAction.grdaReportFieldCollection = 打开字段集合对话框
+
+
+##1 tagGRDesignerAction.grdaReportColumnTitleLayout = 打开列排列对话框
+
+
+##1 tagGRDesignerAction.grdaReportSimulatePreview = 模拟打印预览
+
+
+##1 tagGRDesignerAction.grdaReportSimulateDisplay = 模拟查询显示
+
+
+##1 tagGRDesignerAction.grdaInsertReportHeader = 增加报表头
+
+
+##1 tagGRDesignerAction.grdaInsertReportFooter = 增加报表尾
+
+
+##1 tagGRDesignerAction.grdaInsertPageHeader = 增加页眉
+
+
+##1 tagGRDesignerAction.grdaInsertPageFooter = 增加页脚
+
+
+##1 tagGRDesignerAction.grdaInsertDetailGrid = 增加明细网格
+
+
+##1 tagGRDesignerAction.grdaInsertGroup = 增加分组
+
+
+##1 tagGRDesignerAction.grdaInsertField = 增加字段
+
+
+##1 tagGRDesignerAction.grdaInsertColumn = 增加列
+
+
+##1 tagGRDesignerAction.grdaInsertParameter = 增加参数
+
+
+##1 tagGRDesignerAction.grdaFormatAlignLeft = 对齐到左端
+
+
+##1 tagGRDesignerAction.grdaFormatAlignRight = 对齐到右端
+
+
+##1 tagGRDesignerAction.grdaFormatAlignCenter = 对齐到水平居中
+
+
+##1 tagGRDesignerAction.grdaFormatAlignTop = 对齐到顶端
+
+
+##1 tagGRDesignerAction.grdaFormatAlignMiddle = 对齐到垂直居中
+
+
+##1 tagGRDesignerAction.grdaFormatAlignBottom = 对齐到底端
+
+
+##1 tagGRDesignerAction.grdaFormatAlignToGrid = 对齐到栅格
+
+
+##1 tagGRDesignerAction.grdaFormatSizeSameWidth = 调整到宽度相同
+
+
+##1 tagGRDesignerAction.grdaFormatSizeSameHeight = 调整到高度相同
+
+
+##1 tagGRDesignerAction.grdaFormatSizeSameBoth = 调整到大小相同
+
+
+##1 tagGRDesignerAction.grdaFormatSizeToGrid = 调整到栅格点
+
+
+##1 tagGRDesignerAction.grdaFormatSpaceEquallyVertical = 垂直间距相等
+
+
+##1 tagGRDesignerAction.grdaFormatSpaceIncreaseVertical = 增加垂直间距
+
+
+##1 tagGRDesignerAction.grdaFormatSpaceDecreaseVertical = 减小垂直间距
+
+
+##1 tagGRDesignerAction.grdaFormatSpaceEquallyHorizontal = 水平间距相等
+
+
+##1 tagGRDesignerAction.grdaFormatSpaceIncreaseHorizontal = 增加水平间距
+
+
+##1 tagGRDesignerAction.grdaFormatSpaceDecreaseHorizontal = 减小水平间距
+
+
+##1 tagGRDesignerAction.grdaFormatSpaceRemoveHorizontal = 清除水平间距
+
+
+##1 tagGRDesignerAction.grdaFormatSpaceRemoveVertical = 清除垂直间距
+
+
+##1 tagGRDesignerAction.grdaFormatOrderBringToFront = 置显示顺序到前端
+
+
+##1 tagGRDesignerAction.grdaFormatOrderSendToBack = 置显示顺序到后端
+
+
+##1 tagGRDesignerAction.grdaFormatFontBold = 改变字体粗细
+
+
+##1 tagGRDesignerAction.grdaFormatFontItalic = 改变字体倾斜
+
+
+##1 tagGRDesignerAction.grdaFormatFontUnderline = 改变字体下画线
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignTopLeft = 左上文字对齐
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignTopCenter = 中上文字对齐
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignTopRight = 右上文字对齐
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignMiddleLeft = 左中文字对齐
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignMiddleCenter = 中中文字对齐
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignMiddleRight = 右中文字对齐
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignBottomLeft = 左下文字对齐
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignBottomCenter = 中下文字对齐
+
+
+##1 tagGRDesignerAction.grdaFormatTextAlignBottomRight = 右下文字对齐
+
+
+##0 GRDesignerOption = 设计器选项枚举
+
+
+##1 tagGRDesignerOption = 设计器选项枚举
+
+
+##1 tagGRDesignerOption.grdoShowRuler = 显示标尺
+
+
+##1 tagGRDesignerOption.grdoCanPopupMenu = 可弹出关联菜单
+
+
+##1 tagGRDesignerOption.grdoShowInspector = 显示属性编辑器
+
+
+##1 tagGRDesignerOption.grdoShowExplorer = 显示对象浏览器
+
+
+##1 tagGRDesignerOption.grdoShowSectionLine = 显示节线
+
+
+##1 tagGRDesignerOption.grdoShowMarginLine = 显示边距线
+
+
+##1 tagGRDesignerOption.grdoCanResizeSection = 可改变节高
+
+
+##1 tagGRDesignerOption.grdoCanChangeMargin = 可改变边距
+
+
+##1 tagGRDesignerOption.grdoCanDeleteObject = 可删除对象
+
+
+##1 tagGRDesignerOption.grdoShowDetailGridToolbar = 显示网格工具栏
+
+
+##1 tagGRDesignerOption.grdoShowDetailGridColumnRuler = 显示网格列标尺
+
+
+##1 tagGRDesignerOption.grdoCanModifyDBSettings = 可改变数据绑定参数
+
+
+##0 GRPropertyCategory = 属性类别枚举
+
+
+##1 tagGRPropertyCategory = 属性类别枚举
+
+
+##1 tagGRPropertyCategory.grpcDesign = 设计
+
+
+##1 tagGRPropertyCategory.grpcLayout = 布局
+
+
+##1 tagGRPropertyCategory.grpcAppearance = 外观
+
+
+##1 tagGRPropertyCategory.grpcData = 数据
+
+
+##1 tagGRPropertyCategory.grpcAction = 行为
+
+
+##1 tagGRPropertyCategory.grpcEvent = 事件
+
+
+##1 tagGRPropertyCategory.grpcMisc = 杂项
+
+
+@@ Interface =
+1, {F5EFB38E-EBEF-46E9-A9B5-051076391D74}, GRDesigner, { 1, 5, 51, 52, 53, 54, 55, 56, 57, 70, 71, 72, 73, 74, 75, 76, 77, 80, 81, 82, 83, 84, 95, 96, 97, 88, 90, 91, 92, 93, 101, 102, 103, 104, 105, 1,  }, { 37, 36, 35, 34, 33, 40, 32, 31, 30, 39, 38, 4, 3, 2,  }, { 1, 2, 3, 4, 5, 6, 7,  }
+0, {23BA3BD3-E80D-46F5-9AFD-69686483F95D}, GRDesignerWindowLayout, {  }, {  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, tagGRDesignerWindowLayout, {  }, { 1073741825, 1073741824,  }, {  }
+0, {753DC02E-2966-4127-AF11-A78C6916E274}, GRDesignerAction, {  }, {  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, tagGRDesignerAction, {  }, { 1073741892, 1073741891, 1073741890, 1073741889, 1073741888, 1073741887, 1073741886, 1073741885, 1073741884, 1073741883, 1073741882, 1073741881, 1073741880, 1073741879, 1073741878, 1073741877, 1073741876, 1073741875, 1073741874, 1073741873, 1073741872, 1073741871, 1073741870, 1073741869, 1073741868, 1073741867, 1073741866, 1073741865, 1073741864, 1073741863, 1073741862, 1073741861, 1073741860, 1073741859, 1073741858, 1073741857, 1073741856, 1073741855, 1073741854, 1073741853, 1073741852, 1073741851, 1073741850, 1073741849, 1073741848, 1073741847, 1073741846, 1073741845, 1073741844, 1073741843, 1073741842, 1073741841, 1073741840, 1073741839, 1073741838, 1073741837, 1073741836, 1073741835, 1073741834, 1073741833, 1073741832, 1073741831, 1073741830, 1073741829, 1073741828, 1073741827, 1073741826, 1073741825, 1073741824,  }, {  }
+0, {299CF7D0-1C7E-491F-9962-1E1449777097}, GRDesignerOption, {  }, {  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, tagGRDesignerOption, {  }, { 1073741839, 1073741838, 1073741837, 1073741836, 1073741835, 1073741834, 1073741833, 1073741832, 1073741831, 1073741830, 1073741829, 1073741828, 1073741827, 1073741826, 1073741825, 1073741824,  }, {  }
+0, {CE585731-1D82-42EF-9CB4-9B7D5A101FEA}, GRPropertyCategory, {  }, {  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, tagGRPropertyCategory, {  }, { 1073741830, 1073741829, 1073741828, 1073741827, 1073741826, 1073741825, 1073741824,  }, {  }

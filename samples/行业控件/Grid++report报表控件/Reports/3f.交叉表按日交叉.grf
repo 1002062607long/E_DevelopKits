@@ -1,0 +1,201 @@
+Object Report
+	Version='4.5'
+	Title='按单统计销售明细报表'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Size=256
+		LeftMargin=1.5
+		RightMargin=1.5
+	End
+	Object DetailGrid
+		IsCrossTab=T
+		FixCols=2
+		ColLineColor=3DDkShadow
+		RowLineColor=3DDkShadow
+		PrintAdaptMethod=ToNewPage
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select c.CompanyName,m.OrderDate,d.UnitPrice*d.Quantity as Amount\r\nfrom (Orders m inner join [Order Details] as d on m.OrderId=d.OrderId)\r\nleft join Customers c on c.CustomerID=m.CustomerID\r\nwhere m.OrderDate between #7/1/1997# and #7/10/1997#\r\norder by c.CompanyName, m.OrderDate'
+			Items Field
+				Item
+					Name='CompanyName'
+				End
+				Item
+					Name='OrderDate'
+					Type=DateTime
+					Format='dd日'
+				End
+				Item
+					Name='Amount'
+					Type=Currency
+					Format='#,##0.00;;#'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='Amount'
+				Width=1.74625
+			End
+			Item
+				Name='CustomerName'
+				Width=2.67229
+			End
+		End
+		Object ColumnContent
+			Height=0.608542
+			Items ColumnContentCell
+				Item
+					Column='Amount'
+					TextAlign=MiddleRight
+					DataField='Amount'
+				End
+				Item
+					Column='CustomerName'
+					DataField='CompanyName'
+				End
+			End
+		End
+		Object ColumnTitle
+			Height=0.79375
+			Object Font
+				Name='宋体'
+				Size=90000,0
+				Bold=T
+				Charset=134
+			End
+			RepeatStyle=OnPage
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='CustomerName'
+					TextAlign=MiddleCenter
+					Text='客户名称'
+				End
+				Item
+					GroupTitle=F
+					Column='Amount'
+					FreeCell=T
+					Items Control
+						Item
+							Type=FieldBox
+							Name='FieldBox1'
+							Dock=Fill
+							TextAlign=MiddleCenter
+							DataField='OrderDate'
+						End
+					End
+				End
+			End
+		End
+		Object CrossTab
+			PercentFormat='0.##%'
+			HCrossFields='OrderDate'
+			VCrossFields='CompanyName'
+			HCrossPeriodType=Day
+			BeginDateParameter='CrossBeginDate'
+			EndDateParameter='CrossEndDate'
+		End
+	End
+	Items Parameter
+		Item
+			Name='Comment'
+			Value='演示按日交叉表。\r\n\r\n按期间交叉报表就是按时间段对数据进行归类汇总并进行交叉展现的报表，例如常见的各种日报表月报表等。设计按期间交叉报表，要确定日期期间类型，并确定整个数据的日期范围。在生成报表时，将根据期间类型把整个日期范围划分为一个个的期间段。\r\n\r\n在进行了交叉表的基本设置之后，按期间交叉报表还需要进行以下方面的设置：\r\n1、交叉表的“横向交叉字段”属性一定要关联一个日期类型的字段。 \r\n2、设置交叉表的“横向交叉期间类型”属性。 \r\n3、定义两个日期类型的报表参数，其分别确定报表数据的起始日期与结束日期。 \r\n4、设置交叉表的“开始日期参数”属性为第3点中定义的起始日期参数名称。 \r\n5、设置交叉表的“结束日期参数”属性为第3点中定义的结束日期参数名称。 '
+		End
+		Item
+			Name='CrossBeginDate'
+			DataType=DateTime
+			Value='1997-7-1'
+		End
+		Item
+			Name='CrossEndDate'
+			DataType=DateTime
+			Value='1997-7-10'
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Object Font
+						Name='楷体_GB2312'
+						Size=120000,0
+						Bold=T
+						Charset=134
+					End
+					Anchor=[Top|Right]
+					Left=4.15396
+					Top=0.396875
+					Width=13.7054
+					Height=0.47625
+					Text='欢迎访问Grid++Report网站www.rubylong.cn，了解最新产品信息。'
+				End
+				Item
+					Type=Line
+					Name='Line1'
+					Anchor=[Left|Top|Right]
+					Top=1.00542
+					Width=17.9652
+					PenWidth=2
+				End
+			End
+		End
+		Item
+			Type=PageFooter
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox4'
+					Anchor=[Top|Right]
+					Left=15.1606
+					Top=0.396875
+					Width=2.59292
+					Height=0.608542
+					Text='第[#SystemVar(PageNumber)#]页 共[#SystemVar(PageCount)#]页'
+				End
+				Item
+					Type=MemoBox
+					Name='MemoBox3'
+					Left=0.211667
+					Top=0.396875
+					Width=6.19125
+					Height=0.608542
+					Text='打印时间：[#SystemVar(CurrentDateTime):yyyy年MM月dd日 HH:mm:ss#]'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			Height=1.40229
+			Items Control
+				Item
+					Type=StaticBox
+					Name='TitleBox'
+					Object Font
+						Name='宋体'
+						Size=150000,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=5.60917
+					Top=0.211667
+					Width=6.74688
+					Height=0.582083
+					TextAlign=MiddleCenter
+					Text='按客户与产品交叉分析报表'
+				End
+			End
+		End
+	End
+End

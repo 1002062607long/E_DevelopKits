@@ -1,0 +1,60 @@
+Object Report
+	Version='2.0'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Name='A4'
+	End
+	Object DetailGrid
+		FixCols=1
+		LineColor=3DDkShadow
+		PrintAdaptMethod=ToNewPageRFC
+		Object Recordset
+		End
+		Object ColumnContent
+			Height=0.582083
+		End
+		Object ColumnTitle
+			Height=1.19063
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=0.582083
+		End
+		Item
+			Type=PageFooter
+			Height=0.582083
+		End
+		Item
+			Type=ReportHeader
+			Height=1.37583
+			Items Control
+				Item
+					Type=StaticBox
+					Name='StaticBox1'
+					Object Font
+						Name='宋体'
+						Size=150000,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=4.92125
+					Top=0.396875
+					Width=6.19125
+					Height=0.582083
+					TextAlign=MiddleCenter
+					Text='产品与期间交叉分析报表'
+				End
+			End
+			KeepTogether=T
+		End
+	End
+End

@@ -1,0 +1,10 @@
+delete from test2 where x=0
+insert into test(text) values("中国")
+select $a,$b,$c from test
+insert into test values(3,'girl3',null)
+select name from sqlite_master 
+update test set id=8 where name='liigo'
+update 表1 set empname='111' where empno=4
+insert into test(name) values('eyuyan')
+update test set id=x(1980) where name='liigo'
+insert into test(name) select y(empno) from 表1

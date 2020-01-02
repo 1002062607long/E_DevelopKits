@@ -1,0 +1,149 @@
+Object Report
+	Version='4.5'
+	Title='你的报表标题'
+	Object Font
+		Name='宋体'
+		Size=105000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+	End
+	Object DetailGrid
+		CenterView=F
+		PrintAdaptMethod=ResizeToFit
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select * \r\nfrom [Order Details]\r\nwhere OrderID=:OrderID\r\n'
+			Items Field
+				Item
+					Name='OrderID'
+					Type=Integer
+				End
+				Item
+					Name='ProductID'
+					Type=Integer
+				End
+				Item
+					Name='UnitPrice'
+					Type=Currency
+				End
+				Item
+					Name='Quantity'
+					Type=Integer
+				End
+				Item
+					Name='Discount'
+					Type=Float
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='OrderID'
+				Width=2.56646
+			End
+			Item
+				Name='ProductID'
+				Width=2.40771
+			End
+			Item
+				Name='UnitPrice'
+				Width=2.40771
+			End
+			Item
+				Name='Quantity'
+				Width=1.69333
+			End
+			Item
+				Name='Discount'
+				Width=1.69333
+			End
+		End
+		Object ColumnContent
+			BackColor=0x00ecebd5
+			Height=0.635
+			AlternatingBackColor=0x00ecebd5
+			Items ColumnContentCell
+				Item
+					Column='OrderID'
+					DataField='OrderID'
+				End
+				Item
+					Column='ProductID'
+					DataField='ProductID'
+				End
+				Item
+					Column='UnitPrice'
+					TextAlign=MiddleRight
+					DataField='UnitPrice'
+				End
+				Item
+					Column='Quantity'
+					TextAlign=MiddleRight
+					DataField='Quantity'
+				End
+				Item
+					Column='Discount'
+					TextAlign=MiddleRight
+					DataField='Discount'
+				End
+			End
+		End
+		Object ColumnTitle
+			BackColor=0x00ecebd5
+			Height=0.635
+			Object Font
+				Name='宋体'
+				Size=105000,0
+				Bold=T
+				Charset=134
+			End
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='OrderID'
+					TextAlign=MiddleCenter
+					Text='订单号'
+				End
+				Item
+					GroupTitle=F
+					Column='ProductID'
+					TextAlign=MiddleCenter
+					Text='产品编号'
+				End
+				Item
+					GroupTitle=F
+					Column='UnitPrice'
+					TextAlign=MiddleCenter
+					Text='单价'
+				End
+				Item
+					GroupTitle=F
+					Column='Quantity'
+					TextAlign=MiddleCenter
+					Text='数量'
+				End
+				Item
+					GroupTitle=F
+					Column='Discount'
+					TextAlign=MiddleCenter
+					Text='折扣'
+				End
+			End
+		End
+	End
+	Items Parameter
+		Item
+			Name='OrderID'
+			DataType=Integer
+		End
+	End
+	Items Section
+		Item
+			Type=ReportHeader
+			Name='ReportHeader1'
+			Height=0
+		End
+	End
+End

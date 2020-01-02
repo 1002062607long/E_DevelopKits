@@ -1,0 +1,358 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>短信猫例程说明</title>
+<style>
+<!--
+div.Section1
+	{page:Section1;}
+h2
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:18.0pt;
+	font-family:宋体;
+	font-weight:bold}
+ div.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:宋体;
+	margin-left:0cm; margin-right:0cm; margin-top:0cm}
+span.style21
+	{color:red}
+span.MsoCommentReference
+	{}
+.msocomanchor {
+	BACKGROUND: infobackground
+}
+span.GramE
+	{}
+span.SpellE
+	{}
+-->
+</style>
+</head>
+
+<body>
+
+<div class="Section1">
+	<h2 align="center"><span style="font-size: 24pt">短信猫例程说明</span></h2>
+	<div class="MsoNormal" style="text-align: center" align="center">
+		<span lang=EN-US>
+
+<hr size=1 width=300 style='width:100%' noshade color=red>
+
+</span>
+	</div>
+	<p align="center"><span lang="EN-US"><span class="style21">
+	* </span></span><span class="style21">该例程针对威尔西短信猫为例进行详解</span> </p>
+	<p><font size="2">&nbsp;&nbsp;&nbsp; </font></p>
+	<div id="container">
+		<div id="column-2-left-sub">
+			<div class="moduleborder715">
+				<div class="moduleborder">
+					<div class="modulepostion modulepostionbottom">
+						<h2 class="blankmargin"><font size="4">短信猫（GSM MODEM）是什么</font></h2>
+						<p class="blankheight" style="line-height: 150%">
+						<font size="2">&nbsp;&nbsp;&nbsp; 短信猫，一般也叫做GSM 
+						MODEM，从英文名翻译过来，其实就是支持GSM制式通讯的调制解调器，所以，短信猫还有很多别称，如GSM猫，无线猫，短信模块，GSM短信模块等。因为大部分客户都是拿着GSM 
+						MODEM去收发短信，也就是在行业应用市场上，GSM 
+						MODEM最大的用途是用来收发短信，因此，大多数人还是称之为短信猫。</font></p>
+						<p style="line-height: 150%"><font size="2">&nbsp;&nbsp;&nbsp; 短信猫是什么？
+						短信猫其实是一种支持GSM无线通讯的工业级调制解调器，一般基于法国WAVECOM或德国SIEMENS（西门子）GSM模块，插入国内移动通信运营商的SIM卡后即可接入运营商GSM网络，实现无线GSM通话、短信、数据等功能。</font></p>
+						<h2 class="blankmargin"><font size="4">短信猫（GSM MODEM）的主要功能</font></h2>
+						<h3 class="blankheight"><font size="3">语音</font></h3>
+						<ul class="modulelistboxsec paddingtbclear">
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">电话 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">紧急呼叫 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">全速率，增强全速率及半速率（ FR/EFR/HR ） </font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">双音多频功能（ DTMF ） </font> </li>
+						</ul>
+						<h3 class="blankheight"><font size="3">GSM数据/传真</font></h3>
+						<ul class="modulelistboxsec paddingtbclear">
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">异步、透明与非透明数据电路，最高速率14,400比特/秒 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">自动传真组3（Class 1和Class 2） 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">MNP2，V.42bis </font> </li>
+						</ul>
+						<h3 class="blankheight blankpaddingtop">短信服务</h3>
+						<ul class="modulelistboxsec paddingtbclear">
+							<li>
+							<p style="line-height: 150%"><font size="2">文本和PDU 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">点对点（MT/MO） 
+							 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">蜂窝广播  
+							</font> </li>
+						</ul>
+						<h3 class="blankheight blankpaddingtop">GSM附加服务</h3>
+						<ul class="modulelistboxsec paddingtbclear">
+							<li>
+							<p style="line-height: 150%"><font size="2">呼叫转移 
+							 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">呼叫禁止 
+							 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">多用户 
+							 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">呼叫等待与呼叫保持 
+							 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">呼叫线路标识 
+							 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">通话计费 
+							 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">USSD 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">闭合用户组 
+							 
+							</font> 
+							</li>
+							<li>
+							<p style="line-height: 150%"><font size="2">显示呼叫转移  
+							</font> </li>
+						</ul>
+						<h3 class="blankheight blankpaddingtop">其他功能</h3>
+						<ul class="modulelistboxsec paddingtbclear">
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">ME＋SIM电话簿管理 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">特定号码拨出 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">SIM TOOLKIT CLASS 2 </font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">SIM、网络和服务提供商锁 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">实时时钟 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">闹钟管理 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">利用Xmodem协议升级软件 
+							</font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">UCS2字符集管理 </font> </li>
+						</ul>
+						<h2 class="blankmargin"><font size="4">短信猫（GSM MODEM）的分类</font></h2>
+						<p class="blankheight" style="line-height: 150%">
+						<font size="2">按照与计算机的不同接口，短信猫可分为串口短信猫、USB接口短信猫、PCI接口短信猫、网口短信猫等。</font></p>
+						<p class="blankheight" style="line-height: 150%">
+						<font size="2">按照模块数的多少，短信猫可分为单口短信猫和短信猫池两种。短信猫池其实就是将多个模块集成到一起通过多串口或者网口与计算机形成多串口通讯，从而实现多个模块并发的设备。</font></p>
+						<p class="blankheight" style="line-height: 150%">
+						<font size="2">按照无线网络制式的不同，又可分为GSM短信猫、CDMA短信猫和小灵通短信猫。</font></p>
+						<h2 class="blankmargin"><font size="4">短信猫开发接口（GSM MODEM SDK）</font></h2>
+						<p class="blankheight">基于短信猫开发行业短信应用，软件开发商可以采取以下三种方式：</p>
+						<ul class="modulelistboxsec paddingtbclear">
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">直接使用AT指令：基于串口通讯模式使用AT指令直接操作短信猫，这是最底层的短信猫开发模式，基本上无论是哪种接口的短信猫，其实质还是通过GSM 
+							MODEM的串口通讯AT指令来驱动的。 </font> 
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">短信猫开发包：短信猫厂商针对软件开发商短信应用提供的二次开发包，其底层是基于短信猫的AT指令，对于软件开发商只需要调用二次开发包或者控件中的API即可。别小看了这短信猫开发包，如果编写不好，将直接影响到上层应用的稳定性。 
+
+							 
+							</font> 
+
+							</li>
+							<li>
+							<p class="blankheight" style="line-height: 150%">
+							<font size="2">短信猫通信中间件：这是万象短信网独家提供的基于数据库接口的短信猫通信服务器软件，软件开发商只需要提交短信队列到数据库里即可，开发简单快速，节约人力成本，是最佳的短信应用开发接口模式。</font></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="column-2-left-sub0">
+		<div class="moduleborder715">
+			<div class="moduleborder">
+				<div class="modulepostion modulepostionbottom">
+					<h2 class="blankmargin"><font size="4">下面介绍用易语言编写的短信猫例程（只介绍组件版）</font></h2>
+					<h2 class="blankmargin" align="center">
+					<img border="0" src="操作图片/第一张效果图.jpg" width="640" height="324"></h2>
+					<p class="blankmargin"><span style="font-family: 宋体">
+					<font size="4">一</font></span><span style="FONT-FAMILY: 宋体"><font size="4">.</font>加密狗驱动的安装和控件的注册方法</span></p>
+					<p class="blankheight" style="line-height: 150%">
+					<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp; </span>
+					<font size="2">&nbsp; 
+					首先要安装短信猫加密狗驱动，方法是运行开发包目录下的“控件注册及加密狗驱动安装.exe”。</font></p>
+					<p class="blankmargin" align="center">
+					<img border="0" src="操作图片/驱动文件.jpg" width="371" height="100"></p>
+					<p class="blankmargin">
+					<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					在弹出窗口点击“安装加密狗驱动及注册控件”完成。</font></p>
+					<p class="blankmargin" align="center">&nbsp;<img border="0" src="操作图片/驱动及注册控件.jpg" width="296" height="183"></p>
+					<p class="blankmargin">二.易语言注册组件的方法</p>
+					<p class="blankmargin"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp; 接下来讲一下怎么样在易语言里注册控件，首先打开易语言，点工具--&gt;类型库或OCX--&gt;支持库，具体步骤如下图所示
+					：</font></p>
+					<p class="blankmargin" align="center"><img border="0" src="操作图片/注册组件1.jpg" width="416" height="265"></p>
+					<p class="blankmargin">&nbsp; &nbsp;<font size="2"> 
+					当出现如下界面后，点击“注册组件”按钮</font><span style="font-family: 宋体">。</span></p>
+					<p class="blankmargin" align="center"><img border="0" src="操作图片/注册组件2.jpg" width="509" height="415"></p>
+					<p class="blankmargin">&nbsp;<font size="2"> 选中你要注册的OCX，点击“打开”按钮，如图所示:</font></p>
+					<p class="blankmargin" align="center"><img border="0" src="操作图片/注册组件3.jpg" width="509" height="415"></p>
+					<p class="blankmargin">&nbsp;&nbsp;&nbsp;&nbsp;
+					<font size="2">提示注册成功，确定。</font></p>
+					<p class="blankmargin" align="center">
+					<img border="0" src="操作图片/注册组件4.jpg" width="509" height="415"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>&nbsp;&nbsp;&nbsp; <font size="2">接下来就是把注册过的组件复制到易语言的lib文件夹里面，按“下一步”按钮。</font></p>
+<p align="center"><img border="0" src="操作图片/注册组件5.jpg" width="509" height="415">
+</p>
+<p>&nbsp;&nbsp;<font size="2">&nbsp; 点击新窗口的“保存”按钮。</font></p>
+<p align="center"><img border="0" src="操作图片/注册组件6.jpg" width="509" height="415"></p>
+<p>&nbsp;<font size="2">&nbsp;&nbsp; 在这里将产生一个&quot;SMSOCX308.npk&quot;文件，选择路径点击按钮“保存”。</font></p>
+<p align="center"><img border="0" src="操作图片/注册组件.jpg" width="509" height="415"></p>
+<p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2">在询问窗口点击按钮“是”钮
+，如果点击“否”钮，就需要手动把这个文件复制到易语言lib文件夹里以便易语言使用。</font></p>
+<p align="center"><img border="0" src="操作图片/注册组件8.jpg" width="638" height="181"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2">接着点击“是”钮，这里需要提醒大家必须注意的是，必须关闭正在运行的易语言程序，否则可能安装失败，在关闭易语言程序的时候请注意保存。</font></p>
+<p align="center"><img border="0" src="操作图片/注册组件9.jpg" width="639" height="122"></p>
+<p>&nbsp;&nbsp;&nbsp; <font size="2">&nbsp;&nbsp; 复制包装支持库成功！点击“确定”按钮，OCX安装成功。</font></p>
+<p align="center">
+<img border="0" src="操作图片/注册组件10.jpg" width="509" height="415"></p>
+<p>
+&nbsp;&nbsp;&nbsp; <font size="2">&nbsp;安装玩组件以后，易语言不会自动载入新的组件的，就要你在“工具--&gt;支持库配置”里面选择你要载入的组件。</font></p>
+<p align="center">
+<img border="0" src="操作图片/支持库配置1.jpg" width="446" height="283"></p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp; <font size="2">下图中所选中的就是刚才安装的OCX组件，你选中后点击“确认”按钮就可以在组件箱中看到该组件了。 </font></p>
+<p align="center">
+<img border="0" src="操作图片/支持库配置.jpg" width="489" height="463"></p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2">组件箱看到的“Smsgate”就是刚才安装的组件。</font></p>
+<div class="Section1">
+	<p align="center">
+	<img border="0" src="操作图片/组件箱.jpg" width="215" height="222"></p>
+	<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2">
+	下面界面中看到的是新安装组件在程序中的应用。</font></p>
+	<p align="center">
+	<img border="0" src="操作图片/组件应用.jpg" width="575" height="322"></p>
+	<p>
+	<b><span style="FONT-SIZE: 13.5pt">三、制作</span></b></p>
+	<p><font size="2">1、制作思路：</font></p>
+	<p><span lang="EN-US">&nbsp;&nbsp;</span> <font size="2">可以收发短信、接电话、打电话。</font></p>
+	<p><font size="2">2、程序界面设计：</font></p>
+	<p align="center">
+	<img border="0" src="操作图片/主界面.jpg" width="643" height="331"></div>
+<p class="blankheight" style="line-height: 150%"><font size="2">3、连接端口（默认为1，须按你电脑的实际设置）和端口连接速率（默认9600,n,8,1，要与手机相一致。在不能连接时，才考虑尝试不同的连接参数
+！）连接成功后，提示“连接成功”。代码如下图所示：连接后可以测试当前连接是否正常,为TURE则连接正常。这个方法是用于在运行中，定期检查连接是否还在正常状态中，在连接不稳定时（如红外连接时）可定时检查设备连接状态。</font></p>
+<p align="center"><img border="0" src="操作图片/连接.jpg" width="593" height="273"></p>
+<p><span style="font-size: 10.5pt">&nbsp;</span><font size="2">4.服务中心号码可以自动寻找到，那个好吗是手机号码运营商提供的。</font></p>
+<p align="center">
+<img border="0" src="操作图片/寻找短信中心.jpg" width="593" height="180"></p>
+<p><font size="2">5.发送短信，如果发送成功，则返回“y”，否则返回发送失败的原因，如设备正忙时返回“B”，每次发送70字。</font></p>
+<p align="center"><img border="0" src="操作图片/发送短信.jpg" width="594" height="558">&nbsp;&nbsp; </p>
+<p><font size="2">6.有新短信息：当有新短信或发送报告时触发“_Smsgate1_OnRecvMsg”事件，提示处理。</font></p>
+<p align="center"><img border="0" src="操作图片/有新短信息.jpg" width="589" height="316"></p>
+<p class="blankheight" style="line-height: 150%"><font size="2">6.接收短信，设置程序为自动接收后读出短信。读短信息,调用方法：Smsgate1. ReadMsg (whyre)， whyre =0 
+读手机未读信息，whyre =1 读手机已读信息， whyre =2 读手机所有信息。</font></p>
+<p align="center">&nbsp;&nbsp;&nbsp; <img border="0" src="操作图片/读信息.jpg" width="589" height="216">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p><font size="2">7.打电话：打电话,调用方法 Smsgate1.CallPhone(PhoneNO,WaitTime)，PhoneNO 目标电话号码，WaitTime 
+等待回应时间。</font></p>
+<p align="center"><img border="0" src="操作图片/有电话打进.jpg" width="591" height="185">&nbsp; </p>
+<p><font size="2">8.接电话,接听当前呼叫,调用方法Smsgate1. AnswerCall，返回“True”或“False”（组件本身的返回值） 。</font></p>
+<p align="center"><img border="0" src="操作图片/接电话.jpg" width="592" height="204"> </p>
+<p><font size="2">9.挂电话，挂断当前呼叫,调用方法 Smsgate1. HangUpCall，返回“True”或“False”（组件本身的返回值）。</font></p>
+<p align="center"><img border="0" src="操作图片/挂电话.jpg" width="590" height="206">&nbsp; </p>
+<p><font size="2">10.有电话打进，事件“_Smsgate1_OnCall”，参数：“PhoneNo”来电的号码，当前SIM卡被叫时，产生本事件，可在本事件中读PhoneNo的值获得来电号码。</font></p>
+<p align="center">&nbsp;<img border="0" src="操作图片/有电话打进.jpg" width="591" height="185"></p>
+<div class="Section1">
+	<p class="blankheight" style="line-height: 150%">
+	<font size="2">11、以上为短信猫的基本功能，此外，短信猫还有一些其它的功能（部分手机不支持），但只是介绍，没有在程序中写出，其它功能有这4个。<br>
+	&nbsp;&nbsp;&nbsp; (1)、读手机中电话簿或通讯记录资料，调用方法：Smsgate1. ReadNB(pb_why)，参数说明：pb_why=&quot;me&quot;
+	读手机中电话簿，pb_why=&quot;sm&quot;
+	读SIM卡中电话簿，pb_why=&quot;rc&quot;
+	读通话记录中已接电话记录，pb_why=&quot;mc&quot;
+	读通话记录中未接电话记录。说明：成功返回手机相关资料，否则返回空字符；返回资料格式及分割方式同接收信息ReadMsg。<br>
+	&nbsp;&nbsp;&nbsp; (2)、读手机型号，调用方法：Smsgate1. M_model 说明：成功返回手机型号，否则返回空字符。<br>
+	&nbsp;&nbsp;&nbsp; (3)、读手机IMEI码,调用方法：smsgate1.
+	M_imei 说明：成功返回手机IMEI码，否则返回空字符。<br>
+	&nbsp;&nbsp;&nbsp; (4)、取得手机生产厂商，调用方法：smsgate1. M_ltd1 说明：成功返回手机手机生产厂商名称，否则返回空字符。</font></div>
+<p>　</p>
+<hr>
+<table id="table1" cellSpacing="0" cellPadding="0" width="100%" border="0">
+	<tr>
+		<td align="middle" width="100%" height="100%">版权所有&nbsp;&nbsp; 大连大有吴涛易语言软件开发有限公司&nbsp;&nbsp; 
+		电话:86-0411-88995831&nbsp;&nbsp; 传真:86-0411-88995834</td>
+	</tr>
+</table>
+<p>　</p>
+
+</body>
+
+</html>

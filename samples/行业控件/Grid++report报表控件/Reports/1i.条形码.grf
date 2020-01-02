@@ -1,0 +1,153 @@
+Object Report
+	Version='4.5'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		LeftMargin=0.2
+		TopMargin=0.5
+		RightMargin=0.2
+		BottomMargin=0.5
+	End
+	Object DetailGrid
+		PageColumnCount=2
+		PageColumnSpacing=0.2
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select * from Customers\r\norder by Region,City'
+			Items Field
+				Item
+					Name='CustomerID'
+				End
+				Item
+					Name='CompanyName'
+				End
+				Item
+					Name='ContactName'
+				End
+				Item
+					Name='ContactTitle'
+				End
+				Item
+					Name='Address'
+				End
+				Item
+					Name='City'
+				End
+				Item
+					Name='Region'
+				End
+				Item
+					Name='PostalCode'
+				End
+				Item
+					Name='Country'
+				End
+				Item
+					Name='Phone'
+				End
+				Item
+					Name='Fax'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='OnlyOne'
+				Width=9.97479
+			End
+		End
+		Object ColumnContent
+			Height=5.3975
+			Items ColumnContentCell
+				Item
+					Column='OnlyOne'
+					Object Font
+						Name='宋体'
+						Size=142500,0
+						Weight=400
+						Charset=134
+					End
+					FreeCell=T
+					Items Control
+						Item
+							Type=FieldBox
+							Name='Field3'
+							Left=1.00542
+							Top=2.59292
+							Width=8.78417
+							Height=0.820208
+							DataField='Address'
+						End
+						Item
+							Type=FieldBox
+							Name='Field4'
+							Left=0.211667
+							Top=0.396875
+							Width=2.77813
+							Height=0.582083
+							DataField='PostalCode'
+						End
+						Item
+							Type=StaticBox
+							Name='StaticBox3'
+							Left=1.00542
+							Top=4.20688
+							Width=8.78417
+							Height=0.608542
+							Text='未来有希望有限公司 567890'
+						End
+						Item
+							Type=MemoBox
+							Name='MemoBox1'
+							Left=0.211667
+							Top=1.79917
+							Width=9.57792
+							Height=0.79375
+							Text='寄：[#Country#][#City#]'
+						End
+						Item
+							Type=MemoBox
+							Name='MemoBox2'
+							Left=1.00542
+							Top=3.41313
+							Width=8.78417
+							Height=0.79375
+							Text='[#ContactName#](收)'
+						End
+						Item
+							Type=Barcode
+							Name='Barcode1'
+							Left=3.41313
+							Top=0.396875
+							Width=6.37646
+							Height=1.19063
+							DataField='PostalCode'
+							Text='123456'
+						End
+					End
+				End
+			End
+		End
+		Object ColumnTitle
+			Visible=F
+			Height=0
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='OnlyOne'
+				End
+			End
+		End
+	End
+	Items Parameter
+		Item
+			Name='Comment'
+			Value='演示条形码。\r\n\r\n在报表中插入条形码部件框即可实现条形码的显示与打印，在明细网格中的条形码可以关联字段，条形码数据将来自于关联的字段值。'
+		End
+	End
+End

@@ -1,0 +1,1699 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="File-List" href="操作说明.files/filelist.xml">
+
+<title>新建网页 1</title>
+<style>
+<!--
+h1
+	{margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:240%;
+	page-break-after:avoid;
+	font-size:22.0pt;
+	font-family:"Times New Roman";
+	}
+ p.MsoNormal
+	{mso-style-parent:"";
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Times New Roman";
+	margin-left:0cm; margin-right:0cm; margin-top:0cm}
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]--><!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+</head>
+
+<body>
+
+<h1 align="center" style="text-align: center; line-height:150%"><span style="font-family: 宋体">
+加密狗制作说明</span></h1><span lang=EN-US>
+
+<hr size=1 width=300 style='width:100%' noshade color=red>
+
+</span>
+<p class="MsoNormal" style="text-align: center; line-height: 150%">　</p>
+<p class="MsoNormal" style="text-align: center; line-height: 150%">
+<span lang="EN-US" style="color: red">*</span><span style="font-family: 宋体; color: red">该例程针对“龙脉</span><span lang="EN-US" style="color: red">NOX2</span><span style="font-family: 宋体; color: red">单机锁”型加密狗如（图</span><span lang="EN-US" style="color: red">-1</span><span style="font-family: 宋体; color: red">）为例进行详解</span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span lang="EN-US"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1030" type="#_x0000_t75" style='width:136.5pt;
+ height:99pt'>
+ <v:imagedata src="操作说明.files/image001.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=182 height=132
+src="操作说明.files/image002.jpg" v:shapes="_x0000_s1030"><![endif]></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体; color: black"><font size="2">（图</font></span><font size="2"><span lang="EN-US" style="color: black">-1</span></font><span style="font-family: 宋体; color: black"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 16.0pt; font-family: 宋体">㈠<span lang="EN-US">.</span>制作</span></p>
+<p class="MsoNormal" style="line-height: 150%">
+<span lang="EN-US" style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp; 1.</span><span style="font-size: 14.0pt; font-family: 宋体">制作思路：</span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<font size="2">对于</font></span><font size="2"><span lang="EN-US">NOX2</span><span style="font-family: 宋体">型有读写操作函数，其记忆内存有</span><span lang="EN-US">4</span><span style="font-family: 宋体">个区，每个区</span><span lang="EN-US">64</span><span style="font-family: 宋体">字节可读写，大大方便了编程人员。有时可以用此功能进行一些数据的记录，如使用次数的记录，或重要标记、重要数据的记录等操作。加密狗应用程序是通过对</span><span lang="EN-US">API
+</span><span style="font-family: 宋体">的调用实现的，</span><span lang="EN-US">NOX2
+</span><span style="font-family: 宋体">应用程序</span><span lang="EN-US"> API </span>
+</font>
+<span style="font-family: 宋体"><font size="2">的调用是有顺序的，软件厂商在软件中使用时应遵循该规则。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%">
+<span lang="EN-US" style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp; 2.</span><span style="font-size: 14.0pt; font-family: 宋体">制作详解：</span></p>
+<p class="MsoNormal" style="text-indent: 7.0pt; line-height:150%">
+<span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（1）准备工作</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">龙脉NOX2加密狗在使用之前最好设置一下密码，密码的设置规则是从高级到低级，即：超级密码→用户密码→应用程序标识，使用的时候要从低级到高级调用，即：应用程序标识→用户密码→超级密码。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+<font size="2">设置的方法也非常简单，插入加密狗，运行光盘中附带的管理工具，</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 例如：在管理工具中设置如下：</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 种子码：B041701DF4BC4F50B003AB1B8C1AD8DD</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用户密码：a01a1a06df58e20d9924a44e8f757711</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 程序标识：F4BC4F50</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如（图-2）所示：</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span lang="EN-US"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1029" type="#_x0000_t75" style='width:413.25pt;height:399pt'>
+ <v:imagedata src="操作说明.files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=551 height=532
+src="操作说明.files/image004.jpg" v:shapes="_x0000_s1029"><![endif]></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-2</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">&nbsp;上图中的超级密码初始化是多个F字母，需要您修改，可以随机生成，并且备份在你的一个文档中。超级密码不能公开，要机密保存，不可以写在程序代码中，这样就保证了你的加密狗与其他的加密狗之间的区别。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（2）程序界面设计</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">按照（图-3）所示添加窗口及组件，所有的编辑框均为普通的编辑框，所有的按钮均为普通按钮。</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span lang="EN-US"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1028" type="#_x0000_t75" style='width:354.75pt;height:321pt'>
+ <v:imagedata src="操作说明.files/image005.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=473 height=428
+src="操作说明.files/image006.jpg" v:shapes="_x0000_s1028"><![endif]></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-3</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（3）取十进制</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><font size="2">
+<span style="font-family: 宋体">
+通过上述取得“应用程序标识”后，下面就可以调用“程序标识”检查是否插上加密狗了。由于“应用程序标识”是十六进制的，编程中要转换成十进制。程序中用到了一个“取十进制”的自定义子程序， 
+易语言编程代码如（图-4）</span></font></p>
+<p class="MsoNormal" style="line-height: 150%; text-align:center">
+<img border="0" src="images/index.1.gif"></p>
+<p class="MsoNormal" style="line-height: 150%; text-align:center">
+<img border="0" src="images/index.2.gif" width="717" height="429"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-4</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（4）查找加密狗功能</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><font size="2">
+<span style="font-family: 宋体">&nbsp;第一步需要实现的功能就是检查电脑上是否插入了龙脉加密狗，如果“程序集_返回值=0”表示已经找到加密狗
+，易语言编程代码如（图-5）</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.18.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-5</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: left; line-height:150%">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2"> 
+对应DLL命令定义表如（表-1）。</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><img border="0" src="images/index.10.gif"></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（表-1）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">上面的命令执行后，取得了一个句柄，handles。NOX2最大支持同时插8支USB加密狗。上面是根据“应用程序标识”进行的检查，因此如果你插入不同的8支加密狗，就会严格找到那只相符合的加密狗。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+如你写了很多不同类型的软件，这样为你的不同软件分配不一样的“应用程序标识”，这样就使加密狗的应用程序标识与你的软件一一对应，区别开来，然后你可以用不同的“应用程序标识”注册不同软件的用户。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">运行效果如（图-6）。</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span lang="EN-US"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1027" type="#_x0000_t75" style='width:339.75pt;height:293.25pt'>
+ <v:imagedata src="操作说明.files/image007.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=453 height=391
+src="操作说明.files/image008.jpg" v:shapes="_x0000_s1027"><![endif]></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-6</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（5）打开加密狗功能</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">&nbsp;找到加密狗后还要先打开加密狗，以进一步操作，NoxOpen的第2个参数使用到了“用户密码”，用户密码在NOX2中是通过种子码生成的，你需要记录下来备用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用函数：long 
+NoxOpen(long nKeyHandle, char * userPin )；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">在找到加密锁后，可通过加密锁的Handle及正确的用户密码来打开加密锁，只有在正确打开加密锁后才可以进行读写等操作。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">参数1：整数型，通过NOXFIND取得的加密锁句柄数组之一. 
+[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">参数2：文本型，用户密码，[in]用户密码（通过设号工具事先进行设置）</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 该函数必须与NoxClose成对使用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 易语言编程代码如（图-7）所示
+。</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.19.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-7</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height:150%">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<font size="2">对应DLL命令定义表如（表-2）。</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.11.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（表-2）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（6）写入临时内存数据功能</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">&nbsp;使用函数：long 
+NoxWriteMem(long nKeyHandle,unsignedchar *pBuffer)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+该函数用来写入用户数据到加密锁内存数据区，其中的数据在关闭电脑后即消失。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数1：整数型。加密锁句柄,通过NOXFIND取得的加密锁句柄数.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数2：字节型数组,8位长,[in]将要写入的数据,最大8字节。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+内存区（几个字节）中的数据掉电后即消失，也就是说关闭电脑后，数据将不再存在，只用于临时读取资料用。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 只有打开加密锁后才可以调用该函数
+，易语言编程代码如（图-8）</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 可用longNoxReadMem函数读出此数据。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+注意：现在有的破解组织推出了加密狗共享器，因此使用这个函数随机取得一个固定数或字符串，写到加密狗内存中，这样当客户用了加密狗共享器时，会检查到有一个不同的数或字符串。</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.20.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-8</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height:150%">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2">&nbsp; 
+对应DLL命令定义表如（表-3）。</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.12.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（表-3）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（7）读临时内存数据</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">使用函数：long 
+NoxReadMem(long nKeyHandle,unsigned char* pBuffer)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+该函数用来读取加密锁内存数据区，在调用该函数之前，应该先最少分配8字节大小的存取数据的数据区。只有在打开加密锁后才可以调用该函数。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数1:整数型,加密锁句柄,通过NOXFIND取得的加密锁句柄数.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+参数2:字节型数组,8位长,[out]读取的结果存储在该参数所指定的数据区内，NOX内存区大小为8字节，在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+内存区（几个字节）中的数据掉电后即消失。也就是说关闭电脑后，数据将不再存在，只用于临时读取资料用，易语言编程代码如（图-9）。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%; text-align:center">
+<span style="font-family: 宋体"> 
+<img border="0" src="images/index.13.gif"></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<font size="2"><span style="font-family: 宋体">（图-9）</span></font></p>
+<p class="MsoNormal" style="line-height:150%">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<font size="2">对应DLL命令定义表如（表-4）。</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.21.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（表-4）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（8）写入NOX2加密锁中的记忆数据</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">NOX2加密狗内有四个区，每个区64字节的可读写区。大家可以直接用管理工具直接写入，或用批量工具直接写入，当然，也提供了API函数来读写这四个区。可以在管理工具中设置NOX2加密锁的四个区的读写属性，在此设置为既可以读，也可以写的“读写属性”。如果你设置为只读属性，将只能读不能写。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOX2管理工具运行后如（图-10）所示
+。</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span lang="EN-US"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1026" type="#_x0000_t75" style='width:413.25pt;height:399pt'>
+ <v:imagedata src="操作说明.files/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=551 height=532
+src="操作说明.files/image010.jpg" v:shapes="_x0000_s1026"><![endif]></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-10</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">使用函数：long 
+NoxWriteStorage(long nKeyHandle,long page,&nbsp; unsigned char * pBuffer )；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 该函数用来写入加密锁掉电保持数据区（FLASH），在调用该函数之前，应该先分配最少64字节的存储数据的数据区。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数1:整数型,通过NOXFIND取得的加密锁句柄数组之一. 
+[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数2:整数型,[in]
+页号, 支持4页(0,1,2,3)</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数3:字节型数组,64位长, 
+[Out] 读取的结果存储在该参数所指定的数据区内，NOX2的掉电保持区的大小为64字节，因此在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 只有在打开加密锁之后，才可以调用该函数。掉电保持数据区:指关闭电脑后数据还存在于加密狗中
+，下次开电脑数据还存在，易语言编程代码如（图-11）。</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.7.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-11</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" align="center" style="line-height:150%">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2"> 
+对应DLL命令定义表如（表-5）。</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.15.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（表-5）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（</span></font><span lang="EN-US"><font size="3">9</font></span><span style="font-family: 宋体"><font size="3">）读入</font></span><span lang="EN-US"><font size="3">NOX2</font></span><span style="font-family: 宋体"><font size="3">加密狗中的记忆数据</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">使用函数：long 
+NoxReadStorage(long nKeyHandle ,long page,&nbsp; unsigned char * pBuffer )；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 该函数用来读取加密锁掉电保持数据区（FLASH），在调用该函数之前，应该先分配最少64字节的存储数据的数据区。只有在打开加密锁之后，才可以调用该函数。掉电保持数据区:指关闭电脑后数据还存在于加密狗中,下次开电脑数据还存在。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+参数1：整数型，通过NOXFIND取得的加密锁句柄数组之一. 
+[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数2：整数型，[in]
+页号, 支持4页(0,1,2,3)</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数3：字节型数组，64位长，[Out]
+读取的结果存储在该参数所指定的数据区内，NOX2每一页的掉电保持区的大小为64字节，因此在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据，易语言编程代码如（图-12）
+。</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.8.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-12</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height:150%">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<font size="2">对应DLL命令定义表如（表-6）。</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.16.gif"></p>
+<p class="MsoNormal" style="line-height: 150%; text-align:center"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<font size="2">（表-6）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">下面是易语言程序的运行效果，如（图-13）所示。</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span lang="EN-US"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1025" type="#_x0000_t75" style='width:339.75pt;height:293.25pt'>
+ <v:imagedata src="操作说明.files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=453 height=391
+src="操作说明.files/image012.jpg" v:shapes="_x0000_s1025"><![endif]></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（图</font></span><font size="2"><span lang="EN-US">-13</span></font><span style="font-family: 宋体"><font size="2">）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-size: 14.0pt; font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="3"><span style="font-family: 宋体">（10）关闭加密狗</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">使用函数：longNoxClose(longnKeyHandle)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+该函数用来关闭加密锁，必须与NoxOpen成对使用。加密锁在关闭后必须重新再次打开才可以进行其他读写的操作。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数1:整数型,加密锁句柄,通过NOXFIND取得的加密锁句柄.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp; 易语言编程代码如（图-14）。</span></font></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.9.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<font size="2"><span style="font-family: 宋体">（图-14）</span></font></p>
+<p class="MsoNormal" style="line-height:150%">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<font size="2">对应DLL命令定义表如（表-7）。</font></span></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<img border="0" src="images/index.17.gif"></p>
+<p class="MsoNormal" align="center" style="text-align: center; line-height:150%">
+<span style="font-family: 宋体"><font size="2">（表-7）</font></span></p>
+<p class="MsoNormal" style="line-height: 150%"><span style="font-family: 宋体">
+<font size="3">（二）附录</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体"> <a name="_Toc176160514">一．NOX2</a>型加密锁介绍</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOX2加密锁是北京世纪龙脉公司基于NOX加密锁研发的一套先进的软件保护产品，它是连接在计算机USB端口的硬件设备，外形小巧。通过它可以保护该软件不被非法复制和非授权访问和使用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOX2 加密锁为标准的HID设备，无需安装驱动，操作系统直接支持，因此无需安装硬件驱动，直接连接到计算机的USB端口即可在程序中使用，省去安装硬件驱动所带来的兼容性的风险。NOX2型加密锁内置4个64字节的可读写掉电保持存储区和8字节内存区，其中4个掉电保持存储区支持读写属性控制
+，用户可灵活地控制每个分区的访问方式,掉电保持分区支持写10万次，读取次数不限，因此用户应避免频繁进行写操作，可根据具体的使用环境来决定如何使用该存储区；NOX2的内存区可任意读写，用户可用于在软件运行过程中存储一些用于随机检测的数据，该数据区在掉电后数据即丢失。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160515">二．NOX</a>２系列锁基础知识</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160574">1</a>．超级密码</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOX的超级密码为一个32字节的字符串，NOX自带了密码生成工具以保证每次生成的密码串是不同的且是唯一的，在需要修改超级密码时请使用自带的密码生成工具来生成。超级密码具有最高权限，可以修改用户密码，修改掉电保持数据区等，该超级密码出厂设置默认为32个F（即“FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF”）
+，软件厂商在分发NOX加密锁之前，可修改该密码，但应妥善保存该密码，如果尝试15次失败后，加密锁将自动锁死，此时必须重新插上重新进行操作。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">注意：超级密码由编程人员保密存放，不得泄露。不要将超级密码写在软件代码中或文档中提供给用户，从而保证其安全性。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc183252520">2</a>．种子码</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOX2的种子码为一个32字节的字符串，种子码用于与超级密码一起生成用户密码，用户密码用于最终的软件中，这样就保证了用户密码的安全性。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160575">3</a>．用户密码</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用户密码由超级密码和种子码生成,
+这样可保证用户密码的安全性,
+同时该密码用于打开加密锁并读取其中的数据，对于掉电保护存储区，如果设置为只读权限,
+则加密锁密码只有读取权限，而不允许修改；如果设置为可读写,则加密锁密码可对该存储区进行读写操作.
+对于内存区，加密锁密码正确后即可进行读写。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">通过设号工具可以很容易通过超级密码和种子码生成该密码</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">用户密码将用于软件中对NOX2进行相应的操作。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">用户密码错误三次后，加密锁自动锁死，需要拔下重新插上并重新运行软件。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">注意：用户密码会写在程序代码中，最好分散存放及采用异或等方法打乱隐藏，以防止破解者轻易找到破解。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160578">4</a>．应用程序标识</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 该标识用于查找指定应用程序对应的加密锁
+，建议用户为不同的应用程序设置不同的标识，软件厂商通过设号工具来修改应用程序标识。应用程序标识出厂设置为0xFFFFFFFF(即-1).</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160576">5</a>．掉电保持数据区</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 加密锁内置4个64字节的掉电保持数据区(分页)，用户可分别对这4页数据区进行读写属性的设置。该数据区掉电后不会丢失，用户可以对该数据区进行读写操作，设置为只读的数据区将不允许进行写操作。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160577">6</a>．内存区</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 加密锁内置的为用户分配的内存区
+，可用于临时存放数据，电脑关闭后数据不保存，NOX提供8字节的内存区。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160579">7</a>．唯一ID</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 每个加密锁拥有硬件唯一ID，并支持相应的API来读取ID。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <a name="_Toc176160580">8</a>．加密锁句柄HANDLE 
+</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 加密锁HANDLE用于识别系统中的每个加密锁，API操作需要通过HANDLE来指定是操作哪一个加密锁。通过调用NoxFind系列函数来获得系统中所有的加密锁及Handle，通过Handle来对指定的加密锁进行操作。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注意：Handle
+是动态的，每调用一次NoxFind，加密锁的Handle就会重新分配，上次得到的Handle就不能再使用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160586">三．NOX</a>２加密狗API手册</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面列出了NOX２所支持的所有应用程序API及详细说明。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <a name="_Toc176160588">1</a>．NoxFind函数</span></font></p>
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table10">
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Long NoxFind(long nAppID,long * 
+		nKeyHandles,long * nKeyNum)；</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Parameters</span></font></td>
+	</tr>
+	<tr>
+		<td width="141" valign="top" style="width: 105.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">NappID</span></font></td>
+		<td width="476" valign="top" style="width: 356.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]应用程序标识</span></font></td>
+	</tr>
+	<tr>
+		<td width="141" valign="top" style="width: 105.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">NkeyHandles</span></font></td>
+		<td width="476" valign="top" style="width: 356.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[out]当前系统连接的所有NOX加密锁Handle数组，NOX最大支持同时插8支，因此在调用该函数之前，应分配一个最少8个元素long型数组用来存储每一个加密锁的Handle</span></font></td>
+	</tr>
+	<tr>
+		<td width="141" valign="top" style="width: 105.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">NkeyNum</span></font></td>
+		<td width="476" valign="top" style="width: 356.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[out]找到的NOX加密锁个数，如果没找到为0</span></font></td>
+	</tr>
+	<tr>
+		<td width="141" valign="top" style="width: 105.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">ReturnValue</span></font></td>
+		<td width="476" valign="top" style="width: 356.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="141" valign="top" style="width: 105.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">0</span></font></td>
+		<td width="476" valign="top" style="width: 356.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">成功，nKeyHandles数组中保存了所有加密锁Handle</span></font></td>
+	</tr>
+	<tr>
+		<td width="141" valign="top" style="width: 105.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&gt;0</span></font></td>
+		<td width="476" valign="top" style="width: 356.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">失败，未找到，系统中未连接NOX加密锁，同时nKeyNum为0</span></font></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">功能说明：long 
+NoxFind(long nAppID,long * nKeyHandles,long *nKeyNum)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">查找系统中指定“应用程序标识”的所有NOX2加密锁句柄Handle，如果失败，则该系统未连接该NOX2加密锁。加密锁句柄Handle用来标识每一个加密锁。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数1:整数型,十进制数值,“应用程序标识”在设号工具中设置,并与第一个参数等同。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数2:整数型数组,8个数组成员.[out]当前系统连接的所有NOX加密锁Handle数组，NOX最大支持同时插8支，因此在调用该函数之前，应分配一个最少8个元素long型数组用来存储每一个加密锁的Handle。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数3:整数型,返回加密锁个数,[out]找到的NOX加密锁个数，如果没找到为0</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">NOXFind是首先需要调用的函数，调用成功后，本程序中所有加密锁的Handle都会重新分配，原有Handle自动失效，因此如果在系统中需多次调用该函数，请记得先结束在原有Handle上的所有操作（可通过调用NoxClose），同时在以后的其它函数中使用新的Handle。“应用程序标识”在设号管理工具中设置。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160591">2</a>．<a name="_Toc176160593">NoxGetLastError</a>函数</span></font></p>
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table11">
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Long NoxGetLastError()；</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Parameters</span></font></td>
+	</tr>
+	<tr>
+		<td width="206" valign="top" style="width: 154.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">无</font></span></td>
+		<td width="410" valign="top" style="width: 307.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="206" valign="top" style="width: 154.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">ReturnValue</span></font></td>
+		<td width="410" valign="top" style="width: 307.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">最近一次操作的错误码。</font></span></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">使用说明：longNoxGetLastError()；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 每个API都有一个返回值，通常返回值为0表示成功，返回值为1表示失败，当返回失败后，可以使用错误码API来获得具体错误原因。当API调用失败时，可使用该函数来获得失败具体原因，该函数只是返回错误码，如果想要知道错误码的具体信息，请从附录中进行查找。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 本命令没有参数。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注意：该API获得最后一次操作的结果错误码
+。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160595">3</a>．NoxOpen函数</span></font></p>
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table12">
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Long NoxOpen(long 
+		nKeyHandle,char * userPin)；</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Parameters</span></font></td>
+	</tr>
+	<tr>
+		<td width="167" valign="top" style="width: 125.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">NKeyHandle</span></font></td>
+		<td width="449" valign="top" style="width: 336.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]加密锁Handle</span></font></td>
+	</tr>
+	<tr>
+		<td width="167" valign="top" style="width: 125.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">UserPin</span></font></td>
+		<td width="449" valign="top" style="width: 336.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]用户密码（通过设号工具进行设置）</span></font></td>
+	</tr>
+	<tr>
+		<td width="167" valign="top" style="width: 125.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">ReturnValue</span></font></td>
+		<td width="449" valign="top" style="width: 336.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="167" valign="top" style="width: 125.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">0</span></font></td>
+		<td width="449" valign="top" style="width: 336.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">成功,加密锁打开</span></font></td>
+	</tr>
+	<tr>
+		<td width="167" valign="top" style="width: 125.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&gt;0</span></font></td>
+		<td width="449" valign="top" style="width: 336.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">失败，可使用NoxGetLastError来获得错误码。</span></font></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 功能说明：long 
+NoxOpen(long nKeyHandle,char * userPin)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在找到加密锁后，可通过加密锁的Handle及正确的用户密码来打开加密锁，只有在正确打开加密锁后才可以进行读写等操作。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数1:整数型,加密锁句柄,通过NOXFIND取得的加密锁句柄数组之一.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数2:文本型,用户密码,[in]用户密码（通过设号工具事先进行设置）</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 该函数必须与NoxClose成对使用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<a name="_Toc176160596">4</a>．NoxClose函数</span></font></p>
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table13">
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Long NoxClose(long nKeyHandle)；</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Parameters</span></font></td>
+	</tr>
+	<tr>
+		<td width="161" valign="top" style="width: 120.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">nKeyHandle</span></font></td>
+		<td width="456" valign="top" style="width: 341.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]加密锁Handle</span></font></td>
+	</tr>
+	<tr>
+		<td width="161" valign="top" style="width: 120.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">ReturnValue</span></font></td>
+		<td width="456" valign="top" style="width: 341.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="161" valign="top" style="width: 120.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">0</span></font></td>
+		<td width="456" valign="top" style="width: 341.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">成功,加密锁关闭</span></font></td>
+	</tr>
+	<tr>
+		<td width="161" valign="top" style="width: 120.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&gt;0</span></font></td>
+		<td width="456" valign="top" style="width: 341.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">失败，可使用NoxGetLastError来获得错误码。</span></font></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<font size="2"><span style="font-family: 宋体">使用说明：long 
+NoxClose(long nKeyHandle)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+该函数用来关闭加密锁，加密锁在关闭后必须重新再次打开才可以进行其他读写的操作。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数1:整数型,加密锁句柄,通过NOXFIND取得的加密锁句柄.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 该函数必须与NoxOpen成对使用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<a name="_Toc176160597">5</a>．NoxReadStorage函数</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 只有在打开加密锁之后，才可以调用该函数。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 掉电保持数据区:指关闭电脑后数据还存在于加密狗中
+，下次开电脑数据还存在。</span></font></p>
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table14">
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">long NoxReadStorage(long 
+		nKeyHandle ,long page, &nbsp;unsigned char * pBuffer )；</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Parameters</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nKeyHandle</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]加密锁Handle</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Page</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in] 页号, 支持4页(0,1,2,3)</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pBuffer</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[Out] 读取的结果存储在该参数所指定的数据区内，NOX2每一页的掉电保持区的大小为64字节，因此在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据。</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Return Value</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">0</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">成功,
+		加密锁读取成功，数据已保存到pBuffer中。</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">1</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">失败，可使用NoxGetLastError来获得错误码。</span></font></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 使用说明：long 
+NoxReadStorage(long nKeyHandle ,long page, &nbsp;unsigned char * pBuffer )；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 该函数用来读取加密锁掉电保持数据区（FLASH），在调用该函数之前，应该先分配最少64字节的存储数据的数据区。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 参数1：整数型,加密锁句柄,通过NOXFIND取得的加密锁句柄数组之一.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 参数2：整数型,[in]
+页号, 支持4页(0,1,2,3)</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 参数3：字节型数组,64位长, 
+[Out] 读取的结果存储在该参数所指定的数据区内，NOX2每一页的掉电保持区的大小为64字节，因此在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp; 只有在打开加密锁之后，才可以调用该函数。 </font> </span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 掉电保持数据区:指关闭电脑后数据还存在于加密狗中，下次开电脑数据还存在。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp; <a name="_Toc183252537">6</a>．NoxWriteStorage函数</span></font></p>
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table15">
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">long NoxWriteStorage(long 
+		nKeyHandle,long page, &nbsp;unsigned char * pBuffer )；</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Parameters</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nKeyHandle</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]加密锁Handle</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Page</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in] 页号, 支持4页(0,1,2,3)</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pBuffer</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in] 写入加密锁的数据,NOX2每一页的掉电保持区的大小为64字节，因此在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据。</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Return Value</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">0</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">成功,
+		加密锁读取成功，数据已保存到加密锁。</span></font></td>
+	</tr>
+	<tr>
+		<td width="147" valign="top" style="width: 110.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">1</span></font></td>
+		<td width="469" valign="top" style="width: 351.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">失败，可使用NoxGetLastError来获得错误码。</span></font></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 使用说明：long 
+NoxWriteStorage(long nKeyHandle,long page, &nbsp;unsigned char * pBuffer )；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 该函数用来写入加密锁掉电保持数据区（FLASH），在调用该函数之前，应该先分配最少64字节的存储数据的数据区。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 参数1：整数型,加密锁句柄,通过NOXFIND取得的加密锁句柄数组之一.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 参数2：整数型,[in]
+页号, 支持4页(0,1,2,3)</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 参数3：字节型数组,64位长, 
+[Out] 读取的结果存储在该参数所指定的数据区内，NOX2每一页的掉电保持区的大小为64字节，因此在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp; 只有在打开加密锁之后，才可以调用该函数。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp; 只读属性的页不允许写入并返回失败。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 掉电保持数据区:指关闭电脑后数据还存在于加密狗中，下次开电脑数据还存在。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160598">7</a>．NoxReadMem函数</span></font></p>
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table16">
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Long NoxReadMem(long 
+		nKeyHandle,unsigned char * pBuffer)；</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Parameters</span></font></td>
+	</tr>
+	<tr>
+		<td width="134" valign="top" style="width: 100.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">nKeyHandle</span></font></td>
+		<td width="482" valign="top" style="width: 361.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]加密锁Handle</span></font></td>
+	</tr>
+	<tr>
+		<td width="134" valign="top" style="width: 100.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">pBuffer</span></font></td>
+		<td width="482" valign="top" style="width: 361.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[out]读取的结果存储在该参数所指定的数据区内，NOX内存区大小为8字节，在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据。</span></font></td>
+	</tr>
+	<tr>
+		<td width="134" valign="top" style="width: 100.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">ReturnValue</span></font></td>
+		<td width="482" valign="top" style="width: 361.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="134" valign="top" style="width: 100.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">0</span></font></td>
+		<td width="482" valign="top" style="width: 361.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">成功,加密锁读取成功，数据已保存到pBuffer中。</span></font></td>
+	</tr>
+	<tr>
+		<td width="134" valign="top" style="width: 100.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&gt;0</span></font></td>
+		<td width="482" valign="top" style="width: 361.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">失败，可使用NoxGetLastError来获得错误码。</span></font></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 使用说明：long 
+NoxReadMem(long nKeyHandle,unsigned char * pBuffer)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;
+该函数用来读取加密锁内存数据区，在调用该函数之前，应该先最少分配8字节大小的存取数据的数据区。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 参数1:整数型,加密锁句柄,通过NOXFIND取得的加密锁句柄数.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 参数2:字节型数组,8位长,[out]读取的结果存储在该参数所指定的数据区内，NOX内存区大小为8字节，在使用前应分配好合配大小的数据区以保证能够正确的容纳相应的数据。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 内存区（几个字节）中的数据掉电后即消失。也就是说关闭电脑后,数据将不再存在,只用于临时读取资料用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp; 只有在打开加密锁后才可以调用该函数。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160599">8</a>．NoxWriteMem函数</span></font></p>
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none" id="table17">
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Long NoxWriteMem(long 
+		nKeyHandle,unsigned char * pBuffer)；</span></font></td>
+	</tr>
+	<tr>
+		<td width="616" colspan="2" valign="top" style="width: 462.25pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">Parameters</span></font></td>
+	</tr>
+	<tr>
+		<td width="154" valign="top" style="width: 115.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">NKeyHandle</span></font></td>
+		<td width="462" valign="top" style="width: 346.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]加密锁Handle</span></font></td>
+	</tr>
+	<tr>
+		<td width="154" valign="top" style="width: 115.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">PBuffer</span></font></td>
+		<td width="462" valign="top" style="width: 346.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">[in]将要写入的数据,最大8字节。</span></font></td>
+	</tr>
+	<tr>
+		<td width="154" valign="top" style="width: 115.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">ReturnValue</span></font></td>
+		<td width="462" valign="top" style="width: 346.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&nbsp;</span></font></td>
+	</tr>
+	<tr>
+		<td width="154" valign="top" style="width: 115.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">0</span></font></td>
+		<td width="462" valign="top" style="width: 346.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">成功,加密锁写入成功，数据已保存到加密锁内存区中。</span></font></td>
+	</tr>
+	<tr>
+		<td width="154" valign="top" style="width: 115.4pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">&gt;0</span></font></td>
+		<td width="462" valign="top" style="width: 346.85pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">失败，可使用NoxGetLastError来获得错误码。</span></font></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 使用说明：long 
+NoxWriteMem(long nKeyHandle,unsigned char * pBuffer)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 该函数用来写入用户数据到加密锁内存数据区,其中的数据在掉电后即消失。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数1:整数型,加密锁句柄,通过NOXFIND取得的加密锁句柄数.[in]加密锁Handle</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数2:字节型数组,8位长,[in]将要写入的数据,最大8字节。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 内存区（几个字节）中的数据掉电后即消失。也就是说关闭电脑后,数据将不再存在,只用于临时读取资料用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 只有打开加密锁后才可以调用该函数。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp; <a name="_Toc176160607">四．NOX</a>２应用程序API使用指南</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160608">1</a>．调用过程</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOX应用程序API的调用是有顺序的，软件厂商在软件中使用时应遵循该规则：</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160609">2</a>．加密锁操作顺序</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在软件中使用应用程序API之前，应该使用NOX设号工具进行如下设置：</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1）设置加密锁超级用户密码</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2）通过超级密码和种子码生成用户密码</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3）设置应用程序标识</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4）设置加密 锁掉电保持数据区读写属性</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5）设置加密锁掉电保持数据区</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3．在应用程序中一般编程过程：</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第一步：找到电脑上连接的加密锁并得到每个加密锁的Handle，这些通过加密锁查找API来操作：NoxFind</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第二步：通过Handle及用户密码打开指定加密锁(NoxOpen)</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第三步：加密锁打开后，即可进行如下操作：</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 读写掉电保护存储区(NoxReadStorage，NoxWriteStorage)</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 读写内存区(NoxReadMem，NoxWriteMem)；</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第四步：完成所有加密锁操作后关闭加密锁（NoxClose）。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在以上的操作过程中，调用失败时可以使用NoxGetLastError来得到出错的原因。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;<a name="_Toc176160610">&nbsp; 五．使用技巧与常见问题</a></span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160611">1</a>．如何判断加密锁已超过时间限制或次数限制？</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当加密锁超出时间或次数限制后，加密锁通过操作API将无法使用，也即无法对加密进行读写操作及密码验证操作，可以错误码判断加密锁已过期或超过次数限制，其它API仍可使用。</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">同时，如果加密锁超出时间或次数限制，其指示灯将持续不停地快速闪烁，此时可确定加密锁已超出时间或次数限制。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a name="_Toc176160612">2</a>．加密锁超过时间限制或次数限制后是否还能生成解除请求？</span></font></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">可以，最终用户可在任何时候生成解除请求，并将生成的请求文件发送给开发商以获得相应的解除文件。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp; <a name="_Toc176160613">六．错误码</a>查询</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+注意：在错误码中有很多错误描述一样的错误码，这是为了进行错误诊断定位而设计的，如果对错误码的错误原因有疑问，可以将该错误码及操作过程发送到北京世纪龙脉科技有限公司获得详细说明。</font></span></p>
+<p class="MsoNormal" style="line-height: 150%" align="center"><font size="2">
+<span style="font-family: 宋体">&nbsp;</span></font></p>
+<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="579" style="width: 434.4pt; border-collapse: collapse; margin-left: 4.65pt" id="table18">
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: 1.5pt solid windowtext; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">错误码</font></span></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.5pt solid windowtext; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">错误描述</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.5pt solid windowtext; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">错误码</font></span></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: 1.5pt solid windowtext; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">错误描述</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">0</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">操作成功</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">43</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">超级密码不合法</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">1</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">未找到该应用程序ID的加密锁</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">44</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">超级密码格式错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">2</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">参数不合法</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">45</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">超级密码不合法</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">3</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">加载HID驱动失败</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">46</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">4</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">加载HID驱动失败</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">47</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">用户密码格式错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">5</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">加载HID函数失败，操作系统错误</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">48</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">6</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">加载HID函数失败，操作系统错误</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">49</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">加密锁未打开</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">7</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">无该HID设备</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">50</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">8</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">无该HID设备</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">51</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">9</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">无效Key句柄</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">52</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">10</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID驱动未打开</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">53</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">11</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">无该HID设备</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">54</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">唯一ID格式错误</span></font></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">12</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID驱动未打开</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">55</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">唯一ID格式错误</span></font></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">13</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID读操作错误</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">56</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">14</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">无该HID设备</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">57</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">15</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID驱动未打开</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">58</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">16</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID写操作错误</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">59</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">17</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID写操作错误</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">60</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">18</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID读操作错误</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">61</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">19</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">初始化失败</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">62</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">20</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">初始化失败</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">63</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">21</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">未找到加密锁</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">64</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">22</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">65</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">23</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">66</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">24</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">67</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">25</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">权限不足</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">68</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">26</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">69</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">27</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">70</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">28</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">71</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">29</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID驱动打开失败</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">72</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">30</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">73</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">加密锁已死锁</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">31</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">74</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">32</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">75</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">33</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">用户密码错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">76</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">超级密码错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">34</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">77</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">用户密码错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">35</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">HID驱动打开失败</span></font></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">78</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">36</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">79</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">37</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">80</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">加密锁打开不正确</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">38</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">81</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">权限不足</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">39</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">用户密码不合法</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">82</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">40</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">83</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">41</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">超级密码错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">84</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">对只读区域写操作失败</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">42</span></font></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">内部错误</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center">
+		<font size="2"><span style="font-family: 宋体">85</span></font></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.5pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">未知错误</font></span></td>
+	</tr>
+	<tr style="height: 21.0pt">
+		<td width="68" nowrap style="width: 50.75pt; height: 21.0pt; border-left: 1.5pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">错误码</font></span></td>
+		<td width="227" nowrap style="width: 170.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">错误描述</font></span></td>
+		<td width="87" nowrap style="width: 65.0pt; height: 21.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">错误码</font></span></td>
+		<td width="198" nowrap style="width: 148.65pt; height: 21.0pt; border-left: medium none; border-right: 1.5pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
+		<p class="MsoNormal" style="line-height: 150%" align="center"><span style="font-family: 宋体">
+		<font size="2">错误描述</font></span></td>
+	</tr>
+</table>
+<p class="MsoNormal" style="line-height: 150%"><span lang="EN-US">&nbsp;</span></p>
+<p>　</p>
+<hr />
+<table cellspacing="0" cellpadding="0" width="100%" border="0" id="table19">
+  <tbody>
+    <tr>
+      <td align="middle" width="100%" height="100%">版权所有&nbsp;&nbsp; 大连大有吴涛易语言软件开发有限公司&nbsp;&nbsp; 电话:86-0411-88995831&nbsp;&nbsp; 传真:86-0411-88995834</td>
+    </tr>
+  </tbody>
+</table>
+<p>　</p>
+
+</body>
+
+</html>

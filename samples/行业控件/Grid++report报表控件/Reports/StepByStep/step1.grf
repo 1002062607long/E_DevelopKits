@@ -1,0 +1,20 @@
+Object Report
+	Version='2.0'
+	Object Font
+		Name='ËÎÌו'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Name='A4'
+		Size=9
+		Width=21
+		Height=29.7
+		LeftMargin=2.5
+		TopMargin=2.5
+		RightMargin=2.5
+		BottomMargin=2.5
+		Oriention=Portriat
+	End
+End

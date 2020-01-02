@@ -1,0 +1,116 @@
+Object Report
+	Version='4.0'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=105000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+	End
+	Object DetailGrid
+		PrintAdaptMethod=ResizeToFit
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select top 10 c.CustomerID, c.CompanyName, sum(o.Quantity*o.UnitPrice) As SumAmt\r\nfrom [Order Details] o, Orders m, customers c\r\nwhere o.OrderID=m.OrderID and m.CustomerID=c.CustomerID\r\ngroup by c.CustomerID, c.CompanyName\r\norder by sum(o.Quantity*o.UnitPrice) desc'
+			Items Field
+				Item
+					Name='RowNo'
+					Type=Integer
+				End
+				Item
+					Name='CustomerID'
+				End
+				Item
+					Name='CompanyName'
+				End
+				Item
+					Name='SumAmt'
+					Type=Currency
+					Format='$#,##0.00'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='CustomerID'
+				Width=1.79917
+			End
+			Item
+				Name='CompanyName'
+				Width=2.19604
+			End
+			Item
+				Name='SumAmt'
+				Width=2.40771
+			End
+			Item
+				Name='RowNo'
+				Width=1.00542
+			End
+		End
+		Object ColumnContent
+			Items ColumnContentCell
+				Item
+					Column='CustomerID'
+					DataField='CustomerID'
+				End
+				Item
+					Column='CompanyName'
+					DataField='CompanyName'
+				End
+				Item
+					Column='SumAmt'
+					TextAlign=MiddleRight
+					DataField='SumAmt'
+				End
+				Item
+					Column='RowNo'
+					FreeCell=T
+					Items Control
+						Item
+							Type=SystemVarBox
+							Name='SystemVarBox1'
+							Dock=Fill
+							SystemVar=RowNo
+						End
+					End
+				End
+			End
+		End
+		Object ColumnTitle
+			Object Font
+				Name='宋体'
+				Size=105000,0
+				Bold=T
+				Charset=134
+			End
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='RowNo'
+					Text='序号'
+				End
+				Item
+					GroupTitle=F
+					Column='CustomerID'
+					TextAlign=MiddleCenter
+					Text='客户编号'
+				End
+				Item
+					GroupTitle=F
+					Column='CompanyName'
+					TextAlign=MiddleCenter
+					Text='公司名称'
+				End
+				Item
+					GroupTitle=F
+					Column='SumAmt'
+					TextAlign=MiddleCenter
+					Text='销售总金额'
+				End
+			End
+		End
+	End
+End

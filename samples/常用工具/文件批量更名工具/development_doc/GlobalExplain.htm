@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>全局变量使用说明</title>
+
+
+
+<link href="css/e-f_rename.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+.style2 {color: #0033CC}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%"  border="0">
+  <tr>
+    <td class="e-f_rename">E-F_Rename</td>
+    <td><div align="right"><img src="images/mylogo.gif" width="124" height="64"></div></td>
+  </tr>
+</table>
+<br>
+<hr>
+<p><br>
+  <span class="small_title">全局变量使用说明</span></p>
+<p><img src="images/Global.gif" width="368" height="148"></p>
+<table width="100%"  border="1">
+  <tr>
+    <td width="19%"><span class="style2">全局变量</span></td>
+    <td width="23%"><div align="center">系统状态</div></td>
+    <td width="58%"><div align="center">描述</div></td>
+  </tr>
+  <tr>
+    <td rowspan="3"><span class="style2">全局_旧文件名<br>
+      全局_中间变量<br>
+全局_新文件名</span></td>
+    <td>开始命名按钮被单击前</td>
+    <td>用户通过打开多文档对话框、选择目录、拖放3种方式添加文件到系统，全局_旧文件名存放从磁盘读入的大批量的文件名，若自动预览 = 开，全局_新文件名存放根据用户选择的不同规则新构建的文件名(构建的数量取决于用户的设置)；若自动预览 = 关，则全局_新文件名为空 <br>
+      若工具条的‘预览’按钮被单击和右键菜单的‘预览’被选择，则构建新文件名的数量 = 全局_文件数量</td>
+  </tr>
+  <tr>
+    <td>开始命名按钮被单击</td>
+    <td>全局_中间变量←全局_旧文件名<br>
+    全局_旧文件名←全局_新文件名</td>
+  </tr>
+  <tr>
+    <td>撤消按钮被单击</td>
+    <td>全局_旧文件名←全局_中间变量</td>
+  </tr>
+  <tr>
+    <td><span class="style2">全局_文件个数</span></td>
+    <td>任何</td>
+    <td>保存当前系统获得的文件总数</td>
+  </tr>
+  <tr>
+    <td><span class="style2">全局_程序设置</span></td>
+    <td>任何</td>
+    <td>保存系统的各项设置，控制系统的各项动作</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

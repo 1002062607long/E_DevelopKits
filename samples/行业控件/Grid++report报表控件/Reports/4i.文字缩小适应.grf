@@ -1,0 +1,207 @@
+Object Report
+	Version='4.5'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+	End
+	Object DetailGrid
+		Object Font
+			Name='宋体'
+			Size=142500,0
+			Weight=400
+			Charset=134
+		End
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select * from categories\r\n'
+			Items Field
+				Item
+					Name='CategoryID'
+					Type=Integer
+				End
+				Item
+					Name='CategoryName'
+				End
+				Item
+					Name='Description'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='CategoryID'
+				Width=2.98979
+			End
+			Item
+				Name='CategoryName'
+				Width=3.59833
+			End
+			Item
+				Name='Description'
+				Width=4.39208
+			End
+		End
+		Object ColumnContent
+			CanGrow=T
+			Height=0.79375
+			Items ColumnContentCell
+				Item
+					Column='CategoryID'
+					TextAlign=MiddleRight
+					DataField='CategoryID'
+				End
+				Item
+					Column='CategoryName'
+					DataField='CategoryName'
+				End
+				Item
+					Column='Description'
+					WordWrap=T
+					ShrinkFontToFit=T
+					DataField='Description'
+				End
+			End
+		End
+		Object ColumnTitle
+			BackColor=Silver
+			Height=0.79375
+			RepeatStyle=OnPage
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='CategoryID'
+					TextAlign=MiddleCenter
+					Text='分类编号'
+				End
+				Item
+					GroupTitle=F
+					Column='CategoryName'
+					TextAlign=MiddleCenter
+					Text='分类名称'
+				End
+				Item
+					GroupTitle=F
+					Column='Description'
+					Object Font
+						Name='宋体'
+						Size=105000,0
+						Weight=400
+						Charset=134
+					End
+					TextAlign=MiddleCenter
+					Text='内容格按需缩小字体'
+				End
+			End
+		End
+	End
+	Items Parameter
+		Item
+			Name='Comment'
+			Value='演示文字自动缩小适应输出区域。\r\n\r\n通过设定文字部件框的‘按需缩小字体’属性为‘是’，可以保证文字框显示文字都完整显示出来。\r\n\r\n注意：‘按需缩小字体’属性仅对报表打印生成有效。'
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=0.978958
+			Items Control
+				Item
+					Type=StaticBox
+					Name='StaticBox2'
+					Object Font
+						Name='隶书'
+						Size=142500,0
+						Bold=T
+						Charset=134
+					End
+					Left=9.18104
+					Top=0.185208
+					Width=6.74688
+					Height=0.555625
+					TextAlign=MiddleRight
+					Text='北风公司销售管理系统报表'
+				End
+				Item
+					Type=Line
+					Name='Line1'
+					Top=0.79375
+					Width=16.1925
+					PenWidth=2
+				End
+			End
+		End
+		Item
+			Type=PageFooter
+			Height=0.582083
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox1'
+					Left=6.58813
+					Width=4.39208
+					Height=0.396875
+					TextAlign=MiddleRight
+					Text='共[#SystemVar(PageCount)#]页 第[#SystemVar(PageNumber)#]页'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			CanGrow=T
+			Height=3.41313
+			Object Font
+				Name='宋体'
+				Size=142500,0
+				Weight=400
+				Charset=134
+			End
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Center=Horizontal
+					Left=2.2225
+					Top=1.00542
+					Width=11.5888
+					Height=1.19063
+					ShrinkFontToFit=T
+					WordWrap=T
+					TextAlign=TopLeft
+					Text='通过设定文字部件框的‘按需缩小字体’属性为‘是’，可以保证文字框所有显示文字都显示出来。\r\n注意：‘按需缩小字体’属性仅对报表打印生成有效。'
+				End
+				Item
+					Type=StaticBox
+					Name='StaticBox3'
+					Center=Horizontal
+					Left=2.19604
+					Top=2.59292
+					Width=11.6152
+					Height=0.396875
+					ShrinkFontToFit=T
+					Text='通过缩小字体将文字完整显示出来'
+				End
+				Item
+					Type=StaticBox
+					Name='StaticBox4'
+					Object Font
+						Name='宋体'
+						Size=142500,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=3.73063
+					Top=0.211667
+					Width=8.54604
+					Height=0.555625
+					Text='进入预览视图体验按需缩小字体效果'
+				End
+			End
+		End
+	End
+End

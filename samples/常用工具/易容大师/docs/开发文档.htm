@@ -1,0 +1,345 @@
+<html><head>
+<title>《易容大师》开发文档</title>
+<style type="text/css">
+	body
+	{
+		font-size:14px;
+		line-height:20px;
+	}
+	ul
+	{
+		font-size:16px;
+		line-height:22px;
+		margin-left:0px;	
+	}
+	li
+	{
+		list-style-type:none;
+	}
+	a:hover
+	{	background-color:#ccc;	}
+	table
+	{	border-collapse:collapse;
+		border-color:#666666;			
+	}
+	td
+	{
+		border-color:#666666;
+		font-size:12px;
+		line-height:20px;
+		padding:2px;
+	}
+	
+</style>
+</head>
+<body>
+<h1 align="center"><a name="top">《易容大师》开发文档</a></h1>
+<p align="center"><font color="gray">曾劲松 2006.10.29 <a href="http://www.dywt.com.cn">http://www.dywt.com.cn</a></font></p>
+<ul>
+	<li><a href="#design">总体设计原理</a></li>
+	<li><a href="#main">主程序</a></li>
+	<li><a href="#fileFormat">文件格式</a></li>
+	<li><a href="#relations">文件及模块调用包含关系图</a></li>
+	<li><a href="#coms">各模块的作用及实现机制简介</a></li>
+</ul>
+<h3><a name="design">总体设计原理</a></h3>
+<p>易容大师是一款通过使用图形图像处理软件来设计软件界面，然后对图片按控件进行分割然后“贴”到易语言的图形按钮、画板、标签等控件和上来实现对易语言程序界面的美化和换肤。前期的界面设计属于美工的范畴，这里且不讨论。《易容大师》主程序主要要实现的就是提供方便的功能对图片进行分割（甚至支持自动切割），生成独立的皮肤文件，并根据分割块类型自动创建窗口和控件；易容大师模块则在换肤时能够从皮肤文件中读取图片块，自动把图片贴到正确的控件上去；如果窗口大小被改变，还能够完美实现窗口同步缩放。</p>
+<p>为了便于精准地对图片进行分割，该软件提供了动态绘制、捕捉辅助线、重画修改及键盘微调等功能；为了自动创建窗口和控件，使用了易语言颇有创意的易向导方式(易向导模版文件名为“易容大师模版.e”)；而为了实现换肤、控件同步缩放、超酷滑块条等，则深入使用了易模块功能。</p>
+<p align="right"><a href="#top">↑目录</a></p>
+<h3><a name="main">主程序</a></h3>
+<p>主程序源文件为eskin.e，编译后文件名为eskin.exe。主程序的编写采用了面向对象的编程思想，实现了两个核心类：“控件矩形”和“辅助线”。</p>
+<p>控件矩形<br />
+该类主要用来记录在主界面上绘制的所有控件矩形的相关信息，包括位置、大小、控件类型、控件标记、锚点信息、是否为滑块等等，同时负责在界面上绘制自身。该类的属性和方法如下表所示。<br />
+</p>
+<table width="600" border="1" align="center">
+  <tr>
+    <td colspan="2">控件矩形类</td>
+  </tr>
+  <tr>
+    <td align="left">&lt;私有属性&gt;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="157" align="right">私标记</td>
+    <td width="427">该矩形所代表的控件的标记</td>
+  </tr>
+  <tr>
+    <td align="right">私备注</td>
+    <td>关于该控件的备注信息，用于方便根据名字选择该控件，同时在生成真正的控件时会以备注命名。</td>
+  </tr>
+  <tr>
+    <td align="right">私控件类型</td>
+    <td>控件的类型（可以是图形按钮、画板、标签、水平画块等）</td>
+  </tr>
+  <tr>
+    <td align="right">私横坐标</td>
+    <td>控件的横坐标</td>
+  </tr>
+  <tr>
+    <td align="right">私纵坐标</td>
+    <td>控件的纵坐标</td>
+  </tr>
+  <tr>
+    <td align="right">私宽度</td>
+    <td>控件的宽度</td>
+  </tr>
+  <tr>
+    <td align="right">私高度</td>
+    <td>控件的高度</td>
+  </tr>
+  <tr>
+    <td align="right">私锚住左边</td>
+    <td>是否锚住控件的左边（用于窗口同步缩放）</td>
+  </tr>
+  <tr>
+    <td align="right">私锚住上边</td>
+    <td>是否锚住控件的上边（用于窗口同步缩放）</td>
+  </tr>
+  <tr>
+    <td align="right">私锚住右边</td>
+    <td>是否锚住控件的右边（用于窗口同步缩放）</td>
+  </tr>
+  <tr>
+    <td align="right">私锚住下边</td>
+    <td>是否锚住控件的下边（用于窗口同步缩放）</td>
+  </tr>
+  <tr>
+    <td align="right">私滑条控件标记</td>
+    <td>如果控件类型为滑块，指定该滑块的滑条控件标记</td>
+  </tr>
+  <tr>
+    <td align="right">私显示控件标记</td>
+    <td>如果控件类型为滑块，指定不够现实滑块值的控件标记（易容大师会自动创建该标记的编辑框）</td>
+  </tr>
+  <tr>
+    <td align="right">私最小值</td>
+    <td>如果控件类型为滑块，指定该滑块的最小值</td>
+  </tr>
+  <tr>
+    <td align="right">私最大值</td>
+    <td>如果控件类型为滑块，指定该滑块的最大值</td>
+  </tr>
+  <tr>
+    <td align="right">私当前值</td>
+    <td>如果控件类型为滑块，指定该滑块的当前值</td>
+  </tr>
+  <tr>
+    <td align="right">私对齐方式</td>
+    <td>如果控件类型为滑块，指定该滑块与滑条的对齐方式</td>
+  </tr>
+  <tr>
+    <td align="right">私被选中</td>
+    <td>指示控件是否被选中，如果被选中，绘制时颜色会不一样</td>
+  </tr>
+  <tr>
+    <td align="right">私图片数据</td>
+    <td>该控件对应的四种状态的图片字节集</td>
+  </tr>
+  <tr>
+    <td>&lt;主要方法&gt;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>从字节集读入</td>
+    <td>反系列化，用来从磁盘读入文件时构造控件矩形类的对象</td>
+  </tr>
+  <tr>
+    <td>绘制矩形到画板</td>
+    <td>将控件矩形绘制到主界面，需考虑到缩放比例、控件类型、锚点信息等</td>
+  </tr>
+  <tr>
+    <td>输出为文本</td>
+    <td>将控件矩形实例转化为文本串，用于调试。类似于toString()方法</td>
+  </tr>
+  <tr>
+    <td>输出为字节集</td>
+    <td>将控件矩形的信息生成为字节集数据，用于存盘。类似于serialize()方法</td>
+  </tr>
+  <tr>
+    <td>包含点</td>
+    <td>判断控件矩形是否包含某点，用来判断用户通过鼠标选择</td>
+  </tr>
+  <tr>
+    <td>其他很多取、置方法</td>
+    <td>用来读写私有属性</td>
+  </tr>
+</table>
+<p>辅助线类<br />
+辅助线用来方便用户绘制和调整控件矩形，以更精确的方式来切割图片。</p>
+<table width="600" border="1" align="center">
+  <tr>
+    <td colspan="2">辅助线类</td>
+  </tr>
+  <tr>
+    <td>&lt;私有属性&gt;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="117" align="right">私方向</td>
+    <td width="467">“真”为水平，“假”为竖直</td>
+  </tr>
+  <tr>
+    <td align="right">私位置</td>
+    <td>辅助线的位置</td>
+  </tr>
+  <tr>
+    <td align="right">私被选中</td>
+    <td>辅助线是否被选中</td>
+  </tr>
+  <tr>
+    <td>&lt;方法&gt;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>从字节集读入</td>
+    <td>用来从磁盘文件的数据中重建辅助线对象</td>
+  </tr>
+  <tr>
+    <td>绘制到画板</td>
+    <td>将自身绘制到画板</td>
+  </tr>
+  <tr>
+    <td>输出为字节集</td>
+    <td>生成对戏那个的字节集表示，用于存盘</td>
+  </tr>
+</table>
+<p><br />
+  在用户通过画矩形的方式将图片划分好区域并设定要相应的属性后，易容大师根据用户的工作来将这些图片分割成小图片，同时生成一个临时的皮肤配置文件（扩展名为esk_）。因为用户有可能需要修改生成的小块图片，所以并没有一次生成独立的皮肤文件。然后再根据该临时皮肤配置文件，生成最终独立的皮肤文件（扩展名为esk）。关于皮肤位置文件(esk_)和独立的皮肤文件的文件格式的描述，请参阅“文件格式”一小结。</p>
+<p>如果是以易向导的方式来运行易容大师，则可以直接通过菜单“工程&gt;写入到易语言编程环境”来自动创建所有的窗体和控件！该向导通过复制模版窗口上已有控件的方式来创建新控件，并自动设置好位置和大小、锚点属性、滑块属性等。省去用户90%的控件创建和设置工作。易向导的模版文件为“易容大师模版.e”，主程序已将其作为图片资源包含进去了。</p>
+<p align="right"><a href="#top">↑目录</a></p>
+<h3><a name="fileFormat">文件格式</a></h3>
+<p>为了保存工程、生成皮肤，易容大师设计了两个个文件格式：易容大师工程文件、易容大师皮肤文件。</p>
+<p>易容大师工程文件，其扩展名为esp，即　E Skin Project的缩写，主要用来保存用户进行的控件矩形的绘制和设置的工作，以方便用户进行多时段的编辑。其格式如下：</p>
+<table width="692" border="1" align="center">
+  <tr>
+    <td width="288" height="233"><p>ESkinProject<br />
+      1.0<br />
+      1 0<br />
+      工程文件描述(供人阅读)(“易容大师工程文件1.0 http://www.goomoo.cn”)</p>    </td>
+    <td width="239"><p>        工程设置<br />
+      皮肤名，<br />
+        透明色，<br />
+        窗口标记，<br />
+        窗口宽度，<br />
+        窗口高度，<br />
+        可否调整大小，<br />
+        拖动窗口大小的控件标记<br />
+        <span lang="EN-US" xml:lang="EN-US">&lt;1.1</span>版本新增<span lang="EN-US" xml:lang="EN-US">&gt;</span>是否使用超级菜单<br />
+        超级菜单颜色设置<span lang="EN-US" xml:lang="EN-US">(10</span>个<span lang="EN-US" xml:lang="EN-US">)</span><br />
+        图片文件名<span lang="EN-US" xml:lang="EN-US">1</span><br />
+        图片文件名<span lang="EN-US" xml:lang="EN-US">2</span><br />
+        图片文件名<span lang="EN-US" xml:lang="EN-US">3</span><br />
+        图片文件名<span lang="EN-US" xml:lang="EN-US">4</span><br />
+    控件矩形的数目</p>    </td>
+    <td width="13">控件数据块1</td>
+    <td width="21">...</td>
+    <td width="13">控件数据块n</td>
+    <td width="13">辅助线的数目</td>
+    <td width="13">辅助线数据块1</td>
+    <td width="21">...</td>
+    <td width="13">辅助线数据块n</td>
+  </tr>
+</table>
+<p>易容大师皮肤文件，其扩展名为esk，即　E Skin 的缩写，用来保存最终生成的皮肤文件。 其格式如下表：</p>
+<table width="695" height="216" border="1" align="center">
+  <tr>
+    <td width="204">文件标识(ESKIN1.0)<br />
+      主版本号1<br />
+      次版本号1<br />
+      文件描述<br />
+      （“易容大师 皮肤文件1.1 http://www.goomoo.cn”）<br />
+      或<br />
+    (“易容大师 皮肤配置文件1.1 http://www.goomoo.cn”)</td>
+    <td width="312">工程设置<br />
+      皮肤名，<br />
+      透明色，<br />
+      窗口标记，<br />
+      窗口宽度，<br />
+      窗口高度，<br />
+      可否调整大小，<br />
+      拖动窗口大小的控件标记，<br />
+&lt;1.1版本新增&gt;是否使用超级菜单<br />
+如果使用，则保存超级菜单颜色设置(10个)<br />
+&lt;是否已注册&gt;<br />
+&lt;如果为独立版且不可调整大小，则有窗口图片&gt;</td>
+    <td width="13" bgcolor="#D4D0C8">主分割符</td>
+    <td width="13"><p>控件数据块1</p></td>
+    <td width="13" bgcolor="#D4D0C8">主分割符</td>
+    <td width="13">控件数据块2</td>
+    <td width="13" bgcolor="#D4D0C8">主分割符</td>
+    <td width="21">...</td>
+    <td width="13" bgcolor="#D4D0C8">主分割符</td>
+    <td width="16">控件数据块n</td>
+  </tr>
+</table>
+<p><br />
+  其中，主分割符为文本串：
+  !(&amp;^ (即Shift+[1976]) <br />
+其中控件数据块的格式如下：</p>
+<table width="630" border="1" align="center">
+  <tr>
+    <td width="13" rowspan="2">控件标记</td>
+    <td width="17" rowspan="2">控件类型</td>
+    <td width="17" rowspan="2">横坐标</td>
+    <td width="17" rowspan="2">纵坐标</td>
+    <td width="17" rowspan="2">宽度</td>
+    <td width="17" rowspan="2">高度</td>
+    <td width="17" rowspan="2">锚住左边</td>
+    <td width="17" rowspan="2"> 锚住上边</td>
+    <td width="17" rowspan="2"> 锚住右边</td>
+    <td width="17" rowspan="2">锚住下边</td>
+    <td width="17" rowspan="2">滑条控件标记</td>
+    <td width="17" rowspan="2">显示控件标记</td>
+    <td width="17" rowspan="2">最小值</td>
+    <td width="17" rowspan="2">最大值</td>
+    <td width="17" rowspan="2">当前值</td>
+    <td colspan="10"><p>如果是打包成独立文件，则还需要图片数据</p></td>
+    <td width="13" rowspan="2">主分割符</td>
+  </tr>
+  <tr>
+    <td width="20" height="92">#图片正常</td>
+    <td width="17">正常图片</td>
+    <td width="20">#图片鼠标经过</td>
+    <td width="17">鼠标经过图片</td>
+    <td width="20">#图片按下</td>
+    <td width="13">鼠标按下图片</td>
+    <td width="20">#图片固定</td>
+    <td width="17">禁止图片</td>
+    <td width="20">&lt;画板或标签&gt;</td>
+    <td width="42">图片数据(已不再分是固定还是平铺)</td>
+  </tr>
+</table>
+<p>此外，还有皮肤图片配置文件，扩展名为esk_，它的格式与esk文件格式差不多，只是每个控件矩形数据块中不包含实际的图片数据。</p>
+<p align="right"><a href="#top">↑目录</a></p>
+<h3><a name="relations">文件及模块调用包含关系图</a></h3>
+<p align="center">整个《易容大师》软件涉及到众多的文件和易模块，为方便理清其关系，特绘制文件及模块调用包含关系图如下。其中箭头表示源文件调用目的文件；圆角矩形的包含关系则表示文件作为资源被包含或模块的再封装。<br />
+  <img src="images/relations.gif" width="672" height="376" /></p>
+  <p align="right"><a href="#top">↑目录</a></p>
+<h3><a name="coms">各模块的作用及实现机制简介</a></h3>
+<p>1. 设置控件锚点模块(源文件名：anchors_ec.e，编译后文件名：anchors.ec)<br />
+  　　
+  主要作用：方便实现当主窗口的大小发生改变时，自动同步调整其控件的位置和大小。亦称窗口同步缩放。<br />
+　　
+实现机制：当调用模块的输出函数“设置控件锚点”时，模块将该控件的窗口句柄、离父窗口左、上、右、下的位置以及父窗口的旧窗口过程(WndProc)记录到全局数组中，同时子类化其父窗口，拦截父窗口的WM_SIZE消息，当父窗口的大小发生改变时，根据事先保存在全局数组中的信息调整子窗口的位置和大小；当调用输出函数“水平均分子控件”或“垂直均分子控件”时，模块子类化该窗口，拦截其WM_SIZE消息，当该窗口的大小发生改变是，模块统计其第一层子窗口的数目，计算每个子窗口的位置和大小，然后把它们摆放到合适的位置。整个模块的核心技术就是窗口子类化。  </p>
+<p>2. 选择文件夹模块(源文件名：bff_ec.e，编译后文件名：古木_选择文件夹.ec)<br />
+  　　
+  主要作用：打开一个文件夹浏览窗口，用于选择文件夹，同时允许创建文件夹。<br />
+　　
+实现机制：使用易语言自带的目录框和驱动器框实现的，很简单。  </p>
+<p>3. 置控件外形图片模块(源文件名：picRgn_ec.e，编译后文件名：置控件外形图片.ec)<br />
+  　　
+  主要作用：易语言提供一个“置外形图片”命令，该命令可以根据图片的指定透明色来设置窗口的外形，但不能改变控件的外形。此模块就是弥补这一点——可以根据图片来设置任何控件的外形！<br />
+　　
+实现机制：分析提供的图片，根据指定的透明色，不断使用API函数CreateRectRgn和CombineRgn来创建一个窗口区域，然后将该区域设置到该控件。  </p>
+<p>4. 高级滑块条模块(源文件名：trackbar_ec_free.e，编译后文件名：古木滑块条_免注册版.ec)<br />
+  　　
+  主要作用：根据任何现有的控件来构建滑块条，可以创建任意复杂和美观的滑块条。<br />
+　　
+实现机制：当用户调用创建滑块条函数时，模块子类化要作为滑块和滑条的控件，分别拦截其WM_LBUTTONDOWN、WM_LBUTTONUP消息，当鼠标在“滑块”上按下左键时，使用API函数SetTimer创建一个计时器，该计时器使得“滑块”跟着鼠标移动（当然在移动的过程中要判断滑块的位置是否超出了滑条，同时更新对应的数值显示框）；当鼠标在“滑块”上放开左键时，销毁该计时器。当鼠标在“滑条”上单击时，根据单击的位置计算“滑块”的值，同时移动“滑块”到正确的位置。  </p>
+<p>5. 易容大师主模块(源文件名：eskin_ec.e，编译后文件名：eskin.ec)<br />
+  　　
+  主要作用：将易容大师主程序生成的皮肤文件“穿”到指定的窗口上。<br />
+　　
+实现机制：该模块通过分析皮肤文件的内容，调整窗口和控件的位置和大小，按主程序中的设计方式设置控件的图片、锚点属性、滑块属性等，主要就是一个分析文件格式和设置控件属性的过程。该模块再次封装了设置控件锚点模块和高级滑块条模块，使用更为方便。  </p>
+<p align="right"><a href="#top">↑目录</a></p>
+</body>

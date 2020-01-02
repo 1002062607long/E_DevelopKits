@@ -1,0 +1,214 @@
+Object Report
+	Version='4.5'
+	Title='按单统计销售明细报表'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Size=256
+		LeftMargin=1.5
+		RightMargin=1.5
+	End
+	Object DetailGrid
+		IsCrossTab=T
+		FixCols=2
+		ColLineColor=3DDkShadow
+		RowLineColor=3DDkShadow
+		PrintAdaptMethod=ToNewPage
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select c.CompanyName,p.ProductName,d.Quantity,d.UnitPrice*d.Quantity as Amount\r\nfrom (Orders m inner join \r\n([Order Details] as d inner join Products p \r\non P.ProductID=D.ProductID) on m.OrderId=d.OrderId)\r\nleft join Customers c on c.CustomerID=m.CustomerID\r\nwhere d.ProductID<8\r\norder by c.CompanyName, p.ProductName'
+			Items Field
+				Item
+					Name='CompanyName'
+				End
+				Item
+					Name='ProductName'
+				End
+				Item
+					Name='Quantity'
+					Type=Integer
+					Format='0.#########;;#'
+				End
+				Item
+					Name='Amount'
+					Type=Currency
+					Format='$#,##0.00;;#'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='Amount'
+				Width=1.74625
+			End
+			Item
+				Name='CustomerName'
+				Width=2.67229
+			End
+			Item
+				Name='Qty'
+				Width=1.74625
+			End
+		End
+		Object ColumnContent
+			Height=0.608542
+			Items ColumnContentCell
+				Item
+					Column='Amount'
+					TextAlign=MiddleRight
+					DataField='Amount'
+				End
+				Item
+					Column='CustomerName'
+					DataField='CompanyName'
+				End
+				Item
+					Column='Qty'
+					TextAlign=MiddleRight
+					DataField='Quantity'
+				End
+			End
+		End
+		Object ColumnTitle
+			Height=1.00542
+			Object Font
+				Name='宋体'
+				Size=90000,0
+				Bold=T
+				Charset=134
+			End
+			RepeatStyle=OnPage
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='CustomerName'
+					TextAlign=MiddleCenter
+					Text='客户名称'
+				End
+				Item
+					GroupTitle=T
+					Name='DataTitle'
+					Items ColumnTitleCell
+						Item
+							GroupTitle=F
+							Column='Qty'
+							TextAlign=MiddleCenter
+							Text='数量'
+						End
+						Item
+							GroupTitle=F
+							Column='Amount'
+							TextAlign=MiddleCenter
+							Text='金额'
+						End
+					End
+					FreeCell=T
+					Items Control
+						Item
+							Type=FieldBox
+							Name='FieldBox1'
+							Dock=Fill
+							TextAlign=MiddleCenter
+							DataField='ProductName'
+						End
+					End
+				End
+			End
+		End
+		Object CrossTab
+			PercentFormat='0.##%'
+			HCrossFields='ProductName'
+			VCrossFields='CompanyName'
+		End
+	End
+	Items Parameter
+		Item
+			Name='Comment'
+			Value='演示一个具有两个交叉数据列的交叉表。'
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Object Font
+						Name='楷体_GB2312'
+						Size=120000,0
+						Bold=T
+						Charset=134
+					End
+					Anchor=[Top|Right]
+					Left=4.15396
+					Top=0.396875
+					Width=13.7054
+					Height=0.47625
+					Text='欢迎访问Grid++Report网站www.rubylong.cn，了解最新产品信息。'
+				End
+				Item
+					Type=Line
+					Name='Line1'
+					Anchor=[Left|Top|Right]
+					Top=1.00542
+					Width=17.9652
+					PenWidth=2
+				End
+			End
+		End
+		Item
+			Type=PageFooter
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox4'
+					Anchor=[Top|Right]
+					Left=15.1606
+					Top=0.396875
+					Width=2.59292
+					Height=0.608542
+					Text='第[#SystemVar(PageNumber)#]页 共[#SystemVar(PageCount)#]页'
+				End
+				Item
+					Type=MemoBox
+					Name='MemoBox3'
+					Left=0.211667
+					Top=0.396875
+					Width=6.19125
+					Height=0.608542
+					Text='打印时间：[#SystemVar(CurrentDateTime):yyyy年MM月dd日 HH:mm:ss#]'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			Height=1.40229
+			Items Control
+				Item
+					Type=StaticBox
+					Name='TitleBox'
+					Object Font
+						Name='宋体'
+						Size=150000,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=5.60917
+					Top=0.211667
+					Width=6.74688
+					Height=0.582083
+					TextAlign=MiddleCenter
+					Text='按客户与产品交叉分析报表'
+				End
+			End
+		End
+	End
+End

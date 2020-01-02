@@ -1,0 +1,59 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>系统基本数据类型 列表及其说明如下</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body>
+
+<p ALIGN="JUSTIFY"><font FACE="宋体" size="4" color="#008000"><strong>系统基本数据类型</strong></font><font
+FACE="宋体" size="3">列表及其说明如下：</font></p>
+
+<ol>
+  <li><p ALIGN="JUSTIFY"><a name="字节型"></a><font FACE="宋体" size="3"><strong>字节型</strong>。可容纳 
+    0 到 255 之间的数值。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="短整数型"></a><font FACE="宋体" size="3"><strong>短整数型</strong>。可容纳 
+    -32,768 到 32,767 之间的数值，尺寸为 2 个字节。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="整数型"></a><font FACE="宋体" size="3"><strong>整数型</strong>。可容纳 
+    -2,147,483,648 到 2,147,483,647 之间的数值，尺寸为 4 个字节。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="长整数型"></a><font FACE="宋体" size="3"><strong>长整数型</strong>。可容纳 
+    -9,223,372,036,854,775,808 到 9,223,372,036,854,775,807 之间的数值，尺寸为 8 
+    个字节。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="小数型"></a><font FACE="宋体" size="3"><strong>小数型</strong>。可容纳 
+    3.4E +/- 38 (7位小数) 之间的数值，尺寸为 4 个字节。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="双精度小数型"></a><font FACE="宋体" size="3"><strong>双精度小数型</strong>。可容纳 
+    1.7E +/- 308 (15位小数) 之间的数值，尺寸为 8 个字节。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="逻辑型"></a><font FACE="宋体" size="3"><strong>逻辑型</strong>。值只可能为“真”或“假”，尺寸为 
+    2 
+    个字节。“真”和“假”为系统预定义常量，其对应的英文常量名称为“true”和“false”。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="日期时间型"></a><font FACE="宋体" size="3"><strong>日期时间型</strong>。用作记录日期及时间，尺寸为 
+    8 个字节。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="文本型"></a><font FACE="宋体" size="3"><strong>文本型</strong>。用作记录一段文本，文本由以字节 
+    0 结束的一系列字符组成。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="字节集"></a><font FACE="宋体" size="3"><strong>字节集</strong>。用作记录一段字节型数据。字节集与字节数组之间可以互相转换，在程序中允许使用字节数组的地方也可以使用字节集，或者相反。字节数组的使用方法，譬如用中括号对（“[]”）加索引数值引用字节成员，使用数组型数值数据进行赋值等等，都可以被字节集所使用。两者之间唯一的不同是字节集可以变长，因此可把字节集看作可变长的字节数组。</p>
+    </font></li>
+  <li><p ALIGN="JUSTIFY"><a name="子程序指针"></a><font FACE="宋体" size="3"><strong>子程序指针</strong>。用作指向一个子程序，尺寸为 
+    4 
+    个字节。具有此数据类型的变量可以用来间接调用子程序。参见例程 
+    sample.e 中的相应部分。</font></p>
+  </li>
+</ol>
+
+<p ALIGN="JUSTIFY"><font FACE="宋体" size="3">　　在以上的基本数据类型中，字节型、短整数型、整数型、长整数型、小数型、双精度小数型被统称为“<strong>数值型</strong>”，它们之间可以任意转换。不过编程需要注意转换可能带来的精度丢失。譬如：将整数 
+257 转换为字节后的结果为 1 ，这是因为值 257 
+超出了字节型数据的最大上限 255 ，从而产生了溢出。</font></p>
+
+<p ALIGN="JUSTIFY"><font FACE="宋体" size="3">　　另外，<strong>通用型</strong>数据类型仅在系统内部使用，它能够匹配所有的系统基本数据类型、库定义数据类型、自定义数据类型。</font></p>
+</body>
+</html>

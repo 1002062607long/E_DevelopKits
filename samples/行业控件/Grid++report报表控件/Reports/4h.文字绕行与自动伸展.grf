@@ -1,0 +1,175 @@
+Object Report
+	Version='4.5'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+	End
+	Object DetailGrid
+		Object Font
+			Name='宋体'
+			Size=142500,0
+			Weight=400
+			Charset=134
+		End
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select * from categories'
+			Items Field
+				Item
+					Name='CategoryID'
+					Type=Integer
+				End
+				Item
+					Name='CategoryName'
+				End
+				Item
+					Name='Description'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='CategoryID'
+				Width=2.98979
+			End
+			Item
+				Name='CategoryName'
+				Width=3.59833
+			End
+			Item
+				Name='Description'
+				Width=4.39208
+			End
+		End
+		Object ColumnContent
+			CanGrow=T
+			Height=0.79375
+			Items ColumnContentCell
+				Item
+					Column='CategoryID'
+					TextAlign=MiddleRight
+					DataField='CategoryID'
+				End
+				Item
+					Column='CategoryName'
+					DataField='CategoryName'
+				End
+				Item
+					Column='Description'
+					BackColor=White
+					CanGrow=T
+					WordWrap=T
+					DataField='Description'
+				End
+			End
+		End
+		Object ColumnTitle
+			BackColor=Silver
+			Height=0.79375
+			RepeatStyle=OnPage
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='CategoryID'
+					TextAlign=MiddleCenter
+					Text='分类编号'
+				End
+				Item
+					GroupTitle=F
+					Column='CategoryName'
+					TextAlign=MiddleCenter
+					Text='分类名称'
+				End
+				Item
+					GroupTitle=F
+					Column='Description'
+					TextAlign=MiddleCenter
+					Text='说明'
+				End
+			End
+		End
+	End
+	Items Parameter
+		Item
+			Name='Comment'
+			Value='演示文字绕行和部件框与报表节的自动伸展。'
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=0.978958
+			Items Control
+				Item
+					Type=StaticBox
+					Name='StaticBox2'
+					Object Font
+						Name='隶书'
+						Size=142500,0
+						Bold=T
+						Charset=134
+					End
+					Left=9.18104
+					Top=0.185208
+					Width=6.74688
+					Height=0.555625
+					TextAlign=MiddleRight
+					Text='北风公司销售管理系统报表'
+				End
+				Item
+					Type=Line
+					Name='Line1'
+					Top=0.79375
+					Width=16.1925
+					PenWidth=2
+				End
+			End
+		End
+		Item
+			Type=PageFooter
+			Height=0.582083
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox1'
+					Left=6.58813
+					Width=4.39208
+					Height=0.396875
+					TextAlign=MiddleRight
+					Text='共[#SystemVar(PageCount)#]页 第[#SystemVar(PageNumber)#]页'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			CanGrow=T
+			Height=1.79917
+			Object Font
+				Name='宋体'
+				Size=142500,0
+				Weight=400
+				Charset=134
+			End
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Center=Horizontal
+					Left=2.2225
+					Top=0.211667
+					Width=11.5888
+					Height=1.19063
+					CanGrow=T
+					WordWrap=T
+					TextAlign=TopLeft
+					Text='通过设定文字部件框的‘文字绕行(WordWrap)’属性为‘是’，可以让超长的文字另起新行显示。如果将文字部件框的‘可伸展(CanExpand)’属性设为‘是’,这部件框的高度将自动进行伸展，以使所有的文字都可以完整的显示出来。3.0版中改进了文字绕行功能，纯数字与英文字符且中间不包括空格的超长文字也可以绕行显示'
+				End
+			End
+		End
+	End
+End

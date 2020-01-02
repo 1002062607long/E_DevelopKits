@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<EEditPlus>
+   <!-- The key words of the supported languages, don't touch them! -->
+   <Languages>
+        <Language name="c"  ext="c" commentLine="//" commentStart="/*" commentEnd="*/">
+            <Keywords name="instre1">if else switch case default break goto return for while do continue typedef sizeof NULL</Keywords>
+            <Keywords name="type1">void struct union enum char short int long double float signed unsigned const static extern auto register volatile</Keywords>
+        </Language>
+
+        <Language name="cpp" ext="h hpp hxx cpp cxx cc" commentLine="//" commentStart="/*" commentEnd="*/">
+            <Keywords name="instre1">if else switch case default break goto return for while do continue typedef sizeof NULL new delete throw try catch namespace operator this const_cast static_cast dynamic_cast reinterpret_cast true false null using typeid and and_eq bitand bitor compl not not_eq or or_eq xor xor_eq</Keywords>
+            <Keywords name="type1">void struct union enum char short int long double float signed unsigned const static extern auto register volatile bool class private protected public friend inline template virtual asm explicit typename</Keywords>
+        </Language>
+
+        <Language name="perl" ext="pl pm" commentLine="#">
+            <Keywords name="instre1">NULL __FILE__ __LINE__ __PACKAGE__ __DATA__ __END__ AUTOLOAD BEGIN CORE DESTROY END EQ GE GT INIT LE LT NE CHECK abs accept alarm and atan2 bind binmode bless caller chdir chmod chomp chop chown chr chroot close closedir cmp connect continue cos crypt dbmclose dbmopen defined delete die do dump each else elsif endgrent endhostent endnetent endprotoent endpwent endservent eof eq eval exec exists exit exp fcntl fileno flock for foreach fork format formline ge getc getgrent getgrgid getgrnam gethostbyaddr gethostbyname gethostent getlogin getnetbyaddr getnetbyname getnetent getpeername getpgrp getppid getpriority getprotobyname getprotobynumber getprotoent getpwent getpwnam getpwuid getservbyname getservbyport getservent getsockname getsockopt glob gmtime goto grep gt hex if index int ioctl join keys kill last lc lcfirst le length link listen local localtime lock log lstat lt m map mkdir msgctl msgget msgrcv msgsnd my ne next no not oct open opendir or ord our pack package pipe pop pos print printf prototype push q qq qr quotemeta qu qw qx rand read readdir readline readlink readpipe recv redo ref rename require reset return reverse rewinddir rindex rmdir s scalar seek seekdir select semctl semget semop send setgrent sethostent setnetent setpgrp setpriority setprotoent setpwent setservent setsockopt shift shmctl shmget shmread shmwrite shutdown sin sleep socket socketpair sort splice split sprintf sqrt srand stat study sub substr symlink syscall sysopen sysread sysseek system syswrite tell telldir tie tied time times tr truncate uc ucfirst umask undef unless unlink unpack unshift untie until use utime values vec wait waitpid wantarray warn while write x xor y</Keywords>
+        </Language>
+
+        <Language name="html" ext="html htm" commentLine="" commentStart="&lt;!--" commentEnd="--&gt;">
+            <Keywords name="instre1">!doctype a abbr accept-charset accept accesskey acronym action address align alink alt applet archive area axis b background base basefont bdo bgcolor big blockquote body border br button caption cellpadding cellspacing center char charoff charset checkbox checked cite class classid clear code codebase codetype col colgroup color cols colspan compact content coords data datafld dataformatas datapagesize datasrc datetime dd declare defer del dfn dir disabled div dl dt em enctype event face fieldset file font for form frame frameborder frameset h1 h2 h3 h4 h5 h6 head headers height hidden hr href hreflang hspace html http-equiv i id iframe image img input ins isindex ismap kbd label lang language leftmargin legend li link longdesc map marginwidth marginheight maxlength media menu meta method multiple name noframes nohref noresize noscript noshade nowrap object ol onblur onchange onclick ondblclick onfocus onkeydown onkeypress onkeyup onload onmousedown onmousemove onmouseover onmouseout onmouseup optgroup option onreset onselect onsubmit onunload p param password profile pre prompt public q radio readonly rel reset rev rows rowspan rules s samp scheme scope script select selected shape size small span src standby start strike strong style sub submit summary sup tabindex table target tbody td text textarea tfoot th thead title topmargin tr tt type u ul usemap valign value valuetype var version vlink vspace width xml xmlns</Keywords>
+        </Language>
+
+		<Language name="javascript" ext="js" commentLine="//" commentStart="/*" commentEnd="*/">
+        <Keywords name="instre1">abstract boolean break byte case catch char class const continue debugger default delete do double else enum export extends final finally float for function goto if implements import in instanceof int interface long native new package private protected public return short static super switch synchronized this throw throws transient try typeof var void volatile while with</Keywords>
+        </Language>
+
+    </Languages>
+</EEditPlus>

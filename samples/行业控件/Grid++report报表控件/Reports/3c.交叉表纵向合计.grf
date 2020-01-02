@@ -1,0 +1,270 @@
+Object Report
+	Version='4.5'
+	Title='按单统计销售明细报表'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Size=256
+		Oriention=Landscape
+		TopMargin=1.5
+		BottomMargin=1.5
+	End
+	Object DetailGrid
+		IsCrossTab=T
+		FixCols=2
+		ColLineColor=3DDkShadow
+		RowLineColor=3DDkShadow
+		PrintAdaptMethod=ToNewPage
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select m.CustomerId,c.CompanyName,d.ProductID,p.ProductName,\r\nd.Quantity, d.UnitPrice*d.Quantity as Amount\r\nfrom (Orders m inner join \r\n([Order Details] as d inner join Products p \r\non P.ProductID=D.ProductID) on m.OrderId=d.OrderId)\r\nleft join Customers c on c.CustomerID=m.CustomerID\r\nwhere d.ProductID<8\r\norder by m.CustomerId, d.ProductID\r\n'
+			Items Field
+				Item
+					Name='CustomerId'
+				End
+				Item
+					Name='CompanyName'
+				End
+				Item
+					Name='ProductID'
+					Type=Integer
+				End
+				Item
+					Name='ProductName'
+				End
+				Item
+					Name='Quantity'
+					Type=Integer
+					Format='0.#########;;#'
+				End
+				Item
+					Name='Amount'
+					Type=Currency
+					Format='#,##0.00;;#'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='Amount'
+				Width=1.74625
+			End
+			Item
+				Name='CustomerID'
+				Width=1.56104
+			End
+			Item
+				Name='CustomerName'
+				Width=2.67229
+			End
+			Item
+				Name='HTotal'
+				Width=2.19604
+			End
+		End
+		Object ColumnContent
+			Height=0.608542
+			Items ColumnContentCell
+				Item
+					Column='Amount'
+					TextAlign=MiddleRight
+					DataField='Amount'
+				End
+				Item
+					Column='CustomerID'
+					DataField='CustomerId'
+				End
+				Item
+					Column='CustomerName'
+					DataField='CompanyName'
+				End
+				Item
+					Column='HTotal'
+					BackColor=InfoBk
+					Object Font
+						Name='宋体'
+						Size=90000,0
+						Bold=T
+						Charset=134
+					End
+					TextAlign=MiddleRight
+					DataField='Amount'
+				End
+			End
+		End
+		Object ColumnTitle
+			Height=0.79375
+			Object Font
+				Name='宋体'
+				Size=90000,0
+				Bold=T
+				Charset=134
+			End
+			RepeatStyle=OnPage
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='CustomerID'
+					TextAlign=MiddleCenter
+					Text='客户编号'
+				End
+				Item
+					GroupTitle=F
+					Column='CustomerName'
+					TextAlign=MiddleCenter
+					Text='客户名称'
+				End
+				Item
+					GroupTitle=F
+					Column='Amount'
+					FreeCell=T
+					Items Control
+						Item
+							Type=FieldBox
+							Name='FieldBox1'
+							Dock=Fill
+							TextAlign=MiddleCenter
+							DataField='ProductName'
+						End
+					End
+				End
+				Item
+					GroupTitle=F
+					Column='HTotal'
+					BackColor=InfoBk
+					TextAlign=MiddleCenter
+					Text='合计'
+				End
+			End
+		End
+		Items Group
+			Item
+				Name='Group1'
+				Object GroupHeader
+					Height=0
+				End
+				Object GroupFooter
+					BackColor=0x00ecebd5
+					Height=0.635
+					Object Font
+						Name='宋体'
+						Size=90000,0
+						Bold=T
+						Charset=134
+					End
+					Items Control
+						Item
+							Type=StaticBox
+							Name='StaticBox1'
+							BackColor=White
+							BorderStyles=[DrawRight]
+							AlignColumn='CustomerID'
+							AlignColumnEx='CustomerName'
+							Width=4.23333
+							Height=0.608542
+							TextAlign=MiddleCenter
+							Text='纵向合计'
+						End
+					End
+				End
+			End
+		End
+		Object CrossTab
+			PercentFormat='0.##%'
+			HCrossFields='ProductID'
+			VCrossFields='CustomerId'
+			ListCols=2
+			TotalCols=1
+		End
+	End
+	Items Parameter
+		Item
+			Name='Comment'
+			Value='交叉表加上纵向求和功能。在交叉报表中定义的分组将会自动在分组头与分组尾中进行交叉数据纵向求和。如果希望合计显示在表格底端，可以隐藏分组头，反之则隐藏分组尾。\r\n\r\n1、首先插入求和分组：执行菜单“查入”-〉“分组”。 \r\n2、设定合计数据显示位置：将分组头的高度设为“0”隐藏分组头，求和数据将在分组尾中显示，这样求和数据就会显示在表格的底端。 \r\n3、在分组尾中插入一个静态框，其“文本”属性为“纵向合计”，并设定其“对齐列”与“对齐列扩展”属性为网格前两列的名称。 '
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Object Font
+						Name='楷体_GB2312'
+						Size=120000,0
+						Bold=T
+						Charset=134
+					End
+					Anchor=[Top|Right]
+					Left=10.9008
+					Top=0.396875
+					Width=13.7054
+					Height=0.47625
+					Text='欢迎访问Grid++Report网站www.rubylong.cn，了解最新产品信息。'
+				End
+				Item
+					Type=Line
+					Name='Line1'
+					Anchor=[Left|Top|Right]
+					Top=1.00542
+					Width=24.7121
+					PenWidth=2
+				End
+			End
+		End
+		Item
+			Type=PageFooter
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox4'
+					Anchor=[Top|Right]
+					Left=21.9075
+					Top=0.396875
+					Width=2.59292
+					Height=0.608542
+					Text='第[#SystemVar(PageNumber)#]页 共[#SystemVar(PageCount)#]页'
+				End
+				Item
+					Type=MemoBox
+					Name='MemoBox3'
+					Left=0.211667
+					Top=0.396875
+					Width=6.19125
+					Height=0.608542
+					Text='打印时间：[#SystemVar(CurrentDateTime):yyyy年MM月dd日 HH:mm:ss#]'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			Height=1.40229
+			Items Control
+				Item
+					Type=StaticBox
+					Name='TitleBox'
+					Object Font
+						Name='宋体'
+						Size=150000,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=8.99583
+					Top=0.211667
+					Width=6.74688
+					Height=0.582083
+					TextAlign=MiddleCenter
+					Text='按客户与产品交叉分析报表'
+				End
+			End
+		End
+	End
+End

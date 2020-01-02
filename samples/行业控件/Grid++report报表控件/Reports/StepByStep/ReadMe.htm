@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Step1</title>
+</head>
+
+<body>
+
+<p><b>Step1:创建一个空白的 .grf 文件</b></p> 
+<ol>
+  <li><font size="2">从‘开始-〉程序-〉Grid++Report-&gt;Grid++Report报表设计器’启动报表设计器应用程序。</font></li>
+  <li><font size="2">保存文件为‘Step1.grf’。</font></li>
+</ol>
+<p><font size="2">至此我们得到一个空白的 Grid++Report  
+报表模板文件。</font></p>
+<p><b>Step2:定义报表头</b></p>
+<ol>
+  <li><font size="2">执行菜单命令‘插入-〉报表头’，一个新的报表头被创建。</font></li>
+  <li><font size="2">执行菜单命令‘插入-〉静态框’，将鼠标光标移动到报表头之上，拖放鼠标创建一个新的静态框，其  
+    Name 属性应为‘StaticBox1’。</font></li> 
+  <li><font size="2">设置 StaticBox1 的 Text 属性为‘客户基本信息’。</font></li> 
+  <li><font size="2">设置 StaticBox1 的 Center 属性为‘Horizontal’,使 StaticBox1  
+    水平居中。</font></li>
+  <li><font size="2">设置 StaticBox1 的 Font  
+    属性为‘宋体、粗体、小三’。</font></li>
+  <li><font size="2">在 </font><font size="2">StaticBox1  
+    上单击鼠标右键弹出关联菜单，执行命令‘自动调整大小’将  
+    StaticBox1 的大小自动调整到合适。</font></li>
+  <li><font size="2">保存文件为‘Step2.grf’。</font></li>
+</ol>
+<p><font size="2">至此我们已经完成报表头的定义。</font></p>
+<p><b>Step3:定义明细网格的记录集</b></p>
+<ol>
+  <li><font size="2">执行菜单命令‘插入-〉明细网格’，明细网格被创建。</font></li>
+  <li><font size="2">执行菜单命令‘报表-〉字段集合...’，打开字段集合属性对话框。</font></li>
+  <li>增加11个字符类型的字段，其 Name  
+    属性依次为‘CustomerID、CompanyName、ContactName、ContactTitle、Address、  
+    City、Region、PostalCode、Country、Phone、Fax’。</li>
+  <li><font size="2">保存文件为‘Step3.grf’。</font></li>
+</ol>
+<p><font size="2">至此我们已经完成明细网格的记录集字段的定义。</font></p>
+<p><b>Step4:定义明细网格的列</b></p>
+<ol>
+  <li><font size="2">执行菜单命令‘编辑-〉根据字段生成列’，每个字段生成一个对应的显示列。</font></li>
+  <li><font size="2">在列标尺的分隔线上通过拖放调整各个列的宽度到合适的大小。</font></li>
+  <li><font size="2">改变各个标题格的 Text  
+    属性，使每个标题显示合适的文字。用鼠标依次点击选中各个标题格，将其  
+    Text  
+    属性依次改为‘客户编号、公司名称、联系人、联系人称谓、地址、城市、区域、邮编、国家、电话、传真’。</font></li>
+  <li><font size="2">保存文件为‘Step4.grf’。</font></li>
+</ol>
+<p><font size="2">至此我们已经完成明细网格列的定义。</font></p>
+<p><b>Step5:定义明细网格的其它属性</b></p>
+<ol>
+  <li><font size="2">用鼠标依次点击选中各个标题格，将其 BackColor  
+    属性改为‘3DLight’,使表格的标题显示为浅灰色。</font></li>
+  <li><font size="2">用鼠标点击明细网格的指示条选中明细网格，设定其  
+    FixCols 属性为  
+    2，使报表在屏幕查询显示时前两列不进行水平滚动。</font></li>
+  <li><font size="2">用鼠标依次点击选中前两个内容格，将其 BackColor  
+    属性改为‘Aqua’,使锁定前两列显示为不同的颜色。</font></li>
+  <li><font size="2">选中明细网格，将属性 LineColor 设为 
+    ‘Gray’。</font></li>
+  <li><font size="2">保存文件为‘Step5.grf’。</font></li>
+</ol>
+<p><font size="2">至此我们已经得到一个与示例中‘Customer list.grf’类似的报表模板文件。</font></p> 
+<p><b>Step6:改变明细网格列的显示顺序</b></p>
+<ol>
+  <li><font size="2">执行菜单命令‘报表-〉列标题布局...’，打开‘列标题布局’对话框。</font></li>
+  <li><font size="2">通过‘上移’、‘下移’按钮移动列到相应的显示位置，也可以拖动列到相应的显示位置。在这里我们分别将列  
+    Country、Region、City移动到第一、第二、第三的位置。</font></li>
+  <li><font size="2">保存文件为‘Step6.grf’。</font></li>
+</ol>
+<p><b>Step7:定义明细网格的双层表头</b></p>
+<ol>
+  <li><font size="2">执行菜单命令‘报表-〉列标题布局...’，打开‘列标题布局’对话框。</font></li>
+  <li><font size="2">执行‘增加’按钮，从弹出菜单中执行命令‘组标题格’，一个新的组标题格被添加，其名称为  
+    Column1。</font></li>
+  <li><font size="2">重复第2步，又一个新的组标题格被添加，其名称为  
+    Column2。</font></li>
+  <li><font size="2">将 Column1 的 Text 属性设为 ‘联系人’，将 Column2 的 Text 属性设为 ‘位置信息’。</font></li> 
+  <li><font size="2">将 Column1、Column2 的 TextAlign  
+    属性设为 MiddleCenter。</font></li> 
+  <li><font size="2">将 Column1、Column2 的 BackColor 属性设为 3DLight。</font></li> 
+  <li><font size="2">拖动列 ContactName、ContactTitle 到 Column1 组标题格中。</font></li>
+  <li><font size="2">拖动列 Country、Region、City、Address、PostalCode 到 Column2 
+    组标题格中。</font></li>
+  <li><font size="2">按照 Step6 中的方法将 Column1、Column2  
+    移动到合适的顺序位置。</font></li>
+  <li><font size="2">关闭‘列标题布局’对话框。</font></li>
+  <li><font size="2">将鼠标光标移动明细网格的标题行底部，通过拖放增大其高度，使双层表头的文字可以完整显示出来。</font></li>
+  <li><font size="2">保存文件为‘Step7.grf’。</font></li>
+</ol>
+<p><font size="2">至此我们已经得到一个与示例中‘Customer list with double layer title.grf’类似的报表模板文件。</font></p> 
+<p><b>Step8:定义分组</b></p>
+<ol>
+  <li><font size="2">执行菜单命令‘报表-〉分组集合...’，打开‘分组集合’对话框。</font></li>
+  <li><font size="2">执行‘增加’按钮，一个新的分组被添加，其名称为  
+    Group1。</font></li>
+  <li><font size="2">将 Group1 的 ByField 属性设为 ‘City’，报表将按 
+    City 字段进行分组。</font></li> 
+  <li><font size="2">关闭‘分组集合’对话框。</font></li>
+  <li><font size="2">执行菜单命令‘插入-〉字段框’，将鼠标光标移动到  
+    Group1 的分组头上，拖放鼠标创建一个新的字段框，其 Name  
+    属性应为‘FieldBox1’。设置 FieldBox1 的 DataField 属性为‘Country’。</font></li> 
+  <li><font size="2">执行菜单命令‘插入-〉字段框’，将鼠标光标移动到  
+    Group1 的分组头上，拖放鼠标创建一个新的字段框，其 Name  
+    属性应为‘FieldBox2’。设置 FieldBox2 的 DataField 属性为‘Region’。</font></li> 
+  <li><font size="2">执行菜单命令‘插入-〉字段框’，将鼠标光标移动到  
+    Group1 的分组头上，拖放鼠标创建一个新的字段框，其 Name  
+    属性应为‘FieldBox3’。设置 FieldBox3 的 DataField 属性为‘City’。</font></li> 
+  <li><font size="2">执行菜单命令‘插入-〉静态框’，将鼠标光标移动到  
+    Group1 的分组尾上，拖放鼠标创建一个新的静态框，其 Name  
+    属性应为‘StaticBox2’。设置 StaticBox2 的 Text  
+    属性为‘分组客户人数统计：’。</font></li>
+  <li><font size="2">执行菜单命令‘插入-〉统计框’，将鼠标光标移动到  
+    Group1 的分组尾上，拖放鼠标创建一个新的统计框，其 Name  
+    属性应为‘SummaryBox1’。设置 SummaryBox1 的 SummaryFun  
+    属性为‘Count’。</font></li>
+  <li><font size="2">保存文件为‘Step8.grf’。</font></li>
+</ol>
+<p><font size="2">至此我们已经完成一个普通分组的定义。</font></p>
+<p><b>Step9:定义占列式分组</b></p>
+<ol>
+  <li><font size="2">将 Group1 的分组头。</font></li> 
+  <li><font size="2">设置 OccupyColumn 属性为‘True’。</font></li> 
+  <li><font size="2">设置 OccupiedColumns 属性为‘Country’。</font></li> 
+  <li><font size="2">设置 SameAsColumn 属性为‘False’。</font></li> 
+  <li><font size="2">将分组头中的三个字段框的 AlignColumn 属性设为‘Country’,并将垂直位置进行适当的调整。</font></li> 
+  <li><font size="2">保存文件为‘Step9.grf’。</font></li>
+</ol>
+<p><font size="2">至此我们已经完成一个占列式分组的定义。</font></p>
+<p><b>Step10:定义页眉与页脚</b></p>
+<ol>
+  <li><font size="2">执行菜单命令‘插入-〉页眉’，页眉被创建。</font></li>
+  <li><font size="2">执行菜单命令‘插入-〉页脚’，页脚被创建。</font></li>
+  <li><font size="2">执行菜单命令‘插入-〉静态框’，将鼠标光标移动到页眉上，拖放鼠标创建一个新的静态框，其 Name  
+    属性应为‘StaticBox3’。设置 StaticBox3 的 Text  
+    属性为‘怎样一步步设计 Grid++Report 的报表模板’。</font></li>
+  <li><font size="2">执行菜单命令‘插入-〉系统变量框’，将鼠标光标移动到页脚上，拖放鼠标创建一个新的系统变量框，其 Name  
+    属性应为‘SystemVarBox1’。</font></li>
+  <li><font size="2">执行菜单命令‘插入-〉静态框’，将鼠标光标移动到页脚上，拖放鼠标创建一个新的静态框，其 Name  
+    属性应为‘StaticBox4’。设置 StaticBox4 的 Text  
+    属性为‘/’、TextAlign  
+    属性为‘MiddleCenter’。</font></li>
+  <li><font size="2">执行菜单命令‘插入-〉系统变量框’，将鼠标光标移动到页脚上，拖放鼠标创建一个新的系统变量框，其 Name  
+    属性应为‘SystemVarBox2’，设置 SystemVarBox2 的 SystemVar  
+    属性为‘PageCount’。</font></li>
+  <li><font size="2">调整页脚中部件框的位置与大小，排列为‘PageNo 
+    / PageCount'形式。</font></li>
+  <li><font size="2">保存文件为‘Step10.grf’。</font></li>
+</ol>
+<p><font size="2">至此整个教程到此结束。</font></p>
+<p><font size="2"><b>注意：</b>以上操作步骤按主菜单的执行过程介绍，很多操作过程存在对应的弹出式关联菜单命令与工具栏按钮。</font></p>
+<p>　</p>
+<p>　</p>
+
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+Object Report
+	Version='4.0'
+	Title='Grid++Report'
+	PageDivideLine=T
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		TopMargin=1.5
+		BottomMargin=1.5
+	End
+	Object DetailGrid
+		PrintAdaptMethod=ResizeToFit
+		Object Recordset
+			ConnectionString='Provider=SQLOLEDB.1;\r\nPersist Security Info=False;\r\nUser ID=sa;\r\nInitial Catalog=Northwind;\r\nData Source=;'
+			QuerySQL='EXEC "Employee Sales by Country" "1/1/1997", "12/31/1997"'
+			Items Field
+				Item
+					Name='Country'
+				End
+				Item
+					Name='LastName'
+				End
+				Item
+					Name='FirstName'
+				End
+				Item
+					Name='ShippedDate'
+					Type=DateTime
+				End
+				Item
+					Name='OrderID'
+					Type=Integer
+				End
+				Item
+					Name='SaleAmount'
+					Type=Currency
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='Country'
+				Width=3.175
+			End
+			Item
+				Name='LastName'
+				Width=2.19604
+			End
+			Item
+				Name='FirstName'
+				Width=2.19604
+			End
+			Item
+				Name='ShippedDate'
+				Width=2.59292
+			End
+			Item
+				Name='OrderID'
+				Width=2.19604
+			End
+			Item
+				Name='SaleAmount'
+				Width=2.40771
+			End
+		End
+		Object ColumnContent
+			Height=0.79375
+			Items ColumnContentCell
+				Item
+					Column='Country'
+					DataField='Country'
+				End
+				Item
+					Column='LastName'
+					DataField='LastName'
+				End
+				Item
+					Column='FirstName'
+					DataField='FirstName'
+				End
+				Item
+					Column='ShippedDate'
+					DataField='ShippedDate'
+				End
+				Item
+					Column='OrderID'
+					TextAlign=MiddleRight
+					DataField='OrderID'
+				End
+				Item
+					Column='SaleAmount'
+					TextAlign=MiddleRight
+					DataField='SaleAmount'
+				End
+			End
+		End
+		Object ColumnTitle
+			BackColor=Silver
+			Height=0.79375
+			Object Font
+				Name='宋体'
+				Size=90000,0
+				Bold=T
+				Charset=134
+			End
+			RepeatStyle=OnPage
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='Country'
+					Text='Country'
+				End
+				Item
+					GroupTitle=F
+					Column='LastName'
+					Text='LastName'
+				End
+				Item
+					GroupTitle=F
+					Column='FirstName'
+					Text='FirstName'
+				End
+				Item
+					GroupTitle=F
+					Column='ShippedDate'
+					Text='ShippedDate'
+				End
+				Item
+					GroupTitle=F
+					Column='OrderID'
+					Text='OrderID'
+				End
+				Item
+					GroupTitle=F
+					Column='SaleAmount'
+					Text='SaleAmount'
+				End
+			End
+		End
+	End
+	Items Parameter
+		Item
+			Name='Comment'
+			Value='演示一个最基本的列表报表。'
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox1'
+					Object Font
+						Name='楷体_GB2312'
+						Size=120000,0
+						Bold=T
+						Charset=134
+					End
+					Anchor=[Top|Right]
+					Left=2.19604
+					Top=0.396875
+					Width=13.7054
+					Height=0.47625
+					Text='欢迎访问Grid++Report网站www.rubylong.cn，了解最新产品信息。'
+				End
+				Item
+					Type=Line
+					Name='Line1'
+					Anchor=[Left|Top|Right]
+					Top=1.00542
+					Width=16.0073
+					PenWidth=2
+				End
+			End
+		End
+		Item
+			Type=PageFooter
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Anchor=[Top|Right]
+					Left=13.2027
+					Top=0.396875
+					Width=2.59292
+					Height=0.608542
+					Text='第[#SystemVar(PageNumber)#]页 共[#SystemVar(PageCount)#]页'
+				End
+				Item
+					Type=MemoBox
+					Name='MemoBox3'
+					Left=0.211667
+					Top=0.396875
+					Width=6.19125
+					Height=0.608542
+					Text='打印时间：[#SystemVar(CurrentDateTime):yyyy年MM月dd日 HH:mm:ss#]'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			Height=1.00542
+			Items Control
+				Item
+					Type=StaticBox
+					Name='StaticBox1'
+					Object Font
+						Name='宋体'
+						Size=150000,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=4.70958
+					Top=0.185208
+					Width=6.61458
+					Height=0.582083
+					Text='SQL Server 存储过程报表'
+				End
+			End
+		End
+	End
+End

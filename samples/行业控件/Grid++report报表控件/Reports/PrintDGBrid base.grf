@@ -1,0 +1,69 @@
+Object Report
+	Version='2.0'
+	Object Font
+		Name='ÀŒÃÂ'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Name='A4'
+		Size=9
+		Width=21
+		Height=29.7
+		LeftMargin=2.5
+		TopMargin=2.5
+		RightMargin=2.5
+		BottomMargin=2.5
+		Oriention=Portriat
+	End
+	Items Parameter
+	End
+	Object DetailGrid
+		Name='DetailGrid'
+		LineColor=3DDkShadow
+		Object Recordset
+			Items Field
+			End
+		End
+		Items Column
+		End
+		Object ColumnContent
+			Height=0.582083
+			Items ColumnContentCell
+			End
+		End
+		Object ColumnTitle
+			Height=0.582083
+			Items ColumnTitleCell
+			End
+		End
+		Items Group
+		End
+	End
+	Items Section
+		Item
+			Type=ReportHeader
+			Height=1.37583
+			Object Font
+				Name='ÀŒÃÂ'
+				Size=150000,0
+				Bold=T
+				Charset=134
+			End
+			Items Control
+				Item
+					Type=StaticBox
+					Name='StaticBox1'
+					Center=Horizontal
+					Left=6.53521
+					Top=0.396875
+					Width=2.93688
+					Height=0.582083
+					Text='¥Ú”°DBGrid'
+				End
+			End
+			KeepTogether=T
+		End
+	End
+End

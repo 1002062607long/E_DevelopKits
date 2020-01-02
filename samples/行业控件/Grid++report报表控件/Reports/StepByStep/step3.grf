@@ -1,0 +1,103 @@
+Object Report
+	Version='2.0'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Name='A4'
+		Size=9
+		Width=21
+		Height=29.7
+		LeftMargin=2.5
+		TopMargin=2.5
+		RightMargin=2.5
+		BottomMargin=2.5
+		Oriention=Portriat
+	End
+	Object DetailGrid
+		Name='DetailGrid'
+		Object Recordset
+			Items Field
+				Item
+					Type=String
+					Name='CustomerID'
+				End
+				Item
+					Type=String
+					Name='CompanyName'
+				End
+				Item
+					Type=String
+					Name='ContactName'
+				End
+				Item
+					Type=String
+					Name='ContactTitle'
+				End
+				Item
+					Type=String
+					Name='Address'
+				End
+				Item
+					Type=String
+					Name='City'
+				End
+				Item
+					Type=String
+					Name='Region'
+				End
+				Item
+					Type=String
+					Name='PostalCode'
+				End
+				Item
+					Type=String
+					Name='Country'
+				End
+				Item
+					Type=String
+					Name='Phone'
+				End
+				Item
+					Type=String
+					Name='Fax'
+				End
+			End
+		End
+		Object ColumnContent
+			Height=0.582083
+		End
+		Object ColumnTitle
+			Height=0.582083
+		End
+	End
+	Items Section
+		Item
+			Type=ReportHeader
+			Name='ReportHeader1'
+			Height=1.37583
+			Items Control
+				Item
+					Type=StaticBox
+					Name='StaticBox1'
+					Object Font
+						Name='宋体'
+						Size=150000,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=6.29708
+					Top=0.396875
+					Width=3.41313
+					Height=0.582083
+					Text='客户基本信息'
+				End
+			End
+			KeepTogether=T
+		End
+	End
+End

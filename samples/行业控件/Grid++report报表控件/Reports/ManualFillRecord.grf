@@ -1,0 +1,156 @@
+Object Report
+	Version='2.0'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=105000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		Name='A4'
+		Size=9
+		Width=21
+		Height=29.7
+		Oriention=Portriat
+		LeftMargin=2.5
+		TopMargin=2.5
+		RightMargin=2.5
+		BottomMargin=2.5
+	End
+	Object DetailGrid
+		Object Recordset
+			Items Field
+				Item
+					Type=String
+					Name='C1'
+				End
+				Item
+					Type=Integer
+					Name='I1'
+				End
+				Item
+					Type=Float
+					Name='F1'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='C1'
+				Width=2.38125
+			End
+			Item
+				Name='I1'
+				Width=2.77813
+			End
+			Item
+				Name='F1'
+				Width=2.38125
+			End
+		End
+		Object ColumnContent
+			Height=0.582083
+			Items ColumnContentCell
+				Item
+					Column='C1'
+					DataField='C1'
+				End
+				Item
+					Column='I1'
+					TextAlign=MiddleRight
+					DataField='I1'
+				End
+				Item
+					Column='F1'
+					TextAlign=MiddleRight
+					DataField='F1'
+				End
+			End
+		End
+		Object ColumnTitle
+			Height=0.582083
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='C1'
+					TextAlign=MiddleCenter
+					Text='列一'
+				End
+				Item
+					GroupTitle=F
+					Column='I1'
+					TextAlign=MiddleCenter
+					Text='列二'
+				End
+				Item
+					GroupTitle=F
+					Column='F1'
+					TextAlign=MiddleCenter
+					Text='列三'
+				End
+			End
+		End
+		Items Group
+			Item
+				Name='Group1'
+				Object GroupHeader
+					Height=0
+				End
+				Object GroupFooter
+					Height=0.582083
+					Object Font
+						Name='宋体'
+						Size=105000,0
+						Bold=T
+						Charset=134
+					End
+					Items Control
+						Item
+							Type=StaticBox
+							Name='StaticBox1'
+							Width=2.40771
+							Height=0.582083
+							Text='合计'
+						End
+						Item
+							Type=SummaryBox
+							Name='SummaryBox1'
+							AlignColumn='F1'
+							Left=5.15938
+							Width=2.38125
+							Height=0.582083
+							DataField='F1'
+						End
+					End
+				End
+			End
+		End
+	End
+	Items Section
+		Item
+			Type=ReportHeader
+			Name='ReportHeader1'
+			Height=1.37583
+			Items Control
+				Item
+					Type=StaticBox
+					Name='StaticBox2'
+					Object Font
+						Name='宋体'
+						Size=142500,0
+						Bold=T
+						Charset=134
+					End
+					Center=Both
+					Left=5.05354
+					Top=0.396875
+					Width=5.90021
+					Height=0.555625
+					Text='填入明细记录数据的示例'
+				End
+			End
+			KeepTogether=T
+		End
+	End
+End

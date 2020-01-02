@@ -1,0 +1,3 @@
+易语言例子程序由 Grid++Report 的热心开发者“水影”初始创建，欢迎大家提供改进建议或报告问题。要在易语言中使用 Grid++Report，你必须首先在易语言中安装 Grid++Report 的类型库 NPK 文件，在《易语言使用Grid++Report起步教程》中详细介绍了操作步骤。如果你是初次接触 Grid++Report，建议你首先阅读我们专门编写的《易语言使用Grid++Report起步教程》。
+
+如果你要了解 Grid++Report 的最新信息，请访问 http://www.rubylong.cn。

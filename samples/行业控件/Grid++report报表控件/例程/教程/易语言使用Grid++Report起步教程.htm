@@ -1,0 +1,243 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+</head>
+
+<body>
+
+<h1 align="center">易语言使用Grid++Report起步教程</h1>
+<h2>概述：</h2>
+<p>&nbsp;&nbsp;&nbsp; 在本教程中，首先介绍用 Grid++Report      
+的报表设计器应用程序设计一个简单的清单式报表，我们最后会得到一个与     
+Grid++Report      
+例子模板中的‘简单列表.grf’类似的报表模板。接下来我们学习怎样让‘简单列表.grf’例子模板在易语言程序中运行起来。首先实现报表的打印与打印预览功能，通过本部分的学习我们可以得到一个类似本教程附带的‘打印与打印预览报表.e’程序。然后我们学习利用      
+Grid++report      
+的查询显示器控件实现报表在窗口中的查询显示，我们会创建一个类似本教程附带的‘在查询显示控件中显示报表.e’程序。通过本教程的学习，你将对      
+Grid++Report 报表模板设计与在易语言中使用 Grid++Report      
+有一个初步与直观的了解，开启你用 Grid++Report      
+在易语言中开发报表的大门，为你更进一步学习奠定了良好的开端。</p>
+<p>&nbsp;&nbsp;&nbsp;   
+具备一定的数据库方面的知识对开发报表非常重要，因为报表一般都需要从数据库中取数据,然后由报表工具生成出来，你应该对数据库方面的一些基本概念有所了解，能够写出基本的      
+SQL 查询语句。如果你具备这些基础知识，你学习用      
+Grid++Report      
+在易语言中开发报表会非常容易，如果你觉得这方面有所欠缺，建议你加强这方面的学习。本教程适用于第一次接触      
+Grid++Report 或对 Grid++Report      
+在易语言中使用还没有入门的易语言开发者。完成本教程的学习之后，建议你浏览并运行一遍      
+Grid++Report 自带的全部易语言例子，对 Grid++Report      
+的功能有所了解。</p>
+<p>&nbsp;&nbsp;&nbsp; 使用本教程你必须安装易语言的4.0或以上版本。必须安装 Grid++Report      
+报表组件，可以去 <a href="http://www.rubylong.cn">http://www.rubylong.cn</a>      
+下载最新的 Grid++Report。为了顺利完成本教程，你应该将 Grid++Report      
+安装在 <font size="3">C:\Program Files\Grid++Report 3 目录下。</font></p>     
+<p>&nbsp;&nbsp;&nbsp; 教程包括以下内容：</p>  
+<ul>
+  <li>第一节：创建报表模板</li>
+  <li>第二节：配置 Grid++Report 在易语言中的使用</li>     
+  <li>第三节：实现报表打印与打印预览</li>
+  <li>第四节：实现报表在查询显示控件中显示</li>
+</ul>
+<hr>
+<h2>第一节：创建报表模板</h2>
+<ul>
+  <li><b><font size="3">创建一个空白的报表模板</font></b></li>
+</ul>
+<ol>
+  <li><font size="3">从 Windows 桌面执行‘开始-&gt;程序-&gt;Grid++Report 3.6-&gt;Grid++Report        
+    报表设计器’启动报表设计器应用程序。</font>
+</ol>
+<p><font size="3">&nbsp;&nbsp;&nbsp; 此时一个空白的报表模板创建在报表设计器应用程序中。</font></p>  
+<ul>
+  <li><b><font size="3">定义报表头</font></b></li>
+</ul>
+<ol>
+  <li><font size="3">执行菜单命令‘插入-&gt;报表头’，一个新的报表头被创建。</font>
+  <li><font size="3">执行菜单命令‘插入-&gt;静态框’，将鼠标光标移动到报表头之上，拖放鼠标创建一个静态框，其‘名称’ 属性应为‘StaticBox1’。</font>       
+  <li><font size="3">设置 StaticBox1 的‘文本’属性设为‘客户基本信息’。</font>       
+  <li><font size="3">设置 StaticBox1 的‘居中’属性设为‘水平’,使标题文字在水平方向上居中显示。</font>       
+  <li><font size="3">设置 StaticBox1 的‘字体’属性为‘宋体、粗体、小三’。</font>      
+  <li><font size="3">在 StaticBox1        
+    上单击鼠标右键弹出关联菜单，执行命令‘自动调整大小’将        
+    StaticBox1 的大小自动调整到合适。</font>       
+  <li><font size="3">执行菜单命令‘文件-&gt;保存’保存文件，在文件对话框选择合适的目录位置并输入文件名‘简单列表’。</font></li>
+</ol>
+<p><font size="3">&nbsp;&nbsp;&nbsp; 至此我们已经完成报表头的定义。</font></p>  
+<ul>
+  <li><b><font size="3">插入明细网格</font></b></li>
+</ul>
+<ol>
+  <li><font size="3">执行菜单命令‘插入->明细网格’，明细网格被创建。</font>
+</ol>
+<p><font size="3">一个明细网格已经添加到报表定义中。</font></p>
+<ul>
+  <li><b><font size="3">绑定明细网格数据</font></b></li>
+</ul>
+<font size="3"><i>&nbsp;&nbsp;&nbsp; 说明：Grid++Report 采用 Windows 操作系统自带的 OLE       
+DB 数据引擎从数据源获取报表数据, OLE DB       
+数据引擎是微软最新最先进的数据操作引擎,支持各种普通数据库与多种非数据库数据源。下面的过程中我们将学习怎样从       
+Grid++Report 例子数据库获取报表明细数据，Grid++Report       
+例子数据库是一个 Access 数据库。</i></font>      
+<ol>
+  <li><font size="3">执行菜单命令‘报表->数据库查询...’，‘设置数据库连接串与查询SQL’对话框打开。</font>
+  <li><font size="3">在‘设置数据库连接串与查询SQL’对话框中，执行‘创建数据库连接串...’按钮，此时创建       
+    OLE DB 数据链接属性窗口打开。</font>      
+  <li><font size="3">在‘OLE DB 提供程序’列表框中选择‘Microsoft       
+    Jet 4.0 OLE DB Provider’。然后执行‘下一步(<u>N</u>)&gt;&gt;’按钮。</font>     
+  <li><font size="3">执行‘选择或输入数据库名称’编辑框右边的‘...’按钮，从打开的‘选择       
+    Access 数据库’对话框中选取 Grid++Report       
+    的例子数据库，如果 Grid++Report 安装在 C       
+    盘的默认目录，这个 Access 数据库文件就是‘C:\Program Files\Grid++Report       
+    3\Samples\Data\Northwind.mdb’。</font>
+  <li><font size="3">执行‘确定’按钮，数据链接串已经成功创建，我们可以在设置数据库连接串与查询SQL对话框的‘数据库连接串’编辑框中看到我们刚才创建的数据库连接串。</font>
+  <li><font size="3">在‘查询 SQL’编辑框中输入‘select * from     
+    Customers’，注意不要包括引号，表示我们从 Customers       
+    表中取其所有数据。</font>
+  <li><font size="3"><b>[可选]</b>执行‘测试’按钮验证数据库连接串与查询       
+    SQL是否正确设置。</font>
+  <li><font size="3">执行‘确定’按钮关闭设置数据库连接串与查询SQL对话框，至此我们已经完成报表明细数据的绑定。</font>
+</ol>
+<p align="center"><img border="0" src="图片/dbsetdlg.JPG" width="530" height="334"></p>
+<p align="center"><font size="3">(上图)设置数据库连接串与查询 SQL       
+对话框</font></p>
+<p align="center"><img border="0" src="图片/dbconndlg.JPG" width="409" height="434"></p>
+<p align="center"><font size="3">(上图)OLE DB 数据链接属性窗口</font></p>      
+<ul>
+  <li><b><font size="3">生成报表数据集的字段</font></b></li>
+</ul>
+<ol>
+  <li><font size="3">执行菜单命令‘编辑->根据查询生成字段’，此时       
+    Grid++Report 将根据我们上一步中创建的数据库连接串与查询       
+    SQL 参数自动生成报表明细记录集的字段,生成的字段与数据库表中的字段保持一致。</font></li>      
+  <li><font size="3"><b>[可选]</b>执行菜单命令‘报表->字段集合...’，打开‘字段集合’对话框中我们可以看到刚才自动创建的各个字段。</font></li>
+</ol>
+<p align="center"><img border="0" src="图片/fldcelldlg.JPG" width="477" height="367"></p>
+<p align="center"><font size="3">(上图)字段集合对话框</font></p>
+<p><font size="3">&nbsp;&nbsp;&nbsp; 至此我们已经完成了报表数据绑定与数据存储方面的定义工作，下一步就是怎样将报表数据展现出来。</font></p>  
+<ul>
+  <li><b><font size="3">定义明细网格的列</font></b></li>
+</ul>
+<ol>
+  <li><font size="3">执行菜单命令‘编辑->根据字段生成列’，此时       
+    Grid++Report       
+    将根据报表当前明细记录集字段的定义生成明细列，每个字段将对应生成一个显示列，此时我们可以看到在明细网格的定义界面上多了很多列的显示。</font></li>
+  <li><font size="3"><b>[可选]</b>选中标题行中的某个格，在属性编辑窗口中改变其‘文本’属性，可以为每个列标题设置合理的显示文本。</font></li>
+  <li><font size="3"><b>[可选]</b>执行菜单命令‘报表->列标题布局...’，打开‘列标题布局’对话框；通过执行‘上移’与‘下移’按钮，或通过拖放左边列表中的节点，我们可以改变列的显示顺序。</font></li>
+  <li><font size="3"><b>[可选]</b>在明细网格的定义界面上部的标尺为列宽度指示标尺，将鼠标停放在两个标尺之间的间隔区域，通过拖放可以改变列的显示宽度，通过这样的操作我们可以为每个列设置合理的显示宽度。</font></li>
+</ol>
+<p align="center"><img border="0" src="图片/columnlaydlg.JPG" width="555" height="407"></p>
+<p align="center"><font size="3">(上图)列标题布局对话框</font></p>
+<p><font size="3">&nbsp;&nbsp;&nbsp; 至此一个与例子模板‘简单列表.grf’类似的报表已经定义出来，通过点击设计器下端的‘预览视图’与‘查询视图’切换按钮我们可以及时看到报表的运行效果，其实在整个设计过程中，我们都可以随时进入预览视图与查询视图，及时查看报表的运行效果。当然我们还没有定义报表的页眉与页脚，通过执行菜单命令‘插入->页眉’或‘插入->页脚’，我们很容易将页眉与页脚定义出来。</font></p>  
+<p align="center"><img border="0" src="图片/deslist.JPG" width="749" height="380"></p>
+<p align="center"><font size="3">(上图)整个设计过程得到的报表</font></p>
+<p><b><font size="3">说明：</font></b></p>
+
+<ol>
+  <li><font size="3">以上操作步骤按设计器应用程序的主菜单的执行过程介绍，很多操作过程都存在对应的右键弹出式关联菜单与工具栏按钮，明细网格上端的工具栏中的按钮也可以完成与明细网格相关的操作，这些便捷的操作方式大家会在以后的设计过程慢慢熟悉。</font></li>
+  <li><font size="3">以上这个简单的报表设计过程我们也可以通过报表创建向导来完成，如果我们理解了以上报表的设计过程，我们也很容易通过创建向导来定义报表。通过执行菜单命令‘文件-&gt;向导...’,启动       
+    Grid++Report 报表创建向导。</font></li>      
+  <li><font size="3">Grid++Report       
+    既支持数据绑定，也支持数据非绑定。数据绑定是指 Grid++Report       
+    在报表运行时根据设定的数据连接串与查询 SQL       
+    语句主动从数据源取入数据，上面我们创建的就是一个数据绑定报表。而数据非绑定报表在运行时，Grid++Report       
+    会触发 FetchRecord       
+    报表事件，报表开发者在程序中通过此事件将数据填入到报表。在设计数据非绑定报表时，不用设定数据连接串与查询       
+    SQL       
+    语句，因此也不能自动生成字段定义，因此我们需要在‘字段集合’对话框中逐个增加字段定义。</font></li>
+  <li><font size="3">要了解更多有关 Grid++Report       
+    的知识与进一步学习 Grid++Report,请查看产品安装之后的帮助文档、例子报表模板、例子源程序与访问我们的网站。目前       
+    Grid++Report 提供的例子源程序包括VB.NET、C#、VB、VC、Delphi、C++Builder与易语言。</font></li>      
+</ol>
+
+<hr>
+<h2>第二节：配置 Grid++Report 在易语言中的使用</h2>     
+<h3>安装 Grid++Report 的 NPK 文件：</h3>     
+<ol>
+  <li>首先运行易语言。</li>
+  <li>执行菜单‘工具’→‘类型库或OCX组件-&gt;支持库’，打开类型库创建与安装窗口。</li>
+  <li>安装 gregn3.npk 文件：点击‘安装’按钮，打开 gregn3.npk      
+    文件，如果有消息框弹出就选择‘是’。gregn3.npk      
+    文件存在于 Grid++Report 的安装目录下，如果 Grid++Report      
+    安装在 C:\Program Files\Grid++Report 3 目录下，则 NPK 文件位于      
+    C:\Program Files\Grid++Report 3\Samples\易语言\NPK      
+    目录下。如果你是单独下载Grid++Report易语言例子程序包，NPK      
+    文件存在于解包目录下的 NPK 子目录中。</li>     
+  <li>安装 grdes3.npk 文件：重复上一步操作安装 grdes3.npk。</li>     
+  <li>关闭当前窗口，完成 NPK 文件安装任务。</li>     
+</ol>
+<h3>将 Grid++Report 类型库加入到支持库中：</h3>     
+<ol>
+  <li>首先运行易语言。</li>
+  <li>首先运行‘易语言’选择‘工具’→‘支持库配置’菜单</li>
+  <li>在打开的对话框中的列表中选中‘报表引擎库 1.0 版’与‘报表设计库 1.0 版’。提示：这两个需要选中的项目文字前面有‘★’标志符号。(注：易语言在此显示的版本为1.0，但    
+    Grid++Report 的实际版本不是，这里不清楚原因。)</li>    
+  <li>执行对话框中的‘确定按钮’，关闭对话框。此时在易语言主窗口的窗口组件箱的‘外部组件’栏目下会加入：‘GRDisplayViewer’、‘GRPrintViewer’与‘GRDesigner’这三个控件；在‘外部事件组件’栏目下会加入     
+    ‘GridppReport事件’。</li> 
+  <li>至此你已经可以在你的当前程序项目中使用 Grid++Report 的几个组件来开发你的报表系统。</li>     
+</ol>
+<p><i>&nbsp;&nbsp;&nbsp; 注意：如果在你的程序中不会用到 Grid++Report 的报表设计器控件，在第2步中可以不选中‘</i>报表设计库<i> 1.0 版’这一项，当然‘GRDesigner’这个控件也不会添加到外部组件栏目下。</i></p>    
+<p>&nbsp;&nbsp;&nbsp; 通过上面的操作，Grid++Report    
+已经可以在易语言中使用了。在当前易语言系统中，你只需为    
+Grid++Report    
+进行这一次配置任务，以后你就可以在你的易语言程序中使用    
+Grid++Report 了。</p>   
+<hr>
+<h2>第三节：实现报表打印与打印预览</h2>
+<p>本过程实现将‘简单列表.grf’例子模板载入到报表对象中，并实现报表的打印与打印预览。</p>
+<ol>
+  <li>启动易语言程序。</li>
+  <li>执行菜单命令‘程序-〉新建’，在打开的对话框的右边程序类型框中选择‘Windows窗口程序’，最后执行‘确定’按钮。</li>
+  <li>在易语言主窗口中，选择工作夹中的‘支持库’页，在支持库列表中检查‘grproLib’是否已经存在，如果不存在，请参照上一节中介绍加入    
+    Grid++Report 的类型库到支持库中。</li>   
+  <li>打开并选中启动窗口,选择工作夹中的‘属性’页，打开下端的事件下拉列表框，从中选择‘创建完毕’事件，此时启动窗口的程序集打开，并加入了‘创建完毕’事件响应子程序。</li>
+  <li>定义报表主对象：在程序集中定义一个程序集变量，名称为‘报表主对象’,类型为‘GridppReport’。</li>
+  <li>载入报表模板：在‘创建完毕’事件响应子程序中调用报表主对象的 LoadFromFile 方法载入报表模板。<br>    
+    具体代码如下：<br>
+    <i><span style="background-color: #CCCCCC">报表主对象.LoadFromFile (‘C:\Program Files\Grid++Report 3\Samples\Reports\简单列表.grf’)<br>   
+    </span></i></li>
+  <li>在启动窗口上加入两个按钮，名称分别为‘打印按钮’与‘打印预览按钮’，标题为‘打印’与‘打印预览’，分别双击这两个按钮，添加按钮执行响应子程序。</li>
+  <li>实现报表打印功能：调用报表主对象的‘Print’方法实现报表输出到打印机打印，在‘打印按钮’被单击响应子程序中，加入代码：<br>
+    <i><span style="background-color: #CCCCCC">报表主对象.Print (真)<br>    
+    </span></i></li>
+  <li>实现报表打印预览功能：调用报表主对象的‘PrintPreview’方法实现报表在屏幕上的打印预览，在‘打印预览按钮’被单击响应子程序中，加入代码<br>
+    <i><span style="background-color: #CCCCCC">报表主对象.PrintPreview (真)<br>    
+    </span></i></li>
+  <li>保存程序。我们将得到与本教程文件所在目录下的‘<b>打印与打印预览报表.e</b>’类似的程序。</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp; 此时我们就可以运行我们的程序，点击‘打印’按钮就可以将报表输出到打印机打印，点击‘打印预览’按钮就会打开报表打印预览窗口，报表会显示在打印预览窗口中。</p> 
+<hr>
+<h2>第四节：实现报表在查询显示控件中显示</h2>
+<p>本过程实现将‘简单列表.grf’例子模板载入到报表对象中，并实现报表在查询显示器控件中的显示。</p>
+<ol>
+  <li>启动易语言程序。</li>
+  <li>执行菜单命令‘程序-〉新建’，在打开的对话框的右边程序类型框中选择‘Windows窗口程序’，最后执行‘确定’按钮。</li>
+  <li>在易语言主窗口中，选择工作夹中的‘支持库’页，在支持库列表中检查‘grproLib’是否已经存在，如果不存在，请参照前面节中介绍加入    
+    Grid++Report 的类型库到支持库中。</li>   
+  <li>打开并选中启动窗口,选择工作夹中的‘属性’页，打开下端的事件下拉列表框，从中选择‘创建完毕’事件，此时启动窗口的程序集打开，并加入了‘创建完毕’事件响应子程序。</li>
+  <li>定义报表主对象：在程序集窗口中定义一个程序集变量，名称为‘报表主对象’,类型为‘GridppReport’。</li>
+  <li>载入报表模板：在‘创建完毕’事件响应子程序中调用报表主对象的 LoadFromFile 方法载入报表模板。具体代码如下：<br>    
+    <i><span style="background-color: #CCCCCC">报表主对象.LoadFromFile (‘C:\Program   
+    Files\Grid++Report 3\Samples\Reports\简单列表.grf’)<br>   
+    </span></i></li>
+  <li>在启动窗口上插入一个报表查询显示器控件：在窗口组件箱的外部组件类别下选择‘GRDisplayViewer’组件并插入到启动窗口中，调整新插入的组件到合适大小。</li>
+  <li>在程序集中关联报表主对象与查询显示器控件：调用 GRDisplayViewer 的 SetReport 方法为查询显示器控件关联一个报表对象。在‘创建完毕’事件响应子程序中加入如下代码：<br>    
+    <span style="background-color: #CCCCCC"><i>GRDisplayViewer1.SetReport (报表主对象)<br>    
+    </i></span></li>
+  <li>实现查询显示器控件的启动运行：调用 GRDisplayViewer 的 Start 方法启动查询显示器控件运行。在‘创建完毕’事件响应子程序中加入如下代码：<br>    
+    <i><span style="background-color: #CCCCCC">GRDisplayViewer1.Start ()<br>    
+    </span></i></li>
+  <li>保存程序。我们将得到与本教程文件所在目录下的‘<b>在查询显示控件中显示报表.e</b>’类似的程序。</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp; 按照上一节中的过程，我们可以为本程序增加报表打印与打印预览功能。此时我们就可以运行我们的程序，你将会在运行的程序中看到报表显示在查询显示器控件中，我们只用很少的几行代码就实现了报表的查询显示，整个过程是不是非常简单。</p> 
+<hr>
+<p>&nbsp;&nbsp;&nbsp; 通过这个简单的教程，我们可以深深体会到：要在易语言下学习与使用   
+Grid++Report 很容易。Grid++Report   
+的全部功能都可以在易语言下发挥出来，使用 Grid++Report，可以助你轻松实现专业高效的报表与打印功能。<br> 
+<br>
+</p>
+
+</body>
+
+</html>

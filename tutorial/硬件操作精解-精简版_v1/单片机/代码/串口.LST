@@ -1,0 +1,57 @@
+C51 COMPILER V6.12  ´__Ú                                                                   07/26/2008 21:11:24 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE ´__Ú
+OBJECT MODULE PLACED IN .\´®¿Ú.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE .\´®¿Ú.c DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include <reg52.h> //°üº¬µ¥Æ¬»ú²Ù×÷Í·ÎÄ¼þ
+   2          unsigned char flag,tmp;//¶¨Òå±äÁ¿
+   3          void main()
+   4          {
+   5   1      REN=1;
+   6   1      TMOD=0x20;//¶¨Ê±Æ÷¹¤×÷·½Ê½
+   7   1      TH1=0xfd;//ÉèÖÃ´®ÐÐ¿Ú²¨ÌØÂÊ9600
+   8   1      TL1=0xfd;//ÉèÖÃ´®ÐÐ¿Ú²¨ÌØÂÊ9600
+   9   1      	TR1=1;//Æô¶¯¼ÆÊ±Æ÷1(Æô¶¯´®ÐÐ¿Ú)
+  10   1      	SM0=0;
+  11   1      	SM1=1;
+  12   1      	EA=1;////CPU¿ªÖÐ¶Ï
+  13   1      	ES=1;////CPU¿ªÖÐ¶Ï
+  14   1      		while(1)//ÉèÖÃÒ»¸öÑ­»·
+  15   1      		{
+  16   2      	 		 if(flag==1)//´ú±íÊÕµ½ÁËÊý¾Ý
+  17   2      	 			 {
+  18   3      					ES=0;
+  19   3      					flag=0;
+  20   3      					P1=tmp;//µãÁÁ·¢¹â¶þ¼«¹Ü
+  21   3      					SBUF=tmp;//°ÑÖµÖØÐÂÐ´Èë»º³åÇø£¬Ïàµ±ÓÚ´Ó´®¿Ú·¢ËÍÊý¾Ý£¬µçÄÔ¾Í¿ÉÒÔ½ÓÊÕµ½Êý¾Ý
+  22   3      					while(!TI);
+  23   3      					TI=0;
+  24   3       					ES=1;
+  25   3      				 }
+  26   2             }
+  27   1      }
+  28          
+  29          void ser() interrupt 4 //ÖÐ¶Ï£¬µÈ´ýÊý¾Ýµ½À´´¥·¢
+  30          {
+  31   1      	RI=0;
+  32   1      	tmp=SBUF;//È¡µÃÊý¾Ýµ½±äÁ¿
+  33   1      	flag=1;
+  34   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     55    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

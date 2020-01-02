@@ -1,0 +1,4 @@
+LIBRARY CompilerPlugins
+
+EXPORTS
+	CompileProcessor

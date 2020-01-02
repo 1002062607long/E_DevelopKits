@@ -1,0 +1,1303 @@
+@@ 易语言COM包装支持库
+
+记录格式说明：
+  “@@ 语言 = xxxx”：记录当前翻译用语言的种类，必须在首部，请不要更改。
+  “@@ 类型库 = xxxx”：如果为包装类型库，则记录类型库的相关信息，请不要更改。
+  “@@ 组件 = xxxx”：如果为包装组件，则记录组件的相关信息，请不要更改，与类型库信息不能同时存在。
+  “@@ 接口 = xxxx”：记录内部重要信息，请不要做任何更改。
+  “##1”：表示某翻译项的开始，格式为“##1 项目原名 = 翻译后的名称”，
+           下行首直到下一翻译项标记处记录有关此项目的详细解释信息。
+  “##0”：记录被屏蔽的项目，被屏蔽项目将不会被包装支持库输出。
+           格式为“##0 项目原名”，不能屏蔽参数。
+
+------------------------------------------------------------
+
+@@ 语言 = 1
+
+@@ 组件 = {6BF52A52-394A-11d3-B153-00C04F79FAA6},Windows媒体播放器
+Windows Media Player控件，需要Windows Media Player 9或以上版本
+
+##0 IWMPEvents = 
+
+
+##0 WMPPlaylistChangeEventType = 
+
+
+##1 WindowsMediaPlayer = 播放器
+Windows媒体播放器控件
+
+##1 WindowsMediaPlayer.close = 关闭
+关闭媒体播放器
+
+##1 WindowsMediaPlayer.URL = 地址
+返回或设置要播放的媒体文件的文件名或者URL，例如"c:\1.mp3"，"http://www.cnn.com/video.asf"
+
+##1 WindowsMediaPlayer.openState = 打开状态
+返回播放器的打开状态
+
+##1 WindowsMediaPlayer.playState = 播放状态
+返回播放器的播放状态，使用"播放状态"枚举常量
+
+##1 WindowsMediaPlayer.Getcontrols = 取控制
+获取控制对象
+
+##1 WindowsMediaPlayer.Getsettings = 取设定
+获取设定对象
+
+##1 WindowsMediaPlayer.GetcurrentMedia = 取当前媒体
+获取当前媒体对象
+
+##0 WindowsMediaPlayer.GetmediaCollection = 
+获取媒体集合对象
+
+##0 WindowsMediaPlayer.GetplaylistCollection = 
+获取播放列表集合对象
+
+##1 WindowsMediaPlayer.versionInfo = 版本信息
+返回Windows Media Player的版本信息
+
+##0 WindowsMediaPlayer.launchURL = 
+
+
+##1 WindowsMediaPlayer.Getnetwork = 取网络
+获取网络对象
+
+##1 WindowsMediaPlayer.GetcurrentPlaylist = 取当前播放列表
+获取当前播放列表对象
+
+##1 WindowsMediaPlayer.GetcdromCollection = 取光驱集
+获取光驱集合对象
+
+##0 WindowsMediaPlayer.GetclosedCaption = 
+
+
+##1 WindowsMediaPlayer.isOnline = 在线
+返回当前计算机是否连接到了Internet上
+
+##0 WindowsMediaPlayer.GetError = 
+获取错误对象
+
+##1 WindowsMediaPlayer.status = 状态
+以文本型方式返回当前播放器的状态
+
+##0 WindowsMediaPlayer.Getdvd = 
+获取DVD对象
+
+##0 WindowsMediaPlayer.newPlaylist = 
+创建一个新的播放列表
+
+##1 WindowsMediaPlayer.newPlaylist.bstrName = 播放列表名
+新的播放列表的名称
+
+##1 WindowsMediaPlayer.newMedia = 创建媒体对象
+创建一个新的媒体对象
+
+##1 WindowsMediaPlayer.newMedia.bstrURL = 媒体文件
+媒体文件名，例如："c:\1.mp3"，"http://www.cnn.com/capsaddam.wmv"
+
+##1 WindowsMediaPlayer.enabled = 可用
+返回或设置控件是否可用
+
+##1 WindowsMediaPlayer.fullScreen = 全屏模式
+返回或设置控件是否使用全屏幕模式
+
+##1 WindowsMediaPlayer.enableContextMenu = 菜单可用
+返回或设置在Windows Media Player控件界面中是否使用菜单
+
+##1 WindowsMediaPlayer.uiMode = 界面模式
+返回或设置控件界面的模式，可以为以下文本型常量之一："invisible"、#隐藏所有；
+"none"、#只显示视频或者音频效果；"mini"、#MINI模式；"full"、#完整模式；"custom"、#自定义效果
+
+##1 WindowsMediaPlayer.stretchToFit = 自适应尺寸
+返回或设置视频大小是否适应控件大小
+
+##1 WindowsMediaPlayer.windowlessVideo = 无窗口模式
+返回或设置控件播放视频是否在无窗口模式
+
+##1 WindowsMediaPlayer.isRemote = 远程模式
+返回播放器是否在远程方式下运行
+
+##0 WindowsMediaPlayer.GetplayerApplication = 
+获取播放程序对象
+
+##1 WindowsMediaPlayer.openPlayer = 打开播放器
+使用指定的URL连接来打开Windows Media Player主程序
+
+##1 WindowsMediaPlayer.openPlayer.bstrURL = 
+例如:"c:\1.mp3","http://www.cnn.com/video.wmv"
+
+##1 WindowsMediaPlayer.SetcurrentMedia = 置当前媒体
+设置当前媒体对象
+
+##1 WindowsMediaPlayer.SetcurrentMedia.属性值 = 媒体对象
+媒体对象
+
+##1 WindowsMediaPlayer.SetcurrentPlaylist = 置当前播放列表
+设置当前播放列表
+
+##1 WindowsMediaPlayer.SetcurrentPlaylist.属性值 = 播放列表
+播放列表对象
+
+##1 _WMPOCXEvents.OpenStateChange = 打开状态被改变
+当前打开状态被改变的时候触发此事件
+
+##1 _WMPOCXEvents.OpenStateChange.NewState = 新的状态
+使用"打开状态"枚举常量
+
+##1 _WMPOCXEvents.PlayStateChange = 播放状态被改变
+当播放状态属性被改变的时候触发此事件
+
+##1 _WMPOCXEvents.PlayStateChange.NewState = 新的状态
+请参见"播放状态"枚举常量
+
+##1 _WMPOCXEvents.AudioLanguageChange = 音频语言被改变
+当音频语言被改变的时候触发此事件
+
+##1 _WMPOCXEvents.AudioLanguageChange.LangID = 语言标识
+新的语言的标识(LCID)
+
+##1 _WMPOCXEvents.StatusChange = 状态被改变
+当前状态属性被改变的时候触发此事件
+
+##0 _WMPOCXEvents.ScriptCommand = 
+
+
+##0 _WMPOCXEvents.NewStream = 
+
+
+##0 _WMPOCXEvents.Disconnect = 
+
+
+##1 _WMPOCXEvents.Buffering = 正在缓冲
+本时间在Windows Media Player控件缓冲或下载，并且在缓冲开始或结尾部分时触发。
+
+##1 _WMPOCXEvents.Buffering.Start = 是否在开头
+如果为 真，正在缓冲开头，反之，为正在缓冲结尾
+
+##1 _WMPOCXEvents.Error = 错误发生
+当发生错误的时候触发此事件
+
+##0 _WMPOCXEvents.Warning = 
+
+
+##0 _WMPOCXEvents.EndOfStream = 
+
+
+##1 _WMPOCXEvents.PositionChange = 位置被改变
+当播放位置被改变的时候触发此事件
+
+##1 _WMPOCXEvents.PositionChange.oldPosition = 旧的位置
+
+
+##1 _WMPOCXEvents.PositionChange.newPosition = 新的位置
+
+
+##0 _WMPOCXEvents.MarkerHit = 
+
+
+##0 _WMPOCXEvents.DurationUnitChange = 
+
+
+##1 _WMPOCXEvents.CdromMediaChange = 光驱媒体更改
+本事件在CD/DVD光驱在弹出或插入时被触发
+
+##1 _WMPOCXEvents.CdromMediaChange.CdromNum = 光驱序号
+光盘驱动器的序号
+
+##0 _WMPOCXEvents.PlaylistChange = 
+
+
+##0 _WMPOCXEvents.CurrentPlaylistChange = 
+
+
+##0 _WMPOCXEvents.CurrentPlaylistItemAvailable = 
+
+
+##0 _WMPOCXEvents.MediaChange = 
+
+
+##0 _WMPOCXEvents.CurrentMediaItemAvailable = 
+
+
+##0 _WMPOCXEvents.CurrentItemChange = 
+该事件在"WMP控制"对象的"当前项目"被改变的时候被触发
+
+##0 _WMPOCXEvents.MediaCollectionChange = 
+
+
+##0 _WMPOCXEvents.MediaCollectionAttributeStringAdded = 
+
+
+##0 _WMPOCXEvents.MediaCollectionAttributeStringRemoved = 
+
+
+##0 _WMPOCXEvents.MediaCollectionAttributeStringChanged = 
+
+
+##0 _WMPOCXEvents.PlaylistCollectionChange = 
+
+
+##0 _WMPOCXEvents.PlaylistCollectionPlaylistAdded = 
+
+
+##0 _WMPOCXEvents.PlaylistCollectionPlaylistRemoved = 
+
+
+##0 _WMPOCXEvents.PlaylistCollectionPlaylistSetAsDeleted = 
+
+
+##0 _WMPOCXEvents.ModeChange = 
+
+
+##1 _WMPOCXEvents.MediaError = 媒体发生错误
+当媒体对象发生错误的时候触发此事件
+
+##1 _WMPOCXEvents.MediaError.pMediaObject = 媒体对象
+发生错误的媒体对象
+
+##0 _WMPOCXEvents.OpenPlaylistSwitch = 
+
+
+##0 _WMPOCXEvents.DomainChange = 
+
+
+##0 _WMPOCXEvents.SwitchedToPlayerApplication = 
+该事件在远程控件切换到完整的播放程序时被触发
+
+##0 _WMPOCXEvents.SwitchedToControl = 
+该事件在远程控件切换回控件时被触发
+
+##0 _WMPOCXEvents.PlayerDockedStateChange = 
+
+
+##1 _WMPOCXEvents.PlayerReconnect = 播放器重新连接
+当控件重新连接到播放器的时候触发此事件
+
+##1 _WMPOCXEvents.Click = 被单击
+当用户单击左键的时候触发此事件
+
+##1 _WMPOCXEvents.Click.nButton = 鼠标按钮
+1、左键；2、右键；4、中键
+
+##1 _WMPOCXEvents.Click.nShiftState = Shift键状态
+0、Shift键被按下；1、Ctrl键被按下；2、Alt键被按下；
+
+##1 _WMPOCXEvents.Click.fX = 横坐标
+横坐标
+
+##1 _WMPOCXEvents.Click.fY = 纵坐标
+纵坐标
+
+##1 _WMPOCXEvents.DoubleClick = 鼠标双击
+当前鼠标双击的时候触发此事件
+
+##1 _WMPOCXEvents.DoubleClick.nButton = 鼠标按键
+为以下常量之一：1、左键；2、右键；4、中键
+
+##1 _WMPOCXEvents.DoubleClick.nShiftState = Shift键状态
+为以下常量之一：0、#Shift键被按下；1、#Ctrl键被按下；2、#Alt键被按下
+
+##1 _WMPOCXEvents.DoubleClick.fX = 横坐标
+横坐标
+
+##1 _WMPOCXEvents.DoubleClick.fY = 纵坐标
+纵坐标
+
+##1 _WMPOCXEvents.KeyDown = 按下按键
+当按下键盘上的某键的时候触发此事件
+
+##1 _WMPOCXEvents.KeyPress = 键输入
+当键盘上的某键被按下并抬起一次触发此事件
+
+##1 _WMPOCXEvents.KeyPress.nKeyAscii = 键码
+对应Ascii码
+
+##1 _WMPOCXEvents.KeyUp = 放开按键
+当放开键盘上的某个按键的时候触发此事件
+
+##1 _WMPOCXEvents.KeyUp.nKeyCode = 键码
+对应Ascii码
+
+##1 _WMPOCXEvents.KeyUp.nShiftState = Shift键状态
+为以下常量之一：0、#Shift键被按下；1、#Ctrl键被按下；2、#Alt键被按下
+
+##1 _WMPOCXEvents.MouseDown = 鼠标按键被按下
+当鼠标按键被按下的时候触发此事件
+
+##1 _WMPOCXEvents.MouseDown.nButton = 鼠标按键
+为以下常量之一：1、左键；2、右键；4、中键
+
+##1 _WMPOCXEvents.MouseDown.nShiftState = Shift键状态
+为以下常量之一：0、#Shift键被按下；1、#Ctrl键被按下；2、#Alt键被按下
+
+##1 _WMPOCXEvents.MouseDown.fX = 横坐标
+横坐标
+
+##1 _WMPOCXEvents.MouseDown.fY = 纵坐标
+纵坐标
+
+##1 _WMPOCXEvents.MouseMove = 鼠标移动
+当鼠标移动的时候触发此事件
+
+##1 _WMPOCXEvents.MouseMove.nButton = 鼠标按键
+为以下常量之一：1、左键；2、右键；4、中键
+
+##1 _WMPOCXEvents.MouseMove.nShiftState = Shift键状态
+为以下常量之一：0、#Shift键被按下；1、#Ctrl键被按下；2、#Alt键被按下
+
+##1 _WMPOCXEvents.MouseMove.fX = 横坐标
+横坐标
+
+##1 _WMPOCXEvents.MouseMove.fY = 纵坐标
+纵坐标
+
+##1 _WMPOCXEvents.MouseUp = 鼠标按键被抬起
+当鼠标按键被抬起的时候触发此时间
+
+##1 _WMPOCXEvents.MouseUp.nButton = 鼠标按键
+为以下常量之一：1、左键；2、右键；4、中键
+
+##1 _WMPOCXEvents.MouseUp.nShiftState = Shift键状态
+为以下常量之一：0、#Shift键被按下；1、#Ctrl键被按下；2、#Alt键被按下
+
+##1 _WMPOCXEvents.MouseUp.fX = 横坐标
+横坐标
+
+##1 _WMPOCXEvents.MouseUp.fY = 纵坐标
+纵坐标
+
+##0 IWMPCore2 = 
+
+
+##0 IWMPCore = 
+本对象是Windows Media Player控件的核心部分，使用它可以取得大量常用的Windows Media Player提供的对象
+
+##1 IWMPCore.close = 关闭WMP
+关闭Windows Media Player
+
+##1 IWMPCore.URL = 媒体位置
+返回或设置媒体对象的位置，例如:"c:\1.mpg","c:\1.mp3"
+
+##1 IWMPCore.versionInfo = 版本信息
+返回当前Windows Media Player的版本信息
+
+##1 WMPOpenState = 打开状态
+本对象枚举了Windows Media Player在打开媒体文件时，所有可能的状态
+
+##1 WMPOpenState.wmposUndefined = 不确定
+不确定的状态
+
+##1 WMPOpenState.wmposPlaylistChanging = 播放列表被改变
+新的播放列表已被加载
+
+##1 WMPOpenState.wmposPlaylistLocating = 正在定位播放列表
+正在定位播放列表
+
+##1 WMPOpenState.wmposPlaylistConnecting = 正在连接播放列表
+正在连接服务器上的播放列表
+
+##1 WMPOpenState.wmposPlaylistLoading = 正在加载播放列表
+正在加载播放列表
+
+##1 WMPOpenState.wmposPlaylistOpening = 正在打开播放列表
+正在打开播放列表
+
+##1 WMPOpenState.wmposPlaylistOpenNoMedia = 播放列表打开
+播放列表处于打开状态
+
+##1 WMPOpenState.wmposPlaylistChanged = 播放列表被改变
+播放列表被改变
+
+##1 WMPOpenState.wmposMediaChanging = 媒体被改变
+新的媒体文件已被加载
+
+##1 WMPOpenState.wmposMediaLocating = 定位媒体
+正在定位媒体文件
+
+##1 WMPOpenState.wmposMediaConnecting = 连接媒体
+正在连接服务器上的媒体文件
+
+##1 WMPOpenState.wmposMediaLoading = 加载媒体
+正在加载媒体
+
+##1 WMPOpenState.wmposMediaOpening = 正在打开媒体文件
+正在打开媒体文件
+
+##1 WMPOpenState.wmposMediaOpen = 媒体被打开
+媒体已被打开
+
+##1 WMPOpenState.wmposBeginCodecAcquisition = 开始获取编码器
+开始获取编码器
+
+##1 WMPOpenState.wmposEndCodecAcquisition = 结束编码器获取
+结束编码器获取
+
+##1 WMPOpenState.wmposBeginLicenseAcquisition = 开始许可证获取
+开始许可证获取
+
+##1 WMPOpenState.wmposEndLicenseAcquisition = 结束许可证获取
+结束许可证获取
+
+##1 WMPOpenState.wmposBeginIndividualization = 开始个性化设置
+开始个性化设置
+
+##1 WMPOpenState.wmposEndIndividualization = 结束个性化设置
+结束个性化设置
+
+##1 WMPOpenState.wmposMediaWaiting = 正在等待
+正在等待媒体文件
+
+##1 WMPOpenState.wmposOpeningUnknownURL = 打开未知类型的URL
+正在打开一个未知类型的URL
+
+##1 WMPPlayState = 播放状态
+本对象枚举了Windows Media Player在播放媒体文件时，所有可能的状态
+
+##1 WMPPlayState.wmppsUndefined = 未知状态
+未知状态
+
+##1 WMPPlayState.wmppsStopped = 播放暂停
+播放暂停
+
+##1 WMPPlayState.wmppsPaused = 播放暂停
+播放暂停
+
+##1 WMPPlayState.wmppsPlaying = 正在播放
+正在播放
+
+##1 WMPPlayState.wmppsScanForward = 向前搜索
+向前搜索流媒体数据
+
+##1 WMPPlayState.wmppsScanReverse = 向后搜索
+向后搜索流媒体数据
+
+##1 WMPPlayState.wmppsBuffering = 正在缓冲
+媒体文件正在被缓冲
+
+##1 WMPPlayState.wmppsWaiting = 等待加载
+等待加载流媒体
+
+##1 WMPPlayState.wmppsMediaEnded = 播放结束
+播放结束
+
+##1 WMPPlayState.wmppsTransitioning = 准备新媒体
+准备新的媒体文件
+
+##1 WMPPlayState.wmppsReady = 播放准备就绪
+播放准备就绪
+
+##1 WMPPlayState.wmppsReconnecting = 尝试重新连接
+尝试重新连接流媒体数据
+
+##1 WMPPlayState.wmppsLast = 上一次状态
+状态没有改变
+
+##1 IWMPControls = 播放器控制
+本对象提供了控制媒体播放的各种方法，例如：播放、暂停......
+
+##0 IWMPControls.GetisAvailable = 
+
+
+##1 IWMPControls.play = 播放
+播放当前媒体项目
+
+##1 IWMPControls.stop = 停止
+停止播放
+
+##1 IWMPControls.pause = 暂停
+暂停当前正在播放的内容
+
+##1 IWMPControls.fastForward = 快进
+快进
+
+##1 IWMPControls.fastReverse = 快退
+快退
+
+##1 IWMPControls.currentPosition = 当前位置
+返回或者设置从开始处到当前播放位置的长度，以秒为单位。
+
+##1 IWMPControls.currentPositionString = 当前位置文本
+返回当前播放位置的文本表达。
+
+##1 IWMPControls.next = 下一个
+将当前播放项目设为播放列表(PlayList)中的下一个项目
+
+##1 IWMPControls.previous = 前一个
+与"下一个"命令作用正好相反
+
+##1 IWMPControls.GetcurrentItem = 取当前项目
+获取当前媒体对象
+
+##0 IWMPControls.currentMarker = 
+设置或返回当前标记号
+
+##1 IWMPControls.playItem = 播放项目
+开始播放指定的媒体项目
+
+##1 IWMPControls.playItem.pIWMPMedia = 媒体项目
+要播放的媒体项目("WMP媒体"对象)
+
+##1 IWMPControls.SetcurrentItem = 置当前媒体
+设置当前媒体对象
+
+##1 IWMPControls.SetcurrentItem.属性值 = 媒体对象
+要设置的"WMP媒体"对象
+
+##1 IWMPMedia = 播放器媒体
+本对象提供返回或设置一个多媒体剪辑的属性
+
+##1 IWMPMedia.GetisIdentical = 判断相等
+判断参数所提供的媒体对象和本媒体对象是否是同样的
+
+##1 IWMPMedia.GetisIdentical.pIWMPMedia = 媒体对象
+要判断的媒体对象("WMP媒体"对象)
+
+##1 IWMPMedia.sourceURL = 源连接
+返回本媒体对象的原始URL连接
+
+##1 IWMPMedia.name = 媒体名称
+返回媒体的名称
+
+##1 IWMPMedia.imageSourceWidth = 源图像宽度
+返回图像的原始宽度，以象素为单位
+
+##1 IWMPMedia.imageSourceHeight = 源图像高度
+返回图像的原始高度，以象素为单位
+
+##1 IWMPMedia.markerCount = 标记数量
+返回文件中标记的数量
+
+##1 IWMPMedia.getMarkerTime = 取标记时间
+通过序号获取标记时间
+
+##1 IWMPMedia.getMarkerTime.MarkerNum = 序号
+标记序号
+
+##1 IWMPMedia.getMarkerName = 取标记名
+通过标记序号获取标记名
+
+##1 IWMPMedia.getMarkerName.MarkerNum = 序号
+标记序号
+
+##1 IWMPMedia.duration = 播放位置
+以秒为单位返回或设置播放的位置
+
+##1 IWMPMedia.durationString = 播放位置文本
+返回以文本方式表达的当前的播放位置，"HH:MM:SS"格式
+
+##1 IWMPMedia.attributeCount = 属性的数量
+返回本媒体的属性的数量
+
+##1 IWMPMedia.getAttributeName = 取属性名
+通过属性序号取得属性的名称，注意：属性序号必须在0 ~ 属性数量-1 的范围内
+
+##1 IWMPMedia.getItemInfo = 取项目信息
+通过项目名获取项目信息
+
+##1 IWMPMedia.getItemInfo.bstrItemName = 项目名
+项目名，可为下列文本型常量之一（更多项目名，请参见Windows Media Player 9 SDK 文档中的"Available Attributes"部分）：
+"Author"、#本媒体剪辑的作者；"Bitrate"、#位比率(秒为单位)；"Copyright"、#版权信息；"CurrenBitrate"、#当前位比率(秒为单位)；"Description"、#媒体内容的描述；"Duration"、#持续时间(秒为单位)；"FileSize"、#文件大小(Bytes为单位)；
+"FileType"、#文件格式，例如wma,mp3；"SourceURL"、#原始地址；"Title"、#媒体内容的标题"；
+
+##1 IWMPMedia.setItemInfo = 置项目信息
+通过属性名设置项目信息
+
+##1 IWMPMedia.setItemInfo.bstrItemName = 项目名
+项目的名称
+
+##1 IWMPMedia.setItemInfo.bstrVal = 值
+要设置的值
+
+##1 IWMPMedia.getItemInfoByAtom = 按序取项目信息
+按照序号获取项目信息
+
+##0 IWMPMedia.isMemberOf = 
+
+
+##0 IWMPMedia.isReadOnlyItem = 
+
+
+##1 IWMPPlaylist = 播放列表
+本对象提供方法操作媒体剪辑列表
+
+##1 IWMPPlaylist.count = 项目数量
+返回播放列表中项目的数量
+
+##1 IWMPPlaylist.name = 名称
+返回播放列表名
+
+##1 IWMPPlaylist.attributeCount = 属性数量
+返回播放列表中关联属性的数量
+
+##1 IWMPPlaylist.GetattributeName = 取属性名
+通过序号获取属性名
+
+##1 IWMPPlaylist.GetattributeName.lIndex = 序号
+属性的序号
+
+##1 IWMPPlaylist.GetItem = 取媒体
+通过序号返回对应的媒体对象("WMP媒体"对象)
+
+##1 IWMPPlaylist.GetItem.lIndex = 序号
+项目序号
+
+##1 IWMPPlaylist.getItemInfo = 取项目信息
+通过项目名取得项目信息
+
+##1 IWMPPlaylist.getItemInfo.bstrName = 项目名
+项目名
+
+##1 IWMPPlaylist.setItemInfo = 置项目信息
+设置播放列表的项目信息
+
+##1 IWMPPlaylist.setItemInfo.bstrName = 项目名
+项目名
+
+##1 IWMPPlaylist.setItemInfo.bstrValue = 值
+要设置的值
+
+##0 IWMPPlaylist.GetisIdentical = 
+
+
+##1 IWMPPlaylist.clear = 清空列表
+清空播放列表中的全部内容
+
+##1 IWMPPlaylist.insertItem = 插入项目
+在播放列表中指定位置插入新的项目
+
+##1 IWMPPlaylist.insertItem.lIndex = 序号
+插入的序号
+
+##1 IWMPPlaylist.insertItem.pIWMPMedia = 媒体对象
+要插入的媒体对象("WMP媒体"对象)
+
+##1 IWMPPlaylist.appendItem = 追加
+向播放列表尾部追加项目
+
+##1 IWMPPlaylist.appendItem.pIWMPMedia = 媒体对象
+要追加的媒体对象("WMP媒体"对象)
+
+##1 IWMPPlaylist.removeItem = 移除
+通过媒体对象移除播放列表中的指定项目
+
+##1 IWMPPlaylist.removeItem.pIWMPMedia = 媒体对象
+要移除的媒体对象("WMP媒体"对象)
+
+##1 IWMPPlaylist.moveItem = 移动
+移动项目的位置
+
+##1 IWMPPlaylist.moveItem.lIndexOld = 旧序号
+原始序号
+
+##1 IWMPPlaylist.moveItem.lIndexNew = 新序号
+新的序号
+
+##1 IWMPSettings = 播放器设定
+本对象提供了可以改变Windows Media Player多个设定的方法
+
+##0 IWMPSettings.GetisAvailable = 
+
+
+##1 IWMPSettings.autoStart = 自动播放
+返回或设置媒体文件是否自动播放
+
+##0 IWMPSettings.baseURL = 
+
+
+##0 IWMPSettings.defaultFrame = 
+
+
+##0 IWMPSettings.invokeURLs = 
+
+
+##1 IWMPSettings.mute = 静音
+返回或设置音频是否静音
+
+##1 IWMPSettings.playCount = 播放次数
+返回或设置媒体对象播放的次数
+
+##0 IWMPSettings.rate = 
+
+
+##1 IWMPSettings.balance = 立体声平衡
+返回或设置音频左右声道的平衡，0为均衡，范围为:-100 ~ 100
+
+##1 IWMPSettings.volume = 音量
+返回或设置音量，音量的范围为0 ~ 100
+
+##0 IWMPSettings.getMode = 
+
+
+##0 IWMPSettings.setMode = 
+
+
+##1 IWMPSettings.enableErrorDialogs = 显示错误
+返回或设置是否自动显示错误对话框
+
+##0 IWMPMediaCollection = 
+
+
+##0 IWMPStringCollection = 
+
+
+##0 IWMPPlaylistCollection = 
+
+
+##0 IWMPPlaylistArray = 
+
+
+##1 IWMPNetwork = 播放器网络
+本对象提供关联Windows Media Player和网络连接的方法
+
+##1 IWMPNetwork.bandWidth = 带宽
+返回地址属性所指向的流媒体的带宽
+
+##1 IWMPNetwork.recoveredPackets = 被覆盖数据包数
+返回被覆盖的数据包数
+
+##0 IWMPNetwork.sourceProtocol = 
+
+
+##1 IWMPNetwork.receivedPackets = 已接收数据包
+返回已接收的数据包数
+
+##1 IWMPNetwork.lostPackets = 丢包数
+返回丢包的数量
+
+##1 IWMPNetwork.receptionQuality = 接收质量
+返回最近30秒中的接收质量
+
+##1 IWMPNetwork.bufferingCount = 缓冲数量
+返回缓冲的数量
+
+##1 IWMPNetwork.bufferingProgress = 缓冲进度
+返回缓冲已完成的百分比
+
+##1 IWMPNetwork.bufferingTime = 缓冲时间
+以毫秒为单位返回或设置缓冲的时间，范围为：0 ~ 60秒，默认为5秒
+
+##1 IWMPNetwork.frameRate = 实际帧数
+当前视频每百秒的帧数
+
+##0 IWMPNetwork.maxBitRate = 
+
+
+##1 IWMPNetwork.bitRate = 位比率
+返回当前音频或视频流的位比率
+
+##0 IWMPNetwork.getProxySettings = 
+
+
+##0 IWMPNetwork.setProxySettings = 
+
+
+##0 IWMPNetwork.getProxyName = 
+
+
+##0 IWMPNetwork.setProxyName = 
+
+
+##0 IWMPNetwork.getProxyPort = 
+
+
+##0 IWMPNetwork.setProxyPort = 
+
+
+##0 IWMPNetwork.getProxyExceptionList = 
+
+
+##0 IWMPNetwork.setProxyExceptionList = 
+
+
+##0 IWMPNetwork.getProxyBypassForLocal = 
+
+
+##0 IWMPNetwork.setProxyBypassForLocal = 
+
+
+##1 IWMPNetwork.maxBandwidth = 最大带宽
+返回设置允许的最大带宽
+
+##1 IWMPNetwork.downloadProgress = 下载进度
+以百分比返回下载进度
+
+##1 IWMPNetwork.encodedFrameRate = 帧数
+返回由本媒体文件创建者所提供的每秒的帧数
+
+##1 IWMPNetwork.framesSkipped = 跳过帧数
+返回当回放时跳过的帧数
+
+##1 IWMPCdromCollection = 播放器光驱集
+本对象提供访问CD/DVD光驱集合的方法
+
+##1 IWMPCdromCollection.count = 数量
+返回的CD/DVD光驱的数量
+
+##1 IWMPCdromCollection.Item = 取项目
+使用光驱序号获取"WMP光驱"对象
+
+##1 IWMPCdromCollection.Item.lIndex = 序号
+光驱的序号，0表示1，该参数必须在"数量"属性 - 1的范围内
+
+##1 IWMPCdromCollection.getByDriveSpecifier = 取光驱
+使用具体的光盘标识符取得"WMP光驱"对象
+
+##1 IWMPCdromCollection.getByDriveSpecifier.bstrDriveSpecifier = 盘符
+光盘的标识符，例如"f:",必须有";"号
+
+##1 IWMPCdrom = 播放器光驱
+本对象提供方法访问/操作CD/DVD光驱
+
+##1 IWMPCdrom.driveSpecifier = 标识符
+返回光驱的标识符，例如"f:"
+
+##1 IWMPCdrom.GetPlaylist = 取播放列表
+获取光驱上的播放列表，为"WMP播放列表"对象
+
+##1 IWMPCdrom.eject = 弹出光驱
+弹出/关闭光驱，如果当前光驱为打开状态则关闭，反之则打开
+
+##0 IWMPClosedCaption = 
+
+
+##0 IWMPError = 
+
+
+##0 IWMPErrorItem = 
+
+
+##0 IWMPDVD = 
+
+
+##0 IWMPPlayerApplication = 
+
+
+##0 IWMPPlayer3 = 
+
+
+##0 IWMPPlayer2 = 
+
+
+##0 IWMPPlayer = 
+本对象提供对Windows Media Player用户界面的基本控制。本对象是对WMP核心的一个补充
+
+##0 IWMPErrorItem2 = 
+
+
+##0 IWMPControls2 = 
+本对象继承自"WMP控制"对象，只有"step"方法是自有的，因此关于本对象方法与属性的用法您可以参阅"WMP控制"对象。
+
+##0 IWMPMedia2 = 
+
+
+##0 IWMPMedia2.GetisIdentical = 
+
+
+##1 IWMPMedia2.sourceURL = 源连接
+返回本媒体对象的原始URL连接
+
+##1 IWMPMedia2.name = 媒体名称
+返回媒体的名称
+
+##1 IWMPMedia2.imageSourceWidth = 源图像宽度
+返回图像的原始宽度
+
+##1 IWMPMedia2.imageSourceHeight = 源图像高度
+返回图像的原始高度
+
+##1 IWMPMedia2.markerCount = 标记数量
+返回文件中标记的数量
+
+##1 IWMPMedia2.getMarkerTime = 取标记时间
+通过序号获取标记时间
+
+##1 IWMPMedia2.getMarkerTime.MarkerNum = 标记序号
+通过标记序号获取标记时间
+
+##1 IWMPMedia2.getMarkerName = 取标记名
+通过标记序号获取标记名
+
+##1 IWMPMedia2.getMarkerName.MarkerNum = 序号
+标记序号
+
+##1 IWMPMedia2.duration = 播放位置
+以秒为单位返回或设置播放的位置
+
+##1 IWMPMedia2.durationString = 播放位置文本
+返回以文本方式表达的当前的播放位置，"HH:MM:SS"格式
+
+##1 IWMPMedia2.attributeCount = 属性数量
+返回当前媒体属性的数量
+
+##1 IWMPMedia2.getAttributeName = 取属性名
+通过属性序号取得属性的名称，注意：属性序号必须在0 ~ 属性数量-1 的范围内
+
+##1 IWMPMedia2.getItemInfo = 取项目信息
+通过项目名获取项目信息
+
+##1 IWMPMedia2.getItemInfo.bstrItemName = 项目名
+项目名称
+
+##1 IWMPMedia2.setItemInfo = 置项目信息
+通过属性名设置项目信息
+
+##1 IWMPMedia2.setItemInfo.bstrItemName = 项目名
+项目的名称
+
+##1 IWMPMedia2.setItemInfo.bstrVal = 值
+要设置的值
+
+##1 IWMPMedia2.getItemInfoByAtom = 按序取项目信息
+按照序号获取项目信息
+
+##1 IWMPMedia2.getItemInfoByAtom.lAtom = 序号
+项目序号
+
+##0 IWMPMedia2.isMemberOf = 
+
+
+##0 IWMPMedia2.GetError = 
+
+
+##0 IWMPMedia3 = 
+
+
+##0 IWMPMetadataPicture = 
+
+
+##0 IWMPMetadataText = 
+
+
+##0 IWMPSettings2 = 
+
+
+##1 IWMPControls3 = 播放器控制3
+本对象继承自"WMP控制"对象，只有以下方法是自有的：
+因此关于本对象方法与属性的用法您可以参阅"WMP控制"对象。
+
+##0 IWMPControls3.GetisAvailable = 
+
+
+##0 IWMPControls3.play = 
+
+
+##0 IWMPControls3.stop = 
+
+
+##0 IWMPControls3.pause = 
+
+
+##0 IWMPControls3.fastForward = 
+
+
+##0 IWMPControls3.fastReverse = 
+
+
+##0 IWMPControls3.currentPosition = 
+
+
+##0 IWMPControls3.currentPositionString = 
+
+
+##0 IWMPControls3.next = 
+
+
+##0 IWMPControls3.previous = 
+
+
+##0 IWMPControls3.GetcurrentItem = 
+
+
+##0 IWMPControls3.currentMarker = 
+
+
+##0 IWMPControls3.playItem = 
+
+
+##0 IWMPControls3.step = 
+
+
+##1 IWMPControls3.audioLanguageCount = 音频语言数量
+返回音频所支持的语言的数量
+
+##1 IWMPControls3.getAudioLanguageID = 取语言标识
+通过索引获取音频语言标别
+
+##1 IWMPControls3.getAudioLanguageID.lIndex = 语言索引
+指定音频语言索引
+
+##1 IWMPControls3.getAudioLanguageDescription = 取音频语言描述
+获取指定索引的音频语言的描述
+
+##1 IWMPControls3.getAudioLanguageDescription.lIndex = 语言索引
+指定语言索引
+
+##1 IWMPControls3.currentAudioLanguage = 音频语言
+返回或设置当前的音频语言
+
+##1 IWMPControls3.currentAudioLanguageIndex = 音频语言索引
+获取或设置当前音频语言的索引
+
+##1 IWMPControls3.getLanguageName = 取语言名
+使用标识符(LCID)获取音频语言名
+
+##1 IWMPControls3.getLanguageName.lLangID = 索引
+索引,LCID
+
+##1 IWMPControls3.currentPositionTimecode = 位置代码
+返回或设置当前媒体播放的位置/时间,使用时间代码格式，此属性当前支持SMPTE时间代码 ，例如:"01:00:30:05"
+
+##0 IWMPControls3.SetcurrentItem = 
+
+
+##0 IWMPClosedCaption2 = 
+
+
+##0 IAppDispatch = 
+
+
+##0 IWMPSafeBrowser = 
+
+
+##0 IWMPObjectExtendedProps = 
+
+
+##0 IWMPLayoutSubView = 
+
+
+##0 IWMPLayoutView = 
+
+
+##0 IWMPEventObject = 
+
+
+##0 IWMPTheme = 
+
+
+##0 IWMPLayoutSettingsDispatch = 
+
+
+##0 IWMPNowPlayingHelperDispatch = 
+
+
+##0 WMPButtonCtrl = 
+
+
+##0 WMPListBoxCtrl = 
+
+
+##0 IWMPListBoxItem = 
+
+
+##0 IWMPPlaylistCtrlColumn = 
+
+
+##0 WMPSliderCtrl = 
+
+
+##0 WMPVideoCtrl = 
+
+
+##0 WMPEffects = 
+
+
+##0 WMPEqualizerSettingsCtrl = 
+
+
+##0 WMPVideoSettingsCtrl = 
+
+
+##0 WMPLibraryTreeCtrl = 
+
+
+##0 WMPEditCtrl = 
+
+
+##0 IWMPPluginUIHost = 
+
+
+##0 WMPMenuCtrl = 
+
+
+##0 WMPAutoMenuCtrl = 
+
+
+##0 WMPRegionalButtonCtrl = 
+
+
+##0 WMPRegionalButton = 
+
+
+##0 WMPCustomSliderCtrl = 
+
+
+##0 WMPTextCtrl = 
+
+
+##0 WMPPlaylistCtrl = 
+
+
+##0 ITaskCntrCtrl = 
+
+
+##0 WMPCore = 
+
+
+##0 IWMPGraphEventHandler = 
+
+
+##0 ULONG_PTR = 
+
+
+##0 IAssaultVis = 
+
+
+##0 IBattery = 
+
+
+##0 IBatteryPreset = 
+
+
+##0 IBatteryRandomPreset = 
+
+
+##0 IBatterySavedPreset = 
+
+
+##0 IBarsEffect = 
+
+
+##0 ISpikesEffect = 
+
+
+##0 IDotPlaneEffect = 
+
+
+##0 IPlenoptic = 
+
+
+##0 IWMPExternal = 
+
+
+##0 IWMPExternalColors = 
+
+
+##0 IWMPTemplatesExternal = 
+
+
+##0 IWMPSubscriptionServiceExternal = 
+
+
+##0 IWMPDownloadManager = 
+
+
+##0 IWMPDownloadCollection = 
+
+
+##0 IWMPDownloadItem = 
+
+
+##0 WMPSubscriptionDownloadState = 
+
+
+##0 IWMPCDDVDWizardExternal = 
+
+
+##0 WMP_WRITENAMESEX_TYPE = 
+
+
+##0 IWMPBaseExternal = 
+
+
+##0 IWMPOfflineExternal = 
+
+
+@@ 接口 =
+0, {19A6627B-DA9E-47C1-BB23-00B5E668236A}, IWMPEvents, { 5001, 5101, 5102, 5002, 5301, 5403, 5401, 5402, 5501, 5601, 5201, 5202, 5203, 5204, 5701, 5801, 5804, 5805, 5802, 5803, 5806, 5807, 5808, 5809, 5820, 5810, 5811, 5812, 5818, 5819, 5821, 5823, 5822, 6501, 6502, 6503, 6504, 6505, 6506, 6507, 6508, 6509, 6510, 6511, 6512,  }, {  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, WMPPlaylistChangeEventType, {  }, { 1073741835, 1073741834, 1073741833, 1073741832, 1073741831, 1073741830, 1073741829, 1073741828, 1073741827, 1073741826, 1073741825, 1073741824,  }, {  }
+1, {6BF52A52-394A-11D3-B153-00C04F79FAA6}, WindowsMediaPlayer, { 3, 4, 5, 6, 8, 9, 12, 7, 13, 14, 15, 17, 40, 41, 42, 27, 28, 6, 13,  }, { 26, 25, 24, 23, 22, 21, 19, 18, 16, 11, 10, 2, 1,  }, { 5001, 5101, 5102, 5002, 5301, 5403, 5401, 5402, 5501, 5601, 5201, 5202, 5203, 5204, 5701, 5801, 5804, 5805, 5802, 5803, 5806, 5807, 5808, 5809, 5820, 5810, 5811, 5812, 5818, 5819, 5821, 5823, 5822, 6501, 6502, 6503, 6504, 6505, 6506, 6507, 6508, 6509, 6510, 6511, 6512,  }
+0, {BC17E5B7-7561-4C18-BB90-17D485775659}, IWMPCore2, { 3, 4, 5, 6, 8, 9, 12, 7, 13, 14, 15, 17, 40, 6, 13,  }, { 18, 16, 11, 10, 2, 1,  }, {  }
+0, {D84CCA99-CCE2-11D2-9ECC-0000F8085981}, IWMPCore, { 3, 4, 5, 6, 8, 9, 12, 7, 13, 14, 15, 17, 6, 13,  }, { 18, 16, 11, 10, 2, 1,  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, WMPOpenState, {  }, { 1073741845, 1073741844, 1073741843, 1073741842, 1073741841, 1073741840, 1073741839, 1073741838, 1073741837, 1073741836, 1073741835, 1073741834, 1073741833, 1073741832, 1073741831, 1073741830, 1073741829, 1073741828, 1073741827, 1073741826, 1073741825, 1073741824,  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, WMPPlayState, {  }, { 1073741836, 1073741835, 1073741834, 1073741833, 1073741832, 1073741831, 1073741830, 1073741829, 1073741828, 1073741827, 1073741826, 1073741825, 1073741824,  }, {  }
+0, {74C09E02-F828-11D2-A74B-00A0C905F36E}, IWMPControls, { 62, 51, 52, 53, 54, 55, 58, 59, 60, 63, 60,  }, { 61, 57, 56,  }, {  }
+0, {94D55E95-3FAC-11D3-B155-00C04F79FAA6}, IWMPMedia, { 763, 755, 756, 760, 761, 762, 765, 766, 767,  }, { 759, 758, 757, 754, 753, 752, 764, 751,  }, {  }
+0, {D5F0F4F1-130C-11D3-B14E-00C04F79FAA6}, IWMPPlaylist, { 211, 212, 203, 204, 213, 205, 206, 207, 208, 209,  }, { 210, 202, 201,  }, {  }
+0, {9104D1AB-80C9-4FED-ABF0-2E6417A6DF14}, IWMPSettings, { 113, 110, 111,  }, { 112, 107, 102, 106, 105, 104, 103, 109, 108, 101,  }, {  }
+0, {8363BC22-B4B4-4B19-989D-1CD765749DD1}, IWMPMediaCollection, { 452, 453, 454, 455, 456, 457, 458, 459, 461, 470, 471, 472,  }, {  }, {  }
+0, {4A976298-8C0D-11D3-B389-00C04F68574B}, IWMPStringCollection, { 402,  }, { 401,  }, {  }
+0, {10A13217-23A7-439B-B1C0-D847C79B7774}, IWMPPlaylistCollection, { 552, 553, 554, 556, 560, 561, 562,  }, {  }, {  }
+0, {679409C0-99F7-11D3-9FB7-00105AA620BB}, IWMPPlaylistArray, { 502,  }, { 501,  }, {  }
+0, {EC21B779-EDEF-462D-BBA4-AD9DDE2B29A7}, IWMPNetwork, { 813, 814, 815, 816, 817, 818, 819, 820, 821, 822,  }, { 826, 825, 824, 823, 812, 811, 810, 809, 808, 807, 806, 805, 804, 803, 802, 801,  }, {  }
+0, {EE4C8FE2-34B2-11D3-A3BF-006097C9B344}, IWMPCdromCollection, { 302, 303,  }, { 301,  }, {  }
+0, {CFAB6E98-8730-11D3-B388-00C04F68574B}, IWMPCdrom, { 252, 253,  }, { 251,  }, {  }
+0, {4F2DF574-C588-11D3-9ED0-00C04FB6E937}, IWMPClosedCaption, {  }, { 954, 953, 952, 951,  }, {  }
+0, {A12DCF7D-14AB-4C1B-A8CD-63909F06025B}, IWMPError, { 851, 853, 854,  }, { 852,  }, {  }
+0, {3614C646-3B3B-4DE7-A81E-930E3F2127B3}, IWMPErrorItem, { 903,  }, { 905, 904, 902, 901,  }, {  }
+0, {8DA61686-4668-4A5C-AE5D-803193293DBE}, IWMPDVD, { 1001, 1003, 1004, 1005, 1006,  }, { 1002,  }, {  }
+0, {40897764-CEAB-47BE-AD4A-8E28537F9BBF}, IWMPPlayerApplication, { 1101, 1102,  }, { 1104, 1103,  }, {  }
+0, {54062B68-052A-4C25-A39F-8B63346511D4}, IWMPPlayer3, { 3, 4, 5, 6, 8, 9, 12, 7, 13, 14, 15, 17, 40, 6, 13,  }, { 25, 24, 23, 22, 21, 19, 18, 16, 11, 10, 2, 1,  }, {  }
+0, {0E6B01D1-D407-4C85-BF5F-1C01F6150280}, IWMPPlayer2, { 3, 4, 5, 6, 8, 9, 12, 7, 13, 14, 15, 17, 6, 13,  }, { 25, 24, 23, 22, 21, 19, 18, 16, 11, 10, 2, 1,  }, {  }
+0, {6BF52A4F-394A-11D3-B153-00C04F79FAA6}, IWMPPlayer, { 3, 4, 5, 6, 8, 9, 12, 7, 13, 14, 15, 17, 6, 13,  }, { 23, 22, 21, 19, 18, 16, 11, 10, 2, 1,  }, {  }
+0, {F75CCEC0-C67C-475C-931E-8719870BEE7D}, IWMPErrorItem2, { 903,  }, { 906, 905, 904, 902, 901,  }, {  }
+0, {6F030D25-0890-480F-9775-1F7E40AB5B8E}, IWMPControls2, { 62, 51, 52, 53, 54, 55, 58, 59, 60, 63, 64, 60,  }, { 61, 57, 56,  }, {  }
+0, {AB7C88BB-143E-4EA4-ACC3-E4350B2106C3}, IWMPMedia2, { 763, 755, 756, 760, 761, 762, 765, 766, 767, 768,  }, { 759, 758, 757, 754, 753, 752, 764, 751,  }, {  }
+0, {F118EFC7-F03A-4FB4-99C9-1C02A5C1065B}, IWMPMedia3, { 763, 755, 756, 760, 761, 762, 765, 766, 767, 768, 769, 770,  }, { 759, 758, 757, 754, 753, 752, 764, 751,  }, {  }
+0, {5C29BBE0-F87D-4C45-AA28-A70F0230FFA9}, IWMPMetadataPicture, {  }, { 1054, 1053, 1052, 1051,  }, {  }
+0, {769A72DB-13D2-45E2-9C48-53CA9D5B7450}, IWMPMetadataText, {  }, { 1055, 1056,  }, {  }
+0, {FDA937A4-EECE-4DA5-A0B6-39BF89ADE2C2}, IWMPSettings2, { 113, 110, 111, 116,  }, { 115, 114, 112, 107, 102, 106, 105, 104, 103, 109, 108, 101,  }, {  }
+0, {A1D1110E-D545-476A-9A78-AC3E4CB1E6BD}, IWMPControls3, { 62, 51, 52, 53, 54, 55, 58, 59, 60, 63, 64, 66, 67, 70, 60,  }, { 71, 69, 68, 65, 61, 57, 56,  }, {  }
+0, {350BA78B-6BC8-4113-A5F5-312056934EB6}, IWMPClosedCaption2, { 956, 957, 959,  }, { 958, 955, 954, 953, 952, 951,  }, {  }
+0, {E41C88DD-2364-4FF7-A0F5-CA9859AF783F}, IAppDispatch, { 105, 106, 110, 111,  }, { 113, 112, 109, 108, 107, 104, 103, 102, 101, 100,  }, {  }
+0, {EF870383-83AB-4EA9-BE48-56FA4251AF10}, IWMPSafeBrowser, { 8403, 8404, 8405, 8406, 8407, 8408, 8409,  }, { 8402, 8401, 8400,  }, {  }
+0, {21D077C1-4BAA-11D3-BD45-00C04F6EA5AE}, IWMPObjectExtendedProps, { 2015, 2017,  }, { 2020, 2019, 2018, 2016, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000,  }, {  }
+0, {72F486B1-0D43-11D3-BD3F-00C04F6EA5AE}, IWMPLayoutSubView, { 2015, 2017,  }, { 2306, 2305, 2304, 2303, 2302, 2301, 2300, 2020, 2019, 2018, 2016, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000,  }, {  }
+0, {172E905D-80D9-4C2F-B7CE-2CCB771787A2}, IWMPLayoutView, { 2015, 2017, 2318, 2319, 2320, 2321, 2322, 2323, 2324,  }, { 2317, 2316, 2315, 2314, 2313, 2312, 2311, 2309, 2308, 2307, 2306, 2305, 2304, 2303, 2302, 2301, 2300, 2020, 2019, 2018, 2016, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000,  }, {  }
+0, {5AF0BEC1-46AA-11D3-BD45-00C04F6EA5AE}, IWMPEventObject, { 2200, 2204, 2205,  }, { 2217, 2216, 2215, 2214, 2213, 2212, 2211, 2210, 2209, 2208, 2207, 2206, 2203, 2202, 2201,  }, {  }
+0, {6FCAE13D-E492-4584-9C21-D2C052A2A33A}, IWMPTheme, { 2506, 2507, 2508, 2515, 2509, 2510, 2511, 2512, 2513, 2514,  }, { 2505, 2504, 2503, 2502, 2501, 2500,  }, {  }
+0, {B2C2D18E-97AF-4B6A-A56B-2FFFF470FB81}, IWMPLayoutSettingsDispatch, { 2810, 2815,  }, { 2866, 2865, 2864, 2863, 2862, 2861, 2860, 2859, 2858, 2854, 2853, 2852, 2851, 2850, 2857, 2856, 2855, 2849, 2848, 2847, 2846, 2845, 2844, 2843, 2842, 2841, 2840, 2839, 2838, 2837, 2836, 2835, 2834, 2833, 2832, 2831, 2830, 2829, 2828, 2827, 2826, 2825, 2824, 2823, 2822, 2821, 2820, 2819, 2818, 2817, 2816, 2813, 2811, 2809, 2808, 2807, 2867, 2805, 2804, 2803, 2802, 2801, 2800,  }, {  }
+0, {504F112E-77CC-4E3C-A073-5371B31D9B36}, IWMPNowPlayingHelperDispatch, { 2901, 2902, 2903, 2904, 2905, 2909, 2910, 2911, 2917, 2918, 2919, 2920, 2921, 2922, 2923, 2925, 2926, 2926,  }, { 2924, 2916, 2915, 2914, 2913, 2912,  }, {  }
+0, {87291B51-0C8E-11D3-BB2A-00A0C93CA73A}, WMPButtonCtrl, {  }, { 5114, 5113, 5112, 5110, 5109, 5108, 5107, 5106, 5105, 5104, 5103, 5102,  }, { 5120,  }
+0, {FC1880CF-83B9-43A7-A066-C44CE8C82583}, WMPListBoxCtrl, { 6120, 6111, 6112, 6113, 6114, 6115, 6116, 6117, 6118, 6122, 6123, 6124,  }, { 6125, 6121, 6110, 6109, 6107, 6106, 6105, 6104, 6103, 6102, 6101, 6100, 6108,  }, {  }
+0, {D255DFB8-C22A-42CF-B8B7-F15D7BCF65D6}, IWMPListBoxItem, { 6119,  }, {  }, {  }
+0, {63D9D30F-AE4C-4678-8CA8-5720F4FE4419}, IWMPPlaylistCtrlColumn, {  }, { 5673, 5672, 5671, 5670,  }, {  }
+0, {F2BF2C90-405F-11D3-BB39-00A0C93CA73A}, WMPSliderCtrl, {  }, { 5426, 5425, 5424, 5423, 5422, 5421, 5420, 5419, 5418, 5417, 5416, 5415, 5414, 5413, 5412, 5411, 5410, 5409, 5408, 5407, 5406, 5405, 5404, 5403, 5402, 5400,  }, { 5430, 5431, 5432,  }
+0, {61CECF11-FC3A-11D2-A1CD-005004602752}, WMPVideoCtrl, {  }, { 5709, 5708, 5703, 5707, 5706, 5704, 5702, 5701, 5700,  }, { 5720, 5721,  }
+0, {47DEA830-D619-4154-B8D8-6B74845D6A2D}, WMPEffects, { 5502, 5503, 5504, 5505, 5509, 5510, 5511, 5512, 5521, 5522, 5505,  }, { 5520, 5518, 5517, 5516, 5515, 5514, 5513, 5506, 5507, 5501, 5500,  }, {  }
+0, {93EB32F5-87B1-45AD-ACC6-0F2483DB83BB}, WMPEqualizerSettingsCtrl, { 5815, 5815, 5814, 5816, 5817, 5828,  }, { 5833, 5832, 5831, 5830, 5829, 5826, 5827, 5825, 5824, 5823, 5822, 5821, 5820, 5819, 5818, 5801, 5813, 5812, 5811, 5810, 5809, 5808, 5807, 5806, 5805, 5804, 5800,  }, {  }
+0, {AE7BFAFE-DCC8-4A73-92C8-CC300CA88859}, WMPVideoSettingsCtrl, { 5904,  }, { 5903, 5902, 5901, 5900,  }, {  }
+0, {D9DE732A-AEE9-4503-9D11-5605589977A8}, WMPLibraryTreeCtrl, { 6409, 6410, 6411, 6409,  }, { 6408, 6407, 6406, 6405, 6404, 6403, 6402, 6401,  }, {  }
+0, {6342FCED-25EA-4033-BDDB-D049A14382D3}, WMPEditCtrl, { 6012, 6013, 6014, 6015, 6016, 6017, 6018,  }, { 6011, 6010, 6009, 6008, 6007, 6006, 6005, 6004, 6003, 6002, 6001, 6000, 0,  }, {  }
+0, {5D0AD945-289E-45C5-A9C6-F301F0152108}, IWMPPluginUIHost, { 6203, 6204,  }, { 6202, 6201,  }, {  }
+0, {BAB3768B-8883-4AEC-9F9B-E14C947913EF}, WMPMenuCtrl, { 6301, 6302, 6303, 6304, 6305, 6306, 6308, 6309,  }, { 6307,  }, {  }
+0, {6B28F900-8D64-4B80-9963-CC52DDD1FBB4}, WMPAutoMenuCtrl, { 6501,  }, {  }, {  }
+0, {AE3B6831-25A9-11D3-BD41-00C04F6EA5AE}, WMPRegionalButtonCtrl, { 5312, 5313, 5314,  }, { 5316, 5315, 5311, 5310, 5309, 5308, 5306, 5305, 5304, 5303, 5302, 5301, 5300,  }, {  }
+0, {09AEFF11-69EF-11D3-BD4D-00C04F6EA5AE}, WMPRegionalButton, { 5344,  }, { 5347, 5346, 5345, 5343, 5342, 5341, 5340, 5339, 5333, 5332, 5331, 5330,  }, { 5360, 5361, 5362, 5363, 5364, 5365, 5366, 5367, 5368, 5369, 5370, 5371,  }
+0, {95F45AA3-ED0A-11D2-BA67-0000F80855E6}, WMPCustomSliderCtrl, {  }, { 5008, 5012, 5004, 5003, 5001, 5002, 5011, 5010, 5006, 5005, 5009,  }, { 5020, 5021, 5022,  }
+0, {DDDA102E-0E17-11D3-A2E2-00C04F79F88E}, WMPTextCtrl, {  }, { 5229, 5228, 5227, 5226, 5225, 5224, 5223, 5222, 5221, 5217, 5216, 5215, 5214, 5213, 5212, 5211, 5210, 5209, 5208, 5207, 5206, 5201,  }, {  }
+0, {5F9CFD93-8CAD-11D3-9A7E-00C04F8EFB70}, WMPPlaylistCtrl, { 5601, 5623, 5624, 5625, 5626, 5628, 5629, 5630, 5631, 5632, 5633, 5634, 5635, 5636, 5637, 5644, 5645, 5646, 5647, 5648, 5649, 5601,  }, { 5658, 5656, 5655, 5654, 5653, 5652, 5651, 5650, 5643, 5642, 5622, 5621, 5620, 5619, 5618, 5617, 5616, 5615, 5614, 5613, 5612, 5609, 5608, 5607, 5605, 5604, 5603, 5602,  }, {  }
+0, {891EADB1-1C45-48B0-B704-49A888DA98C4}, ITaskCntrCtrl, { 1610743808, 1610743810, 1610743808,  }, {  }, {  }
+0, {09428D37-E0B9-11D2-B147-00C04F79FAA6}, WMPCore, { 3, 4, 5, 6, 8, 9, 12, 7, 13, 14, 15, 17, 40, 41, 42, 6, 13,  }, { 18, 16, 11, 10, 2, 1,  }, { 5001, 5101, 5102, 5002, 5301, 5403, 5401, 5402, 5501, 5601, 5201, 5202, 5203, 5204, 5701, 5801, 5804, 5805, 5802, 5803, 5806, 5807, 5808, 5809, 5820, 5810, 5811, 5812, 5818, 5819, 5821, 5823, 5822,  }
+0, {6B550945-018F-11D3-B14A-00C04F79FAA6}, IWMPGraphEventHandler, { 8151, 8173, 8153, 8157, 8156, 8158, 8172, 8159, 8160, 8161, 8178, 8162, 8163, 8165, 8166, 8167, 8168, 8169, 8170, 8171, 8174, 8177, 8179, 8180,  }, {  }, {  }
+0, {00000000-0000-0000-0000-000000000000}, ULONG_PTR, {  }, {  }, {  }
+0, {28682B8E-9055-47A9-A179-8E0BAB1164D1}, IAssaultVis, {  }, {  }, {  }
+0, {F8578BFA-CD8F-4CE1-A684-5B7E85FCA7DC}, IBattery, { 2,  }, { 1,  }, {  }
+0, {40C6BDE7-9C90-49D4-AD20-BEF81A6C5F22}, IBatteryPreset, {  }, { 1,  }, {  }
+0, {F85E2D65-207D-48DB-84B1-915E1735DB17}, IBatteryRandomPreset, {  }, { 1,  }, {  }
+0, {876E7208-0172-4EBB-B08B-2E1D30DFE44C}, IBatterySavedPreset, {  }, { 1,  }, {  }
+0, {33E9291A-F6A9-11D2-9435-00A0C92A2F2D}, IBarsEffect, {  }, { 8016, 8015, 8014, 8013, 8012, 8010, 8009, 8008, 8007, 8006, 8005, 8004, 8003, 8002, 8001, 8000,  }, {  }
+0, {3984E7EB-08EF-11D3-9447-00A0C92A2F2D}, ISpikesEffect, {  }, { 8205, 8204, 8203, 8202, 8201,  }, {  }
+0, {37327700-EF20-11D2-9431-00A0C92A2F2D}, IDotPlaneEffect, { 8313, 8314,  }, { 8315, 8312, 8311, 8310, 8309, 8308, 8307, 8305, 8304, 8303, 8302, 8301, 8300,  }, {  }
+0, {E31E7583-32D5-491C-B611-825D032B02CF}, IPlenoptic, {  }, {  }, {  }
+0, {E2CC638C-FD2C-409B-A1EA-5DDB72DC8E84}, IWMPExternal, { 10018,  }, { 10012, 10005,  }, {  }
+0, {D10CCDFF-472D-498C-B5FE-3630E5405E0A}, IWMPExternalColors, { 10018,  }, { 10017, 10016, 10015, 10014, 10013, 10012, 10005,  }, {  }
+0, {FFFB0104-CCBB-4513-8B6B-46F5098FAB43}, IWMPTemplatesExternal, { 10018, 10011, 10010, 10019, 10006, 10021, 10020, 10022, 10023,  }, { 10024, 10017, 10016, 10015, 10014, 10013, 10012, 10005,  }, {  }
+0, {2E922378-EE70-4CEB-BBAB-CE7CE4A04816}, IWMPSubscriptionServiceExternal, { 10018, 10009,  }, { 10012, 10005,  }, {  }
+0, {E15E9AD1-8F20-4CC4-9EC7-1A328CA86A0D}, IWMPDownloadManager, { 1151, 1152,  }, {  }, {  }
+0, {7AAA2D24-B37A-4E11-82C1-E071246463A4}, IWMPDownloadCollection, { 1203, 1204, 1205, 1206,  }, { 1202, 1201,  }, {  }
+0, {C9470E8E-3F6B-46A9-A0A9-452815C34297}, IWMPDownloadItem, { 1256, 1257, 1258,  }, { 1255, 1254, 1253, 1252, 1251,  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, WMPSubscriptionDownloadState, {  }, { 1073741828, 1073741827, 1073741826, 1073741825, 1073741824,  }, {  }
+0, {2D7EF888-1D3C-484A-A906-9F49D99BB344}, IWMPCDDVDWizardExternal, { 10018, 10001, 10002, 10007, 10008, 10011, 10010,  }, { 10017, 10016, 10015, 10014, 10013, 10012, 10005,  }, {  }
+2, {00000000-0000-0000-0000-000000000000}, WMP_WRITENAMESEX_TYPE, {  }, { 1073741827, 1073741826, 1073741825, 1073741824,  }, {  }
+0, {F81B2A59-02BC-4003-8B2F-C124AF66FC66}, IWMPBaseExternal, { 10018,  }, { 10012, 10005,  }, {  }
+0, {3148E685-B243-423D-8341-8480D6EFF674}, IWMPOfflineExternal, { 10018, 10025,  }, { 10012, 10005,  }, {  }

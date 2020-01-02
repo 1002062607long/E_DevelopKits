@@ -1,0 +1,259 @@
+Object Report
+	Version='4.0'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=105000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+	End
+	Object DetailGrid
+		PrintAdaptMethod=ToNewPageRFC
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb'
+			QuerySQL='select D.OrderID,D.ProductID,P.ProductName,D.UnitPrice,D.Quantity,D.Discount,\r\nO.CustomerID,C.CompanyName,O.EmployeeID,E.LastName+E.FirstName as EmployeeName,\r\nD.Quantity*D.UnitPrice*D.Discount as RawAmt,\r\nD.Quantity*D.UnitPrice*D.Discount as DiscountAmt,\r\nD.Quantity*D.UnitPrice*(1-D.Discount) as NetAmt,\r\nO.OrderDate\r\nfrom [Order Details] D,Orders O,Products P,Employees E,Customers C\r\nwhere D.OrderID=O.OrderID and D.ProductID=P.ProductID and O.EmployeeID=E.EmployeeID and C.CustomerID=O.CustomerID\r\nand O.OrderDate between #1/1/1997# And #12/31/1997#\r\norder by D.ProductID'
+			Items Field
+				Item
+					Name='OrderID'
+					Type=Integer
+				End
+				Item
+					Name='ProductID'
+					Type=Integer
+				End
+				Item
+					Name='ProductName'
+				End
+				Item
+					Name='UnitPrice'
+					Type=Currency
+				End
+				Item
+					Name='Quantity'
+					Type=Integer
+				End
+				Item
+					Name='Discount'
+					Type=Float
+				End
+				Item
+					Name='CustomerID'
+				End
+				Item
+					Name='CompanyName'
+				End
+				Item
+					Name='EmployeeID'
+					Type=Integer
+				End
+				Item
+					Name='EmployeeName'
+				End
+				Item
+					Name='RawAmt'
+					Type=Float
+				End
+				Item
+					Name='DiscountAmt'
+					Type=Float
+				End
+				Item
+					Name='NetAmt'
+					Type=Float
+				End
+				Item
+					Name='OrderDate'
+					Type=DateTime
+				End
+			End
+		End
+		Object ColumnContent
+		End
+		Object ColumnTitle
+			Height=0.608542
+			Object Font
+				Name='宋体'
+				Size=105000,0
+				Bold=T
+				Charset=134
+			End
+		End
+		Items Group
+			Item
+				Name='GrandGroup'
+				Object GroupHeader
+					Height=0
+				End
+				Object GroupFooter
+					Height=0.79
+					Object Font
+						Name='宋体'
+						Size=105000,0
+						Bold=T
+						Charset=134
+					End
+					Items Control
+						Item
+							Type=MemoBox
+							Name='GrandLabel'
+							Width=2.80458
+							Height=0.608542
+							Text='总计:'
+						End
+						Item
+							Type=SummaryBox
+							Name='GrandSummaryBox'
+							AlignColumnSide=Right
+							Left=3.81
+							Width=3.78354
+							Height=0.608542
+							TextAlign=MiddleRight
+							DataField='NetAmt'
+						End
+					End
+				End
+			End
+			Item
+				Name='SubGroup'
+				Object GroupHeader
+					BackColor=White
+					Height=0.608542
+					Object Font
+						Name='宋体'
+						Size=105000,0
+						Bold=T
+						Charset=134
+					End
+					Items Control
+						Item
+							Type=FieldBox
+							Name='GroupFieldBox'
+							BackColor=White
+							Width=5.00063
+							Height=0.608542
+						End
+					End
+				End
+				Object GroupFooter
+					BackColor=White
+					Height=0.79375
+					Object Font
+						Name='宋体'
+						Size=105000,0
+						Bold=T
+						Charset=134
+					End
+					Items Control
+						Item
+							Type=MemoBox
+							Name='MemoBox3'
+							BackColor=White
+							Width=2.80458
+							Height=0.608542
+							Text='合计:'
+						End
+						Item
+							Type=SummaryBox
+							Name='GroupSummaryBox'
+							BackColor=White
+							AlignColumnSide=Right
+							Left=3.81
+							Width=3.78354
+							Height=0.608542
+							TextAlign=MiddleRight
+							DataField='NetAmt'
+						End
+					End
+				End
+			End
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=1.2
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox1'
+					Object Font
+						Name='宋体'
+						Size=105000,0
+						Bold=T
+						Charset=134
+					End
+					Left=3.20146
+					Top=0.211667
+					Width=12.8058
+					Height=0.582083
+					Text='Grid++Report 通用报表例子，报表生成时间[#SystemVar(CurrentDateTime):yyyy/MM/dd tt hh:mm:ss#]'
+				End
+				Item
+					Type=Line
+					Name='Line1'
+					Top=0.79375
+					Width=16.0073
+					PenWidth=2
+				End
+			End
+		End
+		Item
+			Type=PageFooter
+			Height=1.2
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Left=12.0121
+					Top=0.396875
+					Width=3.59833
+					Height=0.582083
+					Text='第[#SystemVar(PageNumber)#]页 共[#SystemVar(PageCount)#]页'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			Name='ReportHeader1'
+			Height=2.2
+			Items Control
+				Item
+					Type=StaticBox
+					Name='MainTitleBox'
+					Object Font
+						Name='宋体'
+						Size=157500,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=3.30729
+					Top=0.3
+					Width=9.39271
+					Height=0.9
+					TextAlign=MiddleCenter
+					Text='报表主标题'
+				End
+				Item
+					Type=StaticBox
+					Name='SubTitleBox'
+					Object Font
+						Name='宋体'
+						Size=120000,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=4.31271
+					Top=1.19063
+					Width=7.40833
+					Height=0.6
+					TextAlign=MiddleCenter
+					Text='报表副标题'
+				End
+			End
+		End
+	End
+End

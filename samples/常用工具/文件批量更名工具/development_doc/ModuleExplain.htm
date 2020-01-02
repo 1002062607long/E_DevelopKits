@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>主要模块及接口说明</title>
+
+
+
+<link href="css/e-f_rename.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table width="100%"  border="0">
+  <tr>
+    <td class="e-f_rename">E-F_Rename</td>
+    <td><div align="right"><img src="images/mylogo.gif" width="124" height="64"></div></td>
+  </tr>
+</table>
+<br>
+<hr>
+<p class="small_title">主要模块及接口说明</p>
+<table width="100%" border="1" cellspacing="2">
+  <tr>
+    <td width="51%"><div align="center">子程序和截图</div></td>
+    <td width="25%"><div align="center">说明</div></td>
+    <td width="24%"><div align="center">所属程序集</div></td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/AddFile.gif" width="350" height="52"></td>
+    <td><div align="left">完成多个文件的添加任务</div></td>
+    <td>启动窗口程序集</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/SelectDir.gif" width="380" height="162"></td>
+    <td><div align="left">_选择目录_被选择()完成用户指定目录下全部文件的添加任务，不支持子目录；<br>
+_选择目录_被选择_扩展()则是为了提高代码的利用率而设计的，它在_拖放对象_得到文件()中被传参调用来处理用户拖放到系统的目录</div></td>
+    <td>启动窗口程序集</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/DragObjGetFile.gif" width="361" height="96"></td>
+    <td><div align="left">接受用户拖放到系统的文件和目录(只支持一级目录)</div></td>
+    <td>启动窗口程序集</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/BeginRename.gif" width="297" height="52"></td>
+    <td><div align="left">开始批量命名文件名，子程序返回成功重命名的数量<br>
+      </div></td>
+    <td>启动窗口程序集</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/Undo.gif" width="296" height="49"></td>
+    <td><div align="left">撤消上一次的命名操作，并返回成功撤消的数量</div></td>
+    <td>启动窗口程序集</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/NormalBuild.gif" width="355" height="93"></td>
+    <td><div align="left">用户选择选择夹‘常规’子夹时调用该子程序，参数‘数量’表示需要构建的新文件名的数量。</div></td>
+    <td>常规</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/DelReplaceBuild.gif" width="421" height="95"></td>
+    <td><div align="left">用户选择选择夹‘替换/删除’子夹时调用该子程序，参数‘数量’表示需要构建的新文件名的数量。</div></td>
+    <td>删除和替换</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/InsertBuild.gif" width="402" height="93"></td>
+    <td><div align="left">用户选择选择夹‘插入’子夹时调用该子程序，参数‘数量’表示需要构建的新文件名的数量。</div></td>
+    <td>插入</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/UpLowBuild.gif" width="414" height="93"></td>
+    <td><div align="left">用户选择选择夹‘大小写’子夹时调用该子程序，参数‘数量’表示需要构建的新文件名的数量。</div></td>
+    <td>大小写</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/mp3Build.gif" width="368" height="92"></td>
+    <td><div align="left">用户选择选择夹‘MP3标签’子夹时调用该子程序，参数‘数量’表示需要构建的新文件名的数量。</div></td>
+    <td>MP3标签</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/GetMp3Tag_1.gif" width="377" height="115"></td>
+    <td><div align="left">读取参数中指定文件号的MP3文件的标签ID3v1信息，并把结果放到‘MP3标签数据’中，若成功返回真，否则返回假</div></td>
+    <td>MP3标签功能实现</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/GetMp3Tag_2.gif" width="315" height="113"></td>
+    <td><div align="left">读取参数中指定文件号的MP3文件的标签ID3v2信息，并把结果放到‘MP3标签数据’中，若成功返回真，否则返回假</div></td>
+    <td>MP3标签功能实现</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/WriteMp3Tag_1.gif" width="495" height="93"></td>
+    <td>根据参数提供的MP3文件号，写入MP3标签(按ID3v1.1格式)</td>
+    <td>MP3标签功能实现</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/WriteMp3Tag_2.gif" width="326" height="113"></td>
+    <td>根据参数提供的MP3文件号，写入MP3标签(按ID3v2.3格式)</td>
+    <td>MP3标签功能实现</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/GetMp3Tag_2FrameInfo.gif" width="366" height="95"></td>
+    <td>根据参数框架ID提供的ID3v2的框架ID读取对应的框架信息</td>
+    <td>MP3标签功能实现</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/WriteMp3Tag_2FrameInfo.gif" width="378" height="114"></td>
+    <td>根据参数框架ID提供的ID3v2的框架ID写入对应的框架信息</td>
+    <td>MP3标签功能实现</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/GetMp3Tag_2Len.gif" width="343" height="92"></td>
+    <td>根据包含ID3v2标签长度信息的'长度数组'，计算出的ID3v2标签的长度，并返回该整数值</td>
+    <td>MP3标签功能实现</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/WriteMp3Tag_2Len.gif" width="420" height="92"></td>
+    <td>根据'长度值'转换该整数值到ID3v2的专用格式，并写入缓冲区</td>
+    <td>MP3标签功能实现</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/DivFileEx.gif" width="433" height="155"></td>
+    <td><div align="left">将文件名和扩展名分离，参数‘文件名’和‘扩展名’分别用于接受分离后的文件和扩展名</div></td>
+    <td>功能模块</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/AutoPreview.gif" width="319" height="92"></td>
+    <td><div align="left">预览更名后的效果，带一个参数‘是否预览全部’：<br>
+1、如果为假，表示不预览全部文件，预览数量取决与软件设置对话框的具体设置；<br>
+2、如果为真，不论软件设置对话框的具体设置如何，都预览全部文件。</div></td>
+    <td>功能模块</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/FindFiles.gif" width="382" height="94"></td>
+    <td>根据参数提供的文件目录，查找该目录下的所有文件，并保存到‘全局_旧文件名’当中，并返回查找到的文件数量</td>
+    <td>功能模块</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/GetZeroStr.gif" width="310" height="113"></td>
+    <td>根据参数提供的需要的‘0’串长度和当前计数值，返回‘0’串文本。<br>
+      如：<br>
+      长度 = 5<br>
+      当前计数值 = 6<br>
+      则返回&quot;0000&quot;<br>
+      若 当前计数值 ＝ 12<br>
+      则返回&quot;000&quot;</td>
+    <td>功能模块</td>
+  </tr>
+  <tr>
+    <td><img src="images/ModelExplain/View.gif" width="526" height="156"></td>
+    <td>在列表框中显示新、旧文件名及路径</td>
+    <td>功能模块</td>
+  </tr>
+</table>
+</body>
+</html>

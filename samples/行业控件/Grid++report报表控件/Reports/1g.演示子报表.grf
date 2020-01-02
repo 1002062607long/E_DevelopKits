@@ -1,0 +1,168 @@
+Object Report
+	Version='4.5'
+	Title='Grid++Report'
+	PageDivideLine=T
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		TopMargin=1.5
+		BottomMargin=1.5
+	End
+	Items Parameter
+		Item
+			Name='Comment'
+			Value='演示子报表的使用\r\n\r\n在报表头与报表尾中插入子报表。一般需要将容纳子报表的报表节设置为可伸展，以便完整显示出子报表的内容。\r\n\r\n子报表在运行时需要关联一个报表对象，以便在子报表占据的空间将此关联报表的内容显示出来。可以通过子报表的“报表文件”属性指定报表模板文件名来关联报表，这样我们可以在设计报表时就预览子报表的显示效果。也可以通过运行时属性“Report”在程序中指定关联的报表对象，请参考例子程序“SubReport”。'
+		End
+	End
+	Items Section
+		Item
+			Type=PageHeader
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox1'
+					Object Font
+						Name='楷体_GB2312'
+						Size=120000,0
+						Bold=T
+						Charset=134
+					End
+					Anchor=[Top|Right]
+					Left=2.19604
+					Top=0.396875
+					Width=13.7054
+					Height=0.47625
+					Text='欢迎访问Grid++Report网站www.rubylong.cn，了解最新产品信息。'
+				End
+				Item
+					Type=Line
+					Name='Line1'
+					Anchor=[Left|Top|Right]
+					Top=1.00542
+					Width=16.0073
+					PenWidth=2
+				End
+			End
+		End
+		Item
+			Type=PageFooter
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Anchor=[Top|Right]
+					Left=13.2027
+					Top=0.396875
+					Width=2.59292
+					Height=0.608542
+					Text='第[#SystemVar(PageNumber)#]页 共[#SystemVar(PageCount)#]页'
+				End
+				Item
+					Type=MemoBox
+					Name='MemoBox3'
+					Left=0.211667
+					Top=0.396875
+					Width=6.19125
+					Height=0.608542
+					Text='打印时间：[#SystemVar(CurrentDateTime):yyyy年MM月dd日 HH:mm:ss#]'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			Name='ReportHeader1'
+			CanGrow=T
+			Height=5
+			Items Control
+				Item
+					Type=SubReport
+					Name='srCustomerList'
+					Dock=Fill
+					ReportFile='..\Reports\1a.简单列表.grf'
+				End
+			End
+		End
+		Item
+			Type=ReportHeader
+			Name='ReportHeader2'
+			CanGrow=T
+			Height=5
+			Items Control
+				Item
+					Type=SubReport
+					Name='srProductList'
+					Dock=Fill
+					ReportFile='..\Reports\1g.Product List.grf'
+				End
+			End
+		End
+		Item
+			Type=ReportFooter
+			Name='ReportFooter1'
+			CanGrow=T
+			Height=4.60375
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox4'
+					BackColor=Aqua
+					BackStyle=Normal
+					Object Font
+						Name='宋体'
+						Size=142500,0
+						Bold=T
+						Charset=134
+					End
+					BorderColor=WindowText
+					Left=0.211667
+					Top=0.211667
+					Width=7.59354
+					Height=0.582083
+					Text='最畅销产品'
+				End
+				Item
+					Type=SubReport
+					Name='srTop10Product'
+					Left=0.211667
+					Top=0.79375
+					Width=7.59354
+					Height=3.59833
+					ReportFile='..\Reports\1g.Top10Product.grf'
+				End
+				Item
+					Type=MemoBox
+					Name='MemoBox5'
+					BackColor=Aqua
+					BackStyle=Normal
+					Object Font
+						Name='宋体'
+						Size=142500,0
+						Bold=T
+						Charset=134
+					End
+					BorderColor=WindowText
+					Left=7.99042
+					Top=0.211667
+					Width=7.80521
+					Height=0.582083
+					Text='最有价值客户'
+				End
+				Item
+					Type=SubReport
+					Name='srTop10Customer'
+					Left=7.99042
+					Top=0.79375
+					Width=7.80521
+					Height=3.59833
+					ReportFile='..\Reports\1g.Top10Customer.grf'
+				End
+			End
+		End
+	End
+End

@@ -1,0 +1,188 @@
+Object Report
+	Version='4.0'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=90000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+	End
+	Object DetailGrid
+		Object Recordset
+			ConnectionString='Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\..\\Data\\Northwind.mdb'
+			QuerySQL='select * from Products'
+			BeforePostRecordScript='Sender.Fields.Item("UnitsOnOrder").AsFloat = Sender.Fields.Item("UnitsInStock").AsFloat;'
+			Items Field
+				Item
+					Name='ProductID'
+					Type=Integer
+				End
+				Item
+					Name='ProductName'
+				End
+				Item
+					Name='SupplierID'
+					Type=Integer
+				End
+				Item
+					Name='CategoryID'
+					Type=Integer
+				End
+				Item
+					Name='QuantityPerUnit'
+				End
+				Item
+					Name='UnitPrice'
+					Type=Currency
+				End
+				Item
+					Name='UnitsInStock'
+					Type=Integer
+				End
+				Item
+					Name='UnitsOnOrder'
+					Type=Integer
+				End
+				Item
+					Name='ReorderLevel'
+					Type=Integer
+				End
+				Item
+					Name='Discontinued'
+					Type=Boolean
+					GetDisplayTextScript='if (Sender.AsBoolean == true)\r\n  Sender.DisplayText = "热卖中";\r\nelse\r\n  Sender.DisplayText = "停止销售";\r\n'
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='ProductID'
+				Width=2.56646
+			End
+			Item
+				Name='ProductName'
+				Width=2.48708
+			End
+			Item
+				Name='UnitPrice'
+				Width=2.59292
+			End
+			Item
+				Name='UnitsInStock'
+				Width=2.48708
+			End
+			Item
+				Name='UnitsOnOrder'
+				Width=2.59292
+			End
+			Item
+				Name='Discontinued'
+				Width=3.09563
+			End
+		End
+		Object ColumnContent
+			Height=0.582083
+			Cursor=Magnify
+			Items ColumnContentCell
+				Item
+					Column='ProductID'
+					TextAlign=MiddleRight
+					DataField='ProductID'
+				End
+				Item
+					Column='ProductName'
+					DataField='ProductName'
+				End
+				Item
+					Column='UnitPrice'
+					TextAlign=MiddleRight
+					DataField='UnitPrice'
+				End
+				Item
+					Column='UnitsInStock'
+					TextAlign=MiddleRight
+					DataField='UnitsInStock'
+				End
+				Item
+					Column='UnitsOnOrder'
+					TextAlign=MiddleRight
+					DataField='UnitsOnOrder'
+				End
+				Item
+					Column='Discontinued'
+					TextAlign=MiddleCenter
+					DataField='Discontinued'
+				End
+			End
+		End
+		Object ColumnTitle
+			Height=0.582083
+			Object Font
+				Name='宋体'
+				Size=90000,0
+				Bold=T
+				Charset=134
+			End
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='ProductID'
+					TextAlign=MiddleCenter
+					Text='产品编号'
+				End
+				Item
+					GroupTitle=F
+					Column='ProductName'
+					TextAlign=MiddleCenter
+					Text='产品名称'
+				End
+				Item
+					GroupTitle=F
+					Column='UnitPrice'
+					TextAlign=MiddleCenter
+					Text='单价'
+				End
+				Item
+					GroupTitle=F
+					Column='UnitsInStock'
+					TextAlign=MiddleCenter
+					Text='库存'
+				End
+				Item
+					GroupTitle=F
+					Column='UnitsOnOrder'
+					TextAlign=MiddleCenter
+					Text='订购数量'
+				End
+				Item
+					GroupTitle=F
+					Column='Discontinued'
+					TextAlign=MiddleCenter
+					Text='状态'
+				End
+			End
+		End
+	End
+	Items Section
+		Item
+			Type=ReportHeader
+			Name='ReportHeader1'
+			Height=1.32292
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox1'
+					AlignColumnSide=Left
+					AlignColumn='ProductID'
+					Top=0.211667
+					Width=9.60438
+					Height=0.978958
+					WordWrap=T
+					Text='在‘Discontinue’字段的 GetDisplayTextScript 事件脚本中为字段设置显示文字.'
+				End
+			End
+		End
+	End
+End

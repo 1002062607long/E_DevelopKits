@@ -1,0 +1,178 @@
+Object Report
+	Version='4.5'
+	Title='Grid++Report'
+	Object Font
+		Name='宋体'
+		Size=105000,0
+		Weight=400
+		Charset=134
+	End
+	Object Printer
+		LeftMargin=1.21708
+		RightMargin=1.16417
+	End
+	Object DetailGrid
+		BorderStyles=[]
+		ShowColLine=F
+		ShowRowLine=F
+		Object Recordset
+			Items Field
+				Item
+					Name='CategoryName'
+				End
+				Item
+					Name='TheMonth'
+					Type=Integer
+				End
+				Item
+					Name='Amount'
+					Type=Float
+				End
+				Item
+					Name='CategoryID'
+					Type=Integer
+				End
+				Item
+					Name='m1'
+					Type=Currency
+				End
+				Item
+					Name='m2'
+					Type=Currency
+				End
+				Item
+					Name='m3'
+					Type=Currency
+				End
+				Item
+					Name='m4'
+					Type=Currency
+				End
+				Item
+					Name='m5'
+					Type=Currency
+				End
+				Item
+					Name='m6'
+					Type=Currency
+				End
+				Item
+					Name='m7'
+					Type=Currency
+				End
+				Item
+					Name='m8'
+					Type=Currency
+				End
+				Item
+					Name='m9'
+					Type=Currency
+				End
+				Item
+					Name='m10'
+					Type=Currency
+				End
+				Item
+					Name='m11'
+					Type=Currency
+				End
+				Item
+					Name='m12'
+					Type=Currency
+				End
+			End
+		End
+		Items Column
+			Item
+				Name='Column1'
+				Width=18.6002
+			End
+		End
+		Object ColumnContent
+			Height=7.59354
+			Items ColumnContentCell
+				Item
+					Column='Column1'
+					FreeCell=T
+					Items Control
+						Item
+							Type=MemoBox
+							Name='MemoBox3'
+							Object Font
+								Name='宋体'
+								Size=142500,0
+								Bold=T
+								Charset=134
+							End
+							Dock=Top
+							Height=0.608542
+							TextAlign=MiddleCenter
+							Text='类别编号：[#CategoryID#] 类别名称：[#CategoryName#]'
+						End
+						Item
+							Type=Chart
+							Name='DetailChart'
+							Dock=Fill
+							Top=0.608542
+							ChartType=XYLineChart
+							MarginGap=8
+							XAxisTextFormat='0.##'
+							YAxisTextFormat='0.##'
+							LegendValueVisible=T
+							GroupCount=12
+							ValueFormat='$#,##0.00'
+							SeriesCursor=Magnify
+							LegendCursor=Finger
+						End
+					End
+				End
+			End
+		End
+		Object ColumnTitle
+			Height=0
+			RepeatStyle=OnGroupHeader
+			Items ColumnTitleCell
+				Item
+					GroupTitle=F
+					Column='Column1'
+					Text='Column1'
+				End
+			End
+		End
+	End
+	Items Section
+		Item
+			Type=ReportHeader
+			Name='ReportHeader1'
+			Height=2.01083
+			Items Control
+				Item
+					Type=MemoBox
+					Name='MemoBox2'
+					Object Font
+						Name='宋体'
+						Size=157500,0
+						Bold=T
+						Charset=134
+					End
+					Center=Horizontal
+					Left=6.35
+					Top=0.211667
+					Width=5.90021
+					Height=0.608542
+					Text='图表在明细网格中例子'
+				End
+				Item
+					Type=MemoBox
+					Name='MemoBox4'
+					Center=Horizontal
+					Left=6.11188
+					Top=1.00542
+					Width=6.37646
+					Height=0.423333
+					Text='双击图标序列项透视到对应的明细报表'
+				End
+			End
+		End
+	End
+End

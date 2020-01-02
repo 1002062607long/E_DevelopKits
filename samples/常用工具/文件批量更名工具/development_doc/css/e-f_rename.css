@@ -1,0 +1,22 @@
+.e-f_rename {
+	font-size: 36px;
+	font-weight: bolder;
+	color: #FF6600;
+	text-decoration: none;
+}
+.small_title {
+	font-size: 18px;
+	font-weight: bold;
+	color: #009900;
+}
+body {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+	color: #202020;
+	text-decoration: none;
+}
+.notice {
+	color: #FF0000;
+	text-decoration: none;
+}

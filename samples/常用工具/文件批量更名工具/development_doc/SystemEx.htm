@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>系统功能扩展说明</title>
+
+
+
+<link href="css/e-f_rename.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<table width="100%"  border="0">
+  <tr>
+    <td class="e-f_rename">E-F_Rename</td>
+    <td><div align="right"><img src="images/mylogo.gif" width="124" height="64"></div></td>
+  </tr>
+</table>
+<br>
+<hr>
+<p><br>
+  <span class="small_title">系统功能扩展说明</span></p>
+<p>本软件完全按照模块化的软件设计风格，按照下面的步骤进行操作，可以方便快速的进行系统功能的扩展：</p>
+<p>1、在选择夹增加一个新的子夹，如图：</p>
+<p><img src="images/SystemExTab.gif" width="595" height="133"></p>
+<p>建议在常量表中新建一个常量，如：新功能更名方案，值 ＝ 5（选择夹子夹的引索）</p>
+<p>2、根据你想要实现的功能，自己编写相应的程序代码，但必须存在一个带一个参数(构建新文件名的数量)的构建新文件名的主要函数；如：</p>
+<p><img src="images/SystemExFunc.gif" width="364" height="115"></p>
+<p class="notice">注意：进行新文件名构建时，旧文件名保存在'全局_旧文件名'中，构建时将新文件名保存到'全局_新文件名'中</p>
+<p>3、在 功能模块 -&gt; 构建新文件名 子程序中添加新功能：</p>
+<p><img src="images/BuildNewFilesName.gif" width="373" height="359"></p>
+<p>4、自动预览的实现</p>
+<p>在需要触发自动预览的事件子程序中调用下面的代码：</p>
+<p>自动预览 ()</p>
+<p>－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</p>
+<p>如遇到问题，欢迎与我联系</p>
+</body>
+</html>

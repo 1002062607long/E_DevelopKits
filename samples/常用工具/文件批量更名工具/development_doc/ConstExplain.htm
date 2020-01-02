@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>常量的定义和使用说明</title>
+
+
+
+<link href="css/e-f_rename.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+.style1 {color: #0066CC}
+.style2 {color: #FF3300}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%"  border="0">
+  <tr>
+    <td class="e-f_rename">E-F_Rename</td>
+    <td><div align="right"><img src="images/mylogo.gif" width="124" height="64"></div></td>
+  </tr>
+</table>
+<br>
+<hr>
+<p><br>
+  <span class="small_title">常量的定义和使用说明</span></p>
+<table width="100%"  border="1">
+  <tr>
+    <td width="23%"><div align="center" class="style1">常量名</div></td>
+    <td width="40%"><div align="center" class="style2">值</div></td>
+    <td width="37%"><div align="center">使用说明</div></td>
+  </tr>
+  <tr>
+    <td><span class="style1"> #软件名 <br>      
+      <br>
+    </span></td>
+    <td><span class="style2">&quot;E-F批量更名器&quot;</span></td>
+    <td>软件名称</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#版本<br>
+    </span></td>
+    <td><span class="style2">&quot;1.0.0测试版&quot;</span></td>
+    <td>软件版本</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#打开文件对话框过滤器<br>
+    </span></td>
+    <td><span class="style2">&quot;所有文件*.*)|*.*| 音乐文件(*.mp3;wav;wma)|*.mp3;wav;wma| 图片文件(*.gif;*.jpg;*.jpeg;*.bmp;*.png)|*.gif;*.jpg;*.jpeg;*.bmp;*.png|文本文件(*.txt)|*.txt&quot;</span></td>
+    <td>用于调用打开多文件对话框()函数时作为打开文件默认的过滤器</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#数组初始大小 <br>
+    </span></td>
+    <td><span class="style2">50</span></td>
+    <td>全局变量数组初始化尺寸</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#旧文件名字段 <br>
+    </span></td>
+    <td><span class="style2">1</span></td>
+    <td>超级列表框的字段，在调用'在超级列表框中显示()'时用位与方式区分个字段</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#新文件名字段 <br>
+    </span></td>
+    <td><span class="style2">2</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#文件路径字段 <br>
+    </span></td>
+    <td><span class="style2">4</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#更名状态字段 <br>
+    </span></td>
+    <td><span class="style2">8</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#MP3标签字段 <br>
+    </span></td>
+    <td><span class="style2">16</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#旧文件名字段引索 <br>
+    </span></td>
+    <td><span class="style2">0</span></td>
+    <td>超级列表框的字段(报表列)的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#新文件名字段引索 <br>
+    </span></td>
+    <td><span class="style2">1</span></td>
+    <td>超级列表框的字段(报表列)的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#文件路径字段引索 <br>
+    </span></td>
+    <td><span class="style2">2</span></td>
+    <td>超级列表框的字段(报表列)的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#更名状态字段引索 <br>
+    </span></td>
+    <td><span class="style2">3</span></td>
+    <td>超级列表框的字段(报表列)的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#MP3标签状态字段引索 <br>
+    </span></td>
+    <td><span class="style2">4</span></td>
+    <td>超级列表框的字段(报表列)的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#歌曲名 <br>
+    </span></td>
+    <td><span class="style2">&quot;TIT2&quot;</span></td>
+    <td>MP3标签预定义常量，在程序中使用时，可使得程序可读性好</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#艺术家 <br>
+    </span></td>
+    <td><span class="style2">&quot;TPE1&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#专辑 <br>
+    </span></td>
+    <td><span class="style2">&quot;TALB&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#音轨 <br>
+    </span></td>
+    <td><span class="style2">&quot;TRCK&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#年代 <br>
+    </span></td>
+    <td><span class="style2">&quot;TYER&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#流派 <br>
+    </span></td>
+    <td><span class="style2">&quot;TCON&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#注释 <br>
+    </span></td>
+    <td><span class="style2">&quot;COMM&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#版权 <br>
+    </span></td>
+    <td><span class="style2">&quot;TCOP&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#作曲家 <br>
+    </span></td>
+    <td><span class="style2">&quot;TCOM&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#原创者 <br>
+    </span></td>
+    <td><span class="style2">&quot;TOPE&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#URL <br>
+    </span></td>
+    <td><span class="style2">&quot;WXXX&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#编码者 <br>
+    </span></td>
+    <td><span class="style2">&quot;TENC&quot;</span></td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#常规更名方案 <br>
+    </span></td>
+    <td><span class="style2">0</span></td>
+    <td>对应选择子夹‘常规’的相应引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#替换删除更名方案 <br>
+    </span></td>
+    <td><span class="style2">1</span></td>
+    <td>对应选择子夹‘替换/删除’的相应引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#插入更名方案 <br>
+    </span></td>
+    <td><span class="style2">2</span></td>
+    <td>对应选择子夹‘插入’的相应引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#大小写更名方案 <br>
+    </span></td>
+    <td><span class="style2">3</span></td>
+    <td>对应选择子夹‘大小写’的相应引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#mp3标签更名方案 <br>
+    </span></td>
+    <td><span class="style2">4</span></td>
+    <td>对应选择子夹‘mp3标签’的相应引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#工具条的选择目录按钮 <br>
+    </span></td>
+    <td><span class="style2">0</span></td>
+    <td>对应工具条‘选择目录’按钮的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#工具条的打开文件按钮 <br>
+    </span></td>
+    <td><span class="style2">1</span></td>
+    <td>对应工具条‘打开文件’按钮的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#工具条的撤消按钮 <br>
+    </span></td>
+    <td><span class="style2">3</span></td>
+    <td>对应工具条‘撤消’按钮的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#工具条的预览按钮 <br>
+    </span></td>
+    <td><span class="style2">4</span></td>
+    <td>对应工具条‘预览’按钮的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#工具条的开始命名按钮 <br>
+    </span></td>
+    <td><span class="style2">5</span></td>
+    <td>对应工具条‘开始命名’按钮的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#工具条的帮助按钮 <br>
+    </span></td>
+    <td><span class="style2">7</span></td>
+    <td>对应工具条‘帮助’按钮的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#状态栏的文件个数 <br>
+    </span></td>
+    <td><span class="style2">0</span></td>
+    <td>对应状态栏‘文件个数’项目的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#状态条的进度条 <br>
+    </span></td>
+    <td><span class="style2">1</span></td>
+    <td>对应状态栏‘进度条’项目的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1">#状态栏的自动预览 </span></td>
+    <td><span class="style2">2</span></td>
+    <td>对应状态栏‘自动预览’项目的引索值</td>
+  </tr>
+  <tr>
+    <td><span class="style1"></span></td>
+    <td><span class="style2"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>
